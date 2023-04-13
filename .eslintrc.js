@@ -2,10 +2,11 @@ module.exports = {
   root: true,
   ignorePatterns: ['node_modules/*', 'dist/*', '.eslintrc.js'],
   env: {
-    commonjs: true,
-    es2021: true,
-    node: true,
+    // es2022: true,
+    // node: true,
+    // commonjs: true,
     // browser: true,
+    // jest: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {

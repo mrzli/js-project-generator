@@ -4,10 +4,7 @@ import {
   filter,
   from,
   lastValueFrom,
-  map,
   mergeMap,
-  of,
-  scan,
   toArray,
 } from 'rxjs';
 import ejs from 'ejs';
