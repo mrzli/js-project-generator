@@ -1,0 +1,27 @@
+{
+  "name": "tools-js-project-generator",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Goran Mržljak",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "start:dev": "ts-node src/index.ts",
+    "build": "rm -rf ./dist && tsc",
+    "prettify": "prettier --write ."
+  },
+  "dependencies": {
+    "@gmjs/fs-util": "^0.0.184",
+    "ejs": "^3.1.9",
+    "klaw": "^4.1.0",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.2",
+    "@types/klaw": "^3.0.3",
+    "prettier": "^2.8.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
