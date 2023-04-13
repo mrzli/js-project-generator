@@ -134,7 +134,16 @@ const PLACEHOLDERS: Placeholders = {
 const CONFIG: Config = {
   placeholders: PLACEHOLDERS,
   dependencies: ['tslib'],
-  devDependencies: ['prettier', 'typescript'],
+  devDependencies: [
+    'eslint-config-prettier',
+    'eslint-import-resolver-typescript',
+    'eslint-plugin-import',
+    // 'eslint-plugin-jsx-a11y',
+    // 'eslint-plugin-react',
+    // 'eslint-plugin-react-hooks',
+    'prettier',
+    'typescript'
+  ],
 };
 
 generate(CONFIG).then(() => {
