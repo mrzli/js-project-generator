@@ -5,6 +5,7 @@
   "author": "Goran Mržljak",
   "license": "MIT",
   "main": "dist/index.js",
+  "prettier": "@gmjs/prettier-config",
   "scripts": {
     "start:dev": "ts-node src/index.ts",
     "build": "rm -rf ./dist && tsc",
@@ -21,6 +22,7 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
+    "@gmjs/prettier-config": "^1.0.0",
     "@types/ejs": "^3.1.2",
     "@types/klaw": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^5.58.0",

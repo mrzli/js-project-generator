@@ -19,7 +19,6 @@ import { getLatestVersion } from './util/npm';
 type ExecutionEnvironment = 'node' | 'browser';
 
 interface Config {
-  readonly executionEnvironment: ExecutionEnvironment;
   readonly placeholders: Placeholders;
   readonly dependencies: string[];
   readonly devDependencies: string[];
@@ -135,6 +134,7 @@ const CONFIG: Config = {
   placeholders: PLACEHOLDERS,
   dependencies: ['tslib'],
   devDependencies: [
+    '@gmjs/prettier-config',
     'eslint-config-prettier',
     'eslint-import-resolver-typescript',
     'eslint-plugin-import',
