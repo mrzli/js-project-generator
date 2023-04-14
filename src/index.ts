@@ -16,7 +16,10 @@ import {
 import { pathExtension, readTextAsync } from '@gmjs/fs-util';
 import { getLatestVersion } from './util/npm';
 
+type ExecutionEnvironment = 'node' | 'browser';
+
 interface Config {
+  readonly executionEnvironment: ExecutionEnvironment;
   readonly placeholders: Placeholders;
   readonly dependencies: string[];
   readonly devDependencies: string[];
@@ -139,7 +142,7 @@ const CONFIG: Config = {
     // 'eslint-plugin-react',
     // 'eslint-plugin-react-hooks',
     'prettier',
-    'typescript'
+    'typescript',
   ],
 };
 
