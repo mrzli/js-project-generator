@@ -14,62 +14,38 @@ import {
   fromFindFsEntries,
 } from './util/fs';
 import { pathExtension, readTextAsync } from '@gmjs/fs-util';
-import { getLatestVersion } from './util/npm';
-
-type ExecutionEnvironment = 'node' | 'browser';
-
-interface Config {
-  readonly placeholders: Placeholders;
-  readonly dependencies: string[];
-  readonly devDependencies: string[];
-}
-
-interface Placeholders {
-  readonly scopeName: string;
-  readonly projectName: string;
-  readonly author: string;
-  readonly email: string;
-  readonly githubUserOrOrg: string;
-}
-
-interface DependencyWithVersion {
-  readonly name: string;
-  readonly version: string;
-}
+import { CONFIG } from './data';
+import { Config } from './types/types';
+import { generatePackageJson } from './generators/package-json';
 
 async function generate(config: Config): Promise<void> {
   const templatesPath = './templates';
-  const dependencies = await getDependenciesWithVersions(config.dependencies);
-  const devDependencies = await getDependenciesWithVersions(
-    config.devDependencies
-  );
 
-  const files = await lastValueFrom(
-    fromFindFsEntries(templatesPath).pipe(
-      filter((item) => item.stats.isFile()),
-      mergeMap<FileItem, ObservableInput<FilePathWithTextContent>>((item) => {
-        return from(
-          processTemplateFile(
-            item.path,
-            templatesPath,
-            config,
-            dependencies,
-            devDependencies
-          )
-        );
-      }),
-      toArray()
-    )
-  );
+  const filesFromTemplates: readonly FilePathWithTextContent[] =
+    await lastValueFrom(
+      fromFindFsEntries(templatesPath).pipe(
+        filter((item) => item.stats.isFile()),
+        mergeMap<FileItem, ObservableInput<FilePathWithTextContent>>((item) => {
+          return from(processTemplateFile(item.path, templatesPath, config));
+        }),
+        toArray()
+      )
+    );
+
+  const filesFromNonTemplates = await generateNonTemplateFiles(config);
+
+  const files: readonly FilePathWithTextContent[] = [
+    ...filesFromTemplates,
+    ...filesFromNonTemplates,
+  ];
+
   console.log(files);
 }
 
 async function processTemplateFile(
   fullFilePath: string,
   templatesPath: string,
-  config: Config,
-  dependencies: readonly DependencyWithVersion[],
-  devDependencies: readonly DependencyWithVersion[]
+  config: Config
 ): Promise<FilePathWithTextContent> {
   const relativePath = relative(templatesPath, fullFilePath);
   const content = await readTextAsync(fullFilePath);
@@ -79,8 +55,6 @@ async function processTemplateFile(
   if (extension === 'ejs') {
     const processedContent = ejs.render(content, {
       ...config.placeholders,
-      dependencies,
-      devDependencies,
       people: ['geddy', 'neil', 'alex'],
     });
     const processedPath = relativePath.replace(/\.ejs$/, '');
@@ -102,49 +76,18 @@ async function processTemplateFile(
   };
 }
 
-async function getDependenciesWithVersions(
-  deps: readonly string[]
-): Promise<readonly DependencyWithVersion[]> {
-  return await lastValueFrom(
-    from(deps)
-      .pipe(mergeMap((dep) => from(toDependencyWithVersion(dep))))
-      .pipe(toArray())
-  );
+async function generateNonTemplateFiles(
+  config: Config
+): Promise<readonly FilePathWithTextContent[]> {
+  const packageJson = await generatePackageJson(config);
+
+  return [
+    {
+      path: 'package.json',
+      content: packageJson,
+    },
+  ];
 }
-
-async function toDependencyWithVersion(
-  dep: string
-): Promise<DependencyWithVersion> {
-  const version = await getLatestVersion(dep);
-  return {
-    name: dep,
-    version: `^${version}`,
-  };
-}
-
-const PLACEHOLDERS: Placeholders = {
-  scopeName: 'gmjs',
-  projectName: 'test',
-  author: 'Goran Mržljak',
-  email: 'goran.mrzljak@gmail.com',
-  githubUserOrOrg: 'mrzli-js-libs',
-};
-
-const CONFIG: Config = {
-  placeholders: PLACEHOLDERS,
-  dependencies: ['tslib'],
-  devDependencies: [
-    '@gmjs/prettier-config',
-    'eslint-config-prettier',
-    'eslint-import-resolver-typescript',
-    'eslint-plugin-import',
-    // 'eslint-plugin-jsx-a11y',
-    // 'eslint-plugin-react',
-    // 'eslint-plugin-react-hooks',
-    'prettier',
-    'typescript',
-  ],
-};
 
 generate(CONFIG).then(() => {
   console.log('Finished');

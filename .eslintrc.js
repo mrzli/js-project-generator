@@ -1,6 +1,12 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['node_modules/*', 'dist/*', '.eslintrc.js'],
+  plugins: [
+    '@typescript-eslint',
+    'import',
+    // 'react',
+    // 'react-hooks',
+    // 'jsx-a11y',
+  ],
   env: {
     // es2022: true,
     // node: true,
@@ -12,13 +18,6 @@ module.exports = {
   parserOptions: {
     project: ['./tsconfig.json'],
   },
-  plugins: [
-    '@typescript-eslint',
-    'import',
-    // 'react',
-    // 'react-hooks',
-    // 'jsx-a11y',
-  ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
