@@ -9,9 +9,11 @@ const PLACEHOLDERS: Placeholders = {
 };
 
 export const CONFIG: Config = {
+  executionContext: 'node',
   placeholders: PLACEHOLDERS,
   dependencies: ['tslib'],
   devDependencies: [
+    '@gmjs/eslint-config',
     '@gmjs/prettier-config',
     '@types/eslint',
     '@typescript-eslint/eslint-plugin',

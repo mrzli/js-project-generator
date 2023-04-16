@@ -74,6 +74,7 @@ async function processTemplateFile(
 
   if (extension === 'ejs') {
     const processedContent = ejs.render(content, {
+      executionContext: config.executionContext,
       ...config.placeholders,
       people: ['geddy', 'neil', 'alex'],
     });
