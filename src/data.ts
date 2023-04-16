@@ -8,24 +8,29 @@ const PLACEHOLDERS: Placeholders = {
   githubUserOrOrg: 'mrzli',
 };
 
+const DEPENDENCIES: readonly string[] = ['tslib'];
+
+const DEV_DEPENDENCIES: readonly string[] = [
+  '@gmjs/eslint-config',
+  '@gmjs/prettier-config',
+  '@types/eslint',
+  '@typescript-eslint/eslint-plugin',
+  '@typescript-eslint/parser',
+  'eslint',
+  'eslint-config-prettier',
+  'eslint-import-resolver-typescript',
+  'eslint-plugin-import',
+  // 'eslint-plugin-jsx-a11y',
+  // 'eslint-plugin-react',
+  // 'eslint-plugin-react-hooks',
+  'jest',
+  'prettier',
+  'typescript',
+];
+
 export const CONFIG: Config = {
   executionContext: 'node',
   placeholders: PLACEHOLDERS,
-  dependencies: ['tslib'],
-  devDependencies: [
-    '@gmjs/eslint-config',
-    '@gmjs/prettier-config',
-    '@types/eslint',
-    '@typescript-eslint/eslint-plugin',
-    '@typescript-eslint/parser',
-    'eslint',
-    'eslint-config-prettier',
-    'eslint-import-resolver-typescript',
-    'eslint-plugin-import',
-    // 'eslint-plugin-jsx-a11y',
-    // 'eslint-plugin-react',
-    // 'eslint-plugin-react-hooks',
-    'prettier',
-    'typescript',
-  ],
+  dependencies: DEPENDENCIES,
+  devDependencies: DEV_DEPENDENCIES,
 };
