@@ -1,4 +1,4 @@
-import { relative } from 'node:path';
+import { relative, join } from 'node:path';
 import {
   ObservableInput,
   filter,
@@ -12,14 +12,16 @@ import {
   FileItem,
   FilePathWithTextContent,
   fromFindFsEntries,
+  writeTextFileAsync,
 } from './util/fs';
-import { pathExtension, readTextAsync } from '@gmjs/fs-util';
+import { pathExtension, readTextAsync, ensureFileAsync } from '@gmjs/fs-util';
 import { CONFIG } from './data';
 import { Config } from './types/types';
 import { generatePackageJson } from './generators/package-json';
+import { rm } from 'shelljs';
 
 async function generate(config: Config): Promise<void> {
-  const templatesPath = './templates';
+  const templatesPath = './templates/project';
 
   const filesFromTemplates: readonly FilePathWithTextContent[] =
     await lastValueFrom(
@@ -39,7 +41,25 @@ async function generate(config: Config): Promise<void> {
     ...filesFromNonTemplates,
   ];
 
+  // const destDir = '/Users/mrzli/Development/Projects/private/projects/js/libs/eslint-config';
+  const destDir = 'output';
+
+  // rm('-rf', destDir);
+
   console.log(files);
+
+  await lastValueFrom(
+    from(files).pipe(mergeMap((file) => from(writeTextFile(destDir, file))))
+  );
+}
+
+async function writeTextFile(
+  destDir: string,
+  file: FilePathWithTextContent
+): Promise<void> {
+  const targetFilePath = join(destDir, file.path);
+  await ensureFileAsync(targetFilePath);
+  await writeTextFileAsync(targetFilePath, file.content);
 }
 
 async function processTemplateFile(
@@ -92,13 +112,3 @@ async function generateNonTemplateFiles(
 generate(CONFIG).then(() => {
   console.log('Finished');
 });
-
-// const people = ["geddy", "neil", "alex"];
-// const html = ejs.render('<%= people.join(", "); %>', { people: people });
-
-// async function renderFile() {
-//   const html = await ejs.renderFile("./src/index.ejs", { people: people });
-//   console.log(html);
-// }
-
-// renderFile().then(() => console.log("done"));

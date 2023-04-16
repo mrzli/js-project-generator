@@ -1,6 +1,7 @@
-import { lastValueFrom, from, mergeMap, toArray } from 'rxjs';
+import { lastValueFrom, from, mergeMap, toArray, map } from 'rxjs';
 import { Config, DependencyWithVersion } from '../types/types';
 import { getLatestVersion } from '../util/npm';
+import { compareFnStringAsc, sortArray } from '@gmjs/util';
 
 export async function generatePackageJson(config: Config): Promise<string> {
   const data = await getPackageJsonData(config);
@@ -20,7 +21,7 @@ async function getPackageJsonData(
   );
 
   const fullProjectName = scopeName
-    ? `${scopeName}/${projectName}`
+    ? `@${scopeName}/${projectName}`
     : projectName;
 
   const fullAuthor = email ? `${author} (${email})` : author;
@@ -37,9 +38,17 @@ async function getPackageJsonData(
       url: `https://github.com/${githubUserOrOrg}/${projectName}`,
     },
     main: 'dist/index.js',
+    prettier: '@gmjs/prettier-config',
     scripts: {
       'start:dev': 'ts-node src/index.ts',
-      build: 'rm -rf ./dist && tsc',
+      lint: 'eslint --fix . && prettier --write .',
+      'lint:nofix': 'eslint . && prettier .',
+      'test-only': 'echo "test"',
+      test: 'npm run lint && npm run test-only',
+      'build-only': 'rm -rf ./dist && tsc',
+      build: 'npm run test && npm run build-only',
+      'publish-only': 'npm publish --access public',
+      publish: 'npm run build && npm run publish-only',
     },
     dependencies: toDependenciesObject(dependencies),
     devDependencies: toDependenciesObject(devDependencies),
@@ -50,9 +59,13 @@ async function getDependenciesWithVersions(
   deps: readonly string[]
 ): Promise<readonly DependencyWithVersion[]> {
   return await lastValueFrom(
-    from(deps)
-      .pipe(mergeMap((dep) => from(toDependencyWithVersion(dep))))
-      .pipe(toArray())
+    from(deps).pipe(
+      mergeMap((dep) => from(toDependencyWithVersion(dep))),
+      toArray(),
+      map((deps) =>
+        sortArray(deps, (a, b) => compareFnStringAsc(a.name, b.name))
+      )
+    )
   );
 }
 

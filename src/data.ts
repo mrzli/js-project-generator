@@ -1,11 +1,11 @@
-import { Placeholders, Config } from "./types/types";
+import { Placeholders, Config } from './types/types';
 
 const PLACEHOLDERS: Placeholders = {
   scopeName: 'gmjs',
-  projectName: 'test',
+  projectName: 'eslint-config',
   author: 'Goran Mržljak',
   email: 'goran.mrzljak@gmail.com',
-  githubUserOrOrg: 'mrzli-js-libs',
+  githubUserOrOrg: 'mrzli',
 };
 
 export const CONFIG: Config = {
@@ -13,6 +13,10 @@ export const CONFIG: Config = {
   dependencies: ['tslib'],
   devDependencies: [
     '@gmjs/prettier-config',
+    '@types/eslint',
+    '@typescript-eslint/eslint-plugin',
+    '@typescript-eslint/parser',
+    'eslint',
     'eslint-config-prettier',
     'eslint-import-resolver-typescript',
     'eslint-plugin-import',
