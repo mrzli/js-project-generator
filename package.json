@@ -35,7 +35,7 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@gmjs/eslint-config": "^0.0.1",
+    "@gmjs/eslint-config": "^0.0.3",
     "@gmjs/prettier-config": "^1.0.0",
     "@types/ejs": "^3.1.2",
     "@types/klaw": "^3.0.3",
