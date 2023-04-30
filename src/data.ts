@@ -13,6 +13,7 @@ const DEPENDENCIES: readonly string[] = ['tslib'];
 const DEV_DEPENDENCIES: readonly string[] = [
   '@gmjs/eslint-config',
   '@gmjs/prettier-config',
+  '@jest/globals',
   '@types/eslint',
   '@typescript-eslint/eslint-plugin',
   '@typescript-eslint/parser',
@@ -25,6 +26,8 @@ const DEV_DEPENDENCIES: readonly string[] = [
   // 'eslint-plugin-react-hooks',
   'jest',
   'prettier',
+  'ts-jest',
+  'ts-node',
   'typescript',
 ];
 
