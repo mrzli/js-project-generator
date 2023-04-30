@@ -1,7 +1,13 @@
 const { getEsLintConfig } = require('@gmjs/eslint-config');
 
+const config = getEsLintConfig({ projectType: 'node' });
+
 module.exports = {
-  ...getEsLintConfig({ executionEnvironment: 'node' }),
+  ...config,
+  rules: {
+    ...config.rules,
+    'unicorn/prefer-module': 'off',
+  },
   // root: true,
   // plugins: [
   //   '@typescript-eslint',

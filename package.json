@@ -28,14 +28,14 @@
   "dependencies": {
     "@gmjs/fs-util": "^0.0.184",
     "@gmjs/util": "^0.0.184",
+    "commander": "^10.0.1",
     "ejs": "^3.1.9",
     "klaw": "^4.1.0",
     "rxjs": "^7.8.0",
-    "shelljs": "^0.8.5",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@gmjs/eslint-config": "^0.0.5",
+    "@gmjs/eslint-config": "^0.0.6",
     "@gmjs/prettier-config": "^1.0.0",
     "@jest/globals": "^29.5.0",
     "@types/ejs": "^3.1.2",

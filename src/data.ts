@@ -1,12 +1,4 @@
-import { Placeholders, Config } from './types/types';
-
-const PLACEHOLDERS: Placeholders = {
-  scopeName: 'gmjs',
-  projectName: 'eslint-config',
-  author: 'Goran Mržljak',
-  email: 'goran.mrzljak@gmail.com',
-  githubUserOrOrg: 'mrzli',
-};
+import { Config } from './types/types';
 
 const DEPENDENCIES: readonly string[] = ['tslib'];
 
@@ -34,8 +26,13 @@ const DEV_DEPENDENCIES: readonly string[] = [
 ];
 
 export const CONFIG: Config = {
-  executionContext: 'node',
-  placeholders: PLACEHOLDERS,
+  targetRootDirectory: 'output',
+  projectType: 'node',
+  scopeName: 'gmjs',
+  projectName: 'eslint-config',
+  author: 'Goran Mržljak',
+  email: 'goran.mrzljak@gmail.com',
+  githubUserOrOrg: 'mrzli',
   dependencies: DEPENDENCIES,
   devDependencies: DEV_DEPENDENCIES,
 };

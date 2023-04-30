@@ -1,0 +1,31 @@
+{
+  "output": "/Users/mrzli/Development/Projects/private/projects/js/libs",
+  "projectType": "node",
+  "scopeName": "gmjs",
+  "projectName": "project",
+  "author": "Goran Mržljak",
+  "email": "goran.mrzljak@gmail.com",
+  "githubUserOrOrg": "mrzli",
+  "dependencies": ["tslib"],
+  "devDependencies": [
+    "@gmjs/eslint-config",
+    "@gmjs/prettier-config",
+    "@jest/globals",
+    "@types/eslint",
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser",
+    "eslint",
+    "eslint-config-prettier",
+    "eslint-import-resolver-typescript",
+    "eslint-plugin-import",
+    "eslint-plugin-unicorn",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "jest",
+    "prettier",
+    "ts-jest",
+    "ts-node",
+    "typescript"
+  ]
+}

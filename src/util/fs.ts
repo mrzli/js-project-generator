@@ -29,6 +29,10 @@ export function fromFindFsEntries(directory: string): Observable<FileItem> {
   });
 }
 
+export async function readTextFileAsync(filePath: string): Promise<string> {
+  return await fs.readFile(filePath, ENCODING_UTF8);
+}
+
 export async function writeTextFileAsync(
   filePath: string,
   content: string

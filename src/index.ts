@@ -1,117 +1,138 @@
-import { relative, join } from 'node:path';
-import {
-  ObservableInput,
-  filter,
-  from,
-  lastValueFrom,
-  mergeMap,
-  toArray,
-} from 'rxjs';
-import ejs from 'ejs';
-import {
-  FileItem,
-  FilePathWithTextContent,
-  fromFindFsEntries,
-  writeTextFileAsync,
-} from './util/fs';
-import { pathExtension, readTextAsync, ensureFileAsync } from '@gmjs/fs-util';
-import { CONFIG } from './data';
+import { join } from 'node:path';
+import { Command } from 'commander';
+import { invariant } from '@gmjs/util';
+import { generate } from './generate';
 import { Config } from './types/types';
-import { generatePackageJson } from './generators/package-json';
-import { rm } from 'shelljs';
+import { readTextFileAsync } from './util/fs';
 
-async function generate(config: Config): Promise<void> {
-  const templatesPath = './templates/project';
+// const cli = meow(
+//   `
+//   Usage
+//     $ jsgen <input>
 
-  const filesFromTemplates: readonly FilePathWithTextContent[] =
-    await lastValueFrom(
-      fromFindFsEntries(templatesPath).pipe(
-        filter((item) => item.stats.isFile()),
-        mergeMap<FileItem, ObservableInput<FilePathWithTextContent>>((item) => {
-          return from(processTemplateFile(item.path, templatesPath, config));
-        }),
-        toArray()
-      )
-    );
+//   Options
+//     --config, -c  Path to config file
+//     --output, -o  Output directory
+//     --project-name, -p  Project name
 
-  const filesFromNonTemplates = await generateNonTemplateFiles(config);
+//   Examples
+//     $ jsgen --config config.json --output . --project-name my-project
+// `,
+//   {
+//     importMeta: import.meta,
+//     flags: {
+//       config: {
+//         type: 'string',
+//         alias: 'c',
+//         isRequired: true,
+//       },
+//       output: {
+//         type: 'string',
+//         alias: 'o',
+//         isRequired: false,
+//       },
+//       projectName: {
+//         type: 'string',
+//         alias: 'p',
+//         isRequired: false,
+//       },
+//     },
+//   }
+// );
 
-  const files: readonly FilePathWithTextContent[] = [
-    ...filesFromTemplates,
-    ...filesFromNonTemplates,
-  ];
-
-  // const destinationDirectory = '/Users/mrzli/Development/Projects/private/projects/js/libs/eslint-config';
-  const destinationDirectory = 'output';
-
-  // rm('-rf', destinationDirectory);
-
-  console.log(files);
-
-  await lastValueFrom(
-    from(files).pipe(
-      mergeMap((file) => from(writeTextFile(destinationDirectory, file)))
-    )
-  );
+async function getPackageJson(): Promise<Record<string, unknown>> {
+  return JSON.parse(
+    await readTextFileAsync(join(__dirname, '..', 'package.json'))
+  ) as Record<string, unknown>;
 }
 
-async function writeTextFile(
-  destinationDirectory: string,
-  file: FilePathWithTextContent
-): Promise<void> {
-  const targetFilePath = join(destinationDirectory, file.path);
-  await ensureFileAsync(targetFilePath);
-  await writeTextFileAsync(targetFilePath, file.content);
+function createProgram(packageJson: Record<string, unknown>): Command {
+  const program = new Command();
+  program
+    .name('jsgen')
+    .description(packageJson['description'] as string)
+    .version(packageJson['version'] as string)
+    .usage('<command> [options]');
+
+  program
+    // .command('jsgen')
+    .description('Generate a new JavaScript/TypeScript project')
+    // .argument('<string>', 'string to split')
+    .requiredOption('-c, --config <path>', 'path to config file')
+    .option('-o, --output <path>', 'output directory')
+    .option('-p, --project-name <name>', 'project name');
+  return program;
 }
 
-async function processTemplateFile(
-  fullFilePath: string,
-  templatesPath: string,
-  config: Config
-): Promise<FilePathWithTextContent> {
-  const relativePath = relative(templatesPath, fullFilePath);
-  const content = await readTextAsync(fullFilePath);
+async function run(): Promise<void> {
+  const packageJson = await getPackageJson();
+  const program = createProgram(packageJson);
+  program.parse(process.argv);
 
-  const extension = pathExtension(relativePath);
+  const commandName = program.name();
+  // eslint-disable-next-line unicorn/prevent-abbreviations
+  const args = program.args;
+  const options = program.opts();
 
-  if (extension === 'ejs') {
-    const processedContent = ejs.render(content, {
-      executionContext: config.executionContext,
-      ...config.placeholders,
-      people: ['geddy', 'neil', 'alex'],
-    });
-    const processedPath = relativePath.replace(/\.ejs$/, '');
-    return {
-      path: processedPath,
-      content: processedContent,
-    };
-  } else if (extension === 'plain') {
-    const processedPath = relativePath.replace(/\.plain$/, '');
-    return {
-      path: processedPath,
-      content,
-    };
+  console.log(commandName, args, options);
+
+  const config = await getConfig(options);
+  await generate(config);
+}
+
+async function getConfig(options: Record<string, unknown>): Promise<Config> {
+  const configPath = options['config'] as string;
+  const cliOutput = options['output'] as string | undefined;
+  const cliProjectName = options['projectName'] as string | undefined;
+
+  const config = JSON.parse(
+    await readTextFileAsync(configPath)
+  ) as Partial<Config>;
+
+  const {
+    output,
+    projectType,
+    scopeName,
+    projectName,
+    author,
+    email,
+    githubUserOrOrg,
+    dependencies,
+    devDependencies,
+  } = config;
+
+  const finalOutput = cliOutput ?? output;
+  const finalProjectName = cliProjectName ?? projectName;
+
+  if (
+    !finalOutput ||
+    !projectType ||
+    !scopeName ||
+    !finalProjectName ||
+    !author ||
+    !email ||
+    !githubUserOrOrg ||
+    !dependencies ||
+    !devDependencies
+  ) {
+    invariant(false, `Invalid config: ${configPath}`);
   }
 
-  return {
-    path: relativePath,
-    content,
+  const finalConfig: Config = {
+    output: finalOutput,
+    projectType,
+    scopeName,
+    projectName: finalProjectName,
+    author,
+    email,
+    githubUserOrOrg,
+    dependencies,
+    devDependencies,
   };
+
+  return finalConfig;
 }
 
-async function generateNonTemplateFiles(
-  config: Config
-): Promise<readonly FilePathWithTextContent[]> {
-  const packageJson = await generatePackageJson(config);
-
-  return [
-    {
-      path: 'package.json',
-      content: packageJson,
-    },
-  ];
-}
-
-generate(CONFIG).then(() => {
+run().then(() => {
   console.log('Finished');
 });
