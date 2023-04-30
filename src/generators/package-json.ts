@@ -5,7 +5,7 @@ import { compareFnStringAsc, sortArray } from '@gmjs/util';
 
 export async function generatePackageJson(config: Config): Promise<string> {
   const data = await getPackageJsonData(config);
-  return JSON.stringify(data, null, 2);
+  return JSON.stringify(data, undefined, 2);
 }
 
 async function getPackageJsonData(
@@ -52,6 +52,9 @@ async function getPackageJsonData(
     },
     dependencies: toDependenciesObject(dependencies),
     devDependencies: toDependenciesObject(devDependencies),
+    engines: {
+      node: '>=16.0.0',
+    },
   };
 }
 
@@ -82,8 +85,5 @@ async function toDependencyWithVersion(
 function toDependenciesObject(
   deps: readonly DependencyWithVersion[]
 ): Record<string, string> {
-  return deps.reduce(
-    (deps, { name, version }) => ({ ...deps, [name]: version }),
-    {}
-  );
+  return Object.fromEntries(deps.map(({ name, version }) => [name, version]));
 }

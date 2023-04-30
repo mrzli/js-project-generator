@@ -21,6 +21,8 @@ const DEV_DEPENDENCIES: readonly string[] = [
   'eslint-config-prettier',
   'eslint-import-resolver-typescript',
   'eslint-plugin-import',
+  'eslint-plugin-unicorn',
+  'eslint-plugin-n',
   // 'eslint-plugin-jsx-a11y',
   // 'eslint-plugin-react',
   // 'eslint-plugin-react-hooks',

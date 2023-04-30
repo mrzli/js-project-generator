@@ -2,7 +2,7 @@ import { promises as fs, Stats } from 'node:fs';
 import klaw from 'klaw';
 import { Observable } from 'rxjs';
 
-const ENCODING_UTF8 = 'utf-8';
+const ENCODING_UTF8 = 'utf8';
 
 export interface FileItem {
   readonly path: string;
@@ -14,14 +14,14 @@ export interface FilePathWithTextContent {
   readonly content: string;
 }
 
-export function fromFindFsEntries(dir: string): Observable<FileItem> {
+export function fromFindFsEntries(directory: string): Observable<FileItem> {
   return new Observable((subscriber) => {
-    klaw(dir)
+    klaw(directory)
       .on('data', (item) => {
         subscriber.next(item);
       })
-      .on('error', (err) => {
-        subscriber.error(err);
+      .on('error', (error) => {
+        subscriber.error(error);
       })
       .on('end', () => {
         subscriber.complete();

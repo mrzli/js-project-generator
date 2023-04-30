@@ -41,23 +41,25 @@ async function generate(config: Config): Promise<void> {
     ...filesFromNonTemplates,
   ];
 
-  // const destDir = '/Users/mrzli/Development/Projects/private/projects/js/libs/eslint-config';
-  const destDir = 'output';
+  // const destinationDirectory = '/Users/mrzli/Development/Projects/private/projects/js/libs/eslint-config';
+  const destinationDirectory = 'output';
 
-  // rm('-rf', destDir);
+  // rm('-rf', destinationDirectory);
 
   console.log(files);
 
   await lastValueFrom(
-    from(files).pipe(mergeMap((file) => from(writeTextFile(destDir, file))))
+    from(files).pipe(
+      mergeMap((file) => from(writeTextFile(destinationDirectory, file)))
+    )
   );
 }
 
 async function writeTextFile(
-  destDir: string,
+  destinationDirectory: string,
   file: FilePathWithTextContent
 ): Promise<void> {
-  const targetFilePath = join(destDir, file.path);
+  const targetFilePath = join(destinationDirectory, file.path);
   await ensureFileAsync(targetFilePath);
   await writeTextFileAsync(targetFilePath, file.content);
 }
