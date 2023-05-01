@@ -5,6 +5,7 @@
   "projectName": "project",
   "author": "Goran Mržljak",
   "email": "goran.mrzljak@gmail.com",
+  "authorUrl": "https://mrzli.com",
   "githubUserOrOrg": "mrzli",
   "dependencies": ["tslib"],
   "devDependencies": [
@@ -24,6 +25,7 @@
     "eslint-plugin-react-hooks",
     "jest",
     "prettier",
+    "shx",
     "ts-jest",
     "ts-node",
     "typescript"

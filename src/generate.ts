@@ -15,7 +15,6 @@ import {
   writeTextFileAsync,
 } from './util/fs';
 import { pathExtension, readTextAsync, ensureFileAsync } from '@gmjs/fs-util';
-import { CONFIG } from './data';
 import { Config } from './types/types';
 import { generatePackageJson } from './generators/package-json';
 
@@ -102,7 +101,3 @@ async function generateNonTemplateFiles(
     },
   ];
 }
-
-generate(CONFIG).then(() => {
-  console.log('Finished');
-});

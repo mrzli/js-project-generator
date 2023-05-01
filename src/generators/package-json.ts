@@ -11,9 +11,8 @@ export async function generatePackageJson(config: Config): Promise<string> {
 async function getPackageJsonData(
   config: Config
 ): Promise<Record<string, unknown>> {
-  const { placeholders } = config;
-  const { scopeName, projectName, author, email, githubUserOrOrg } =
-    placeholders;
+  const { scopeName, projectName, author, email, authorUrl, githubUserOrOrg } =
+    config;
 
   const dependencies = await getDependenciesWithVersions(config.dependencies);
   const devDependencies = await getDependenciesWithVersions(
@@ -24,13 +23,15 @@ async function getPackageJsonData(
     ? `@${scopeName}/${projectName}`
     : projectName;
 
-  const fullAuthor = email ? `${author} (${email})` : author;
-
   return {
     name: fullProjectName,
     version: '0.0.1',
     description: projectName,
-    author: fullAuthor,
+    author: {
+      name: author,
+      email,
+      url: authorUrl,
+    },
     license: 'MIT',
     keywords: [],
     repository: {
@@ -38,14 +39,14 @@ async function getPackageJsonData(
       url: `https://github.com/${githubUserOrOrg}/${projectName}`,
     },
     main: 'dist/index.js',
-    prettier: '@gmjs/prettier-config',
+    files: ['dist'],
     scripts: {
       'start:dev': 'ts-node src/index.ts',
       lint: 'eslint --fix . && prettier --write .',
       'lint:nofix': 'eslint . && prettier .',
       'test-only': 'echo "test"',
       test: 'npm run lint && npm run test-only',
-      'build-only': 'rm -rf ./dist && tsc',
+      'build-only': 'shx rm -rf ./dist && tsc',
       build: 'npm run test && npm run build-only',
       'pub-only': 'npm publish --access public',
       pub: 'npm run build && npm run pub-only',
@@ -55,6 +56,7 @@ async function getPackageJsonData(
     engines: {
       node: '>=16.0.0',
     },
+    prettier: '@gmjs/prettier-config',
   };
 }
 

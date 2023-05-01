@@ -26,7 +26,7 @@ const DEV_DEPENDENCIES: readonly string[] = [
 ];
 
 export const CONFIG: Config = {
-  targetRootDirectory: 'output',
+  output: 'output',
   projectType: 'node',
   scopeName: 'gmjs',
   projectName: 'eslint-config',
