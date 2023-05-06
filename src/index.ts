@@ -1,5 +1,4 @@
 import { join } from 'node:path';
-import { Command } from 'commander';
 import { invariant } from '@gmjs/util';
 import { generate } from './generate';
 import { Config } from './types/types';
@@ -40,41 +39,18 @@ import { readTextFileAsync } from './util/fs';
 //   }
 // );
 
-async function getPackageJson(): Promise<Record<string, unknown>> {
-  return JSON.parse(
-    await readTextFileAsync(join(__dirname, '..', 'package.json'))
-  ) as Record<string, unknown>;
-}
-
-function createProgram(packageJson: Record<string, unknown>): Command {
-  const program = new Command();
-  program
-    .name('jsgen')
-    .description(packageJson['description'] as string)
-    .version(packageJson['version'] as string)
-    .usage('<command> [options]');
-
-  program
-    // .command('jsgen')
-    .description('Generate a new JavaScript/TypeScript project')
-    // .argument('<string>', 'string to split')
-    .requiredOption('-c, --config <path>', 'path to config file')
-    .option('-o, --output <path>', 'output directory')
-    .option('-p, --project-name <name>', 'project name');
-  return program;
-}
+// async function getPackageJson(): Promise<Record<string, unknown>> {
+//   return JSON.parse(
+//     await readTextFileAsync(join(__dirname, '..', 'package.json'))
+//   ) as Record<string, unknown>;
+// }
 
 async function run(): Promise<void> {
-  const packageJson = await getPackageJson();
-  const program = createProgram(packageJson);
-  program.parse(process.argv);
-
-  const commandName = program.name();
-  // eslint-disable-next-line unicorn/prevent-abbreviations
-  const args = program.args;
-  const options = program.opts();
-
-  console.log(commandName, args, options);
+  const options: Record<string, unknown> = {
+    config: join('example-configs', 'shared.json'),
+    output: 'output',
+    projectName: 'assert',
+  };
 
   const config = await getConfig(options);
   await generate(config);
