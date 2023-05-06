@@ -11,6 +11,7 @@
   "devDependencies": [
     "@gmjs/eslint-config",
     "@gmjs/prettier-config",
+    "@gmjs/tsconfig",
     "@jest/globals",
     "@types/eslint",
     "@typescript-eslint/eslint-plugin",

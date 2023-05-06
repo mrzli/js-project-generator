@@ -23,6 +23,8 @@ async function getPackageJsonData(
     ? `@${scopeName}/${projectName}`
     : projectName;
 
+  const githubUrl = `https://github.com/${githubUserOrOrg}/${projectName}`;
+
   return {
     name: fullProjectName,
     version: '0.0.1',
@@ -36,8 +38,9 @@ async function getPackageJsonData(
     keywords: [],
     repository: {
       type: 'git',
-      url: `https://github.com/${githubUserOrOrg}/${projectName}`,
+      url: githubUrl,
     },
+    homepage: githubUrl,
     main: 'dist/index.js',
     files: ['dist'],
     scripts: {
