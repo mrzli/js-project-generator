@@ -1,8 +1,8 @@
 import { join } from 'node:path';
-import { invariant } from '@gmjs/util';
 import { generate } from './generate';
 import { Config } from './types/types';
 import { readTextAsync } from '@gmjs/fs-async';
+import { invariant } from '@gmjs/assert';
 
 // const cli = meow(
 //   `

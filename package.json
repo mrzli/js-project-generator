@@ -30,6 +30,7 @@
     "postbuild": "chmod +x ./dist/index.js"
   },
   "dependencies": {
+    "@gmjs/assert": "^0.0.2",
     "@gmjs/fs-async": "^0.0.2",
     "@gmjs/fs-shared": "^0.0.2",
     "@gmjs/path": "^0.0.1",
