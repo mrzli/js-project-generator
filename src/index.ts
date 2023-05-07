@@ -47,9 +47,9 @@ import { readTextFileAsync } from './util/fs';
 
 async function run(): Promise<void> {
   const options: Record<string, unknown> = {
-    config: join('example-configs', 'shared.json'),
+    config: join('example-configs', 'node.json'),
     output: 'output',
-    projectName: 'assert',
+    projectName: 'fs-shared',
   };
 
   const config = await getConfig(options);

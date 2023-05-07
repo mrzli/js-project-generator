@@ -8,33 +8,31 @@ import {
   toArray,
 } from 'rxjs';
 import ejs from 'ejs';
-import {
-  FileItem,
-  FilePathWithTextContent,
-  fromFindFsEntries,
-  writeTextFileAsync,
-} from './util/fs';
+import { fromFindFsEntries, writeTextFileAsync } from './util/fs';
 import { pathExtension, readTextAsync, ensureFileAsync } from '@gmjs/fs-util';
 import { Config } from './types/types';
 import { generatePackageJson } from './generators/package-json';
+import { FilePathStats, FilePathTextContent } from '@gmjs/fs-shared';
 
 export async function generate(config: Config): Promise<void> {
   const templatesPath = './templates/project';
 
-  const filesFromTemplates: readonly FilePathWithTextContent[] =
+  const filesFromTemplates: readonly FilePathTextContent[] =
     await lastValueFrom(
       fromFindFsEntries(templatesPath).pipe(
         filter((item) => item.stats.isFile()),
-        mergeMap<FileItem, ObservableInput<FilePathWithTextContent>>((item) => {
-          return from(processTemplateFile(item.path, templatesPath, config));
-        }),
+        mergeMap<FilePathStats, ObservableInput<FilePathTextContent>>(
+          (item) => {
+            return from(processTemplateFile(item.path, templatesPath, config));
+          }
+        ),
         toArray()
       )
     );
 
   const filesFromNonTemplates = await generateNonTemplateFiles(config);
 
-  const files: readonly FilePathWithTextContent[] = [
+  const files: readonly FilePathTextContent[] = [
     ...filesFromTemplates,
     ...filesFromNonTemplates,
   ];
@@ -48,7 +46,7 @@ export async function generate(config: Config): Promise<void> {
 
 async function writeTextFile(
   destinationDirectory: string,
-  file: FilePathWithTextContent
+  file: FilePathTextContent
 ): Promise<void> {
   const targetFilePath = join(destinationDirectory, file.path);
   await ensureFileAsync(targetFilePath);
@@ -59,7 +57,7 @@ async function processTemplateFile(
   fullFilePath: string,
   templatesPath: string,
   config: Config
-): Promise<FilePathWithTextContent> {
+): Promise<FilePathTextContent> {
   const relativePath = relative(templatesPath, fullFilePath);
   const content = await readTextAsync(fullFilePath);
 
@@ -91,7 +89,7 @@ async function processTemplateFile(
 
 async function generateNonTemplateFiles(
   config: Config
-): Promise<readonly FilePathWithTextContent[]> {
+): Promise<readonly FilePathTextContent[]> {
   const packageJson = await generatePackageJson(config);
 
   return [

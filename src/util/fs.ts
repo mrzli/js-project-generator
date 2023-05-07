@@ -1,20 +1,11 @@
-import { promises as fs, Stats } from 'node:fs';
+import { promises as fs } from 'node:fs';
 import klaw from 'klaw';
 import { Observable } from 'rxjs';
+import { ENCODING_UTF8, FilePathStats } from '@gmjs/fs-shared';
 
-const ENCODING_UTF8 = 'utf8';
-
-export interface FileItem {
-  readonly path: string;
-  readonly stats: Stats;
-}
-
-export interface FilePathWithTextContent {
-  readonly path: string;
-  readonly content: string;
-}
-
-export function fromFindFsEntries(directory: string): Observable<FileItem> {
+export function fromFindFsEntries(
+  directory: string
+): Observable<FilePathStats> {
   return new Observable((subscriber) => {
     klaw(directory)
       .on('data', (item) => {
