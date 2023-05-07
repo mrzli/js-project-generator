@@ -47,7 +47,7 @@ async function getPackageJsonData(
       'start:dev': 'ts-node src/index.ts',
       lint: 'eslint --fix . && prettier --write .',
       'lint:nofix': 'eslint . && prettier .',
-      'test-only': 'echo "test"',
+      'test-only': 'jest --passWithNoTests',
       test: 'npm run lint && npm run test-only',
       'build-only': 'shx rm -rf ./dist && tsc --project tsconfig.lib.json',
       build: 'npm run test && npm run build-only',
