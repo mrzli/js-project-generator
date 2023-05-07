@@ -2,7 +2,7 @@ import { join } from 'node:path';
 import { invariant } from '@gmjs/util';
 import { generate } from './generate';
 import { Config } from './types/types';
-import { readTextFileAsync } from './util/fs';
+import { readTextAsync } from '@gmjs/fs-async';
 
 // const cli = meow(
 //   `
@@ -49,7 +49,7 @@ async function run(): Promise<void> {
   const options: Record<string, unknown> = {
     config: join('example-configs', 'node.json'),
     output: 'output',
-    projectName: 'fs-shared',
+    projectName: 'path',
   };
 
   const config = await getConfig(options);
@@ -62,7 +62,7 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
   const cliProjectName = options['projectName'] as string | undefined;
 
   const config = JSON.parse(
-    await readTextFileAsync(configPath)
+    await readTextAsync(configPath)
   ) as Partial<Config>;
 
   const {
@@ -72,6 +72,7 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
     projectName,
     author,
     email,
+    authorUrl,
     githubUserOrOrg,
     dependencies,
     devDependencies,
@@ -100,6 +101,7 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
     scopeName,
     projectName: finalProjectName,
     author,
+    authorUrl,
     email,
     githubUserOrOrg,
     dependencies,

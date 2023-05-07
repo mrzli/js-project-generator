@@ -8,11 +8,12 @@ import {
   toArray,
 } from 'rxjs';
 import ejs from 'ejs';
-import { fromFindFsEntries, writeTextFileAsync } from './util/fs';
-import { pathExtension, readTextAsync, ensureFileAsync } from '@gmjs/fs-util';
+import { fromFindFsEntries } from './util/fs';
 import { Config } from './types/types';
 import { generatePackageJson } from './generators/package-json';
 import { FilePathStats, FilePathTextContent } from '@gmjs/fs-shared';
+import { createFileAsync, readTextAsync, writeTextAsync } from '@gmjs/fs-async';
+import { pathExtension } from '@gmjs/path';
 
 export async function generate(config: Config): Promise<void> {
   const templatesPath = './templates/project';
@@ -49,8 +50,8 @@ async function writeTextFile(
   file: FilePathTextContent
 ): Promise<void> {
   const targetFilePath = join(destinationDirectory, file.path);
-  await ensureFileAsync(targetFilePath);
-  await writeTextFileAsync(targetFilePath, file.content);
+  await createFileAsync(targetFilePath);
+  await writeTextAsync(targetFilePath, file.content);
 }
 
 async function processTemplateFile(
