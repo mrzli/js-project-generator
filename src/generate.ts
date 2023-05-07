@@ -8,12 +8,12 @@ import {
   toArray,
 } from 'rxjs';
 import ejs from 'ejs';
-import { fromFindFsEntries } from './util/fs';
 import { Config } from './types/types';
 import { generatePackageJson } from './generators/package-json';
 import { FilePathStats, FilePathTextContent } from '@gmjs/fs-shared';
 import { createFileAsync, readTextAsync, writeTextAsync } from '@gmjs/fs-async';
 import { pathExtension } from '@gmjs/path';
+import { fromFindFsEntries } from '@gmjs/fs-observable';
 
 export async function generate(config: Config): Promise<void> {
   const templatesPath = './templates/project';

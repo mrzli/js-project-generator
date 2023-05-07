@@ -32,11 +32,11 @@
   "dependencies": {
     "@gmjs/assert": "^0.0.2",
     "@gmjs/fs-async": "^0.0.2",
+    "@gmjs/fs-observable": "^0.0.1",
     "@gmjs/fs-shared": "^0.0.2",
     "@gmjs/path": "^0.0.1",
     "@gmjs/util": "^0.0.184",
     "ejs": "^3.1.9",
-    "klaw": "^4.1.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.5.0"
   },
@@ -46,7 +46,6 @@
     "@jest/globals": "^29.5.0",
     "@types/ejs": "^3.1.2",
     "@types/jest": "^29.5.1",
-    "@types/klaw": "^3.0.3",
     "@types/shelljs": "^0.8.12",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",

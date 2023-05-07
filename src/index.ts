@@ -49,7 +49,7 @@ async function run(): Promise<void> {
   const options: Record<string, unknown> = {
     config: join('example-configs', 'node.json'),
     output: 'output',
-    projectName: 'path',
+    projectName: 'fs-observable',
   };
 
   const config = await getConfig(options);
