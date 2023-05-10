@@ -1,22 +1,32 @@
 import { lastValueFrom, from, mergeMap, toArray, map } from 'rxjs';
-import { Config, DependencyWithVersion } from '../types/types';
-import { getLatestVersion } from '../util/npm';
-import { compareFnStringAsc, sortArray } from '@gmjs/util';
+import {
+  Config,
+  DependencyWithVersion,
+  GenerateInfrastructure,
+} from '../../../types';
 
-export async function generatePackageJson(config: Config): Promise<string> {
-  const data = await getPackageJsonData(config);
+export async function generatePackageJson(
+  config: Config,
+  infra: GenerateInfrastructure
+): Promise<string> {
+  const data = await getPackageJsonData(config, infra);
   return JSON.stringify(data, undefined, 2);
 }
 
 async function getPackageJsonData(
-  config: Config
+  config: Config,
+  infra: GenerateInfrastructure
 ): Promise<Record<string, unknown>> {
   const { scopeName, projectName, author, email, authorUrl, githubUserOrOrg } =
     config;
 
-  const dependencies = await getDependenciesWithVersions(config.dependencies);
+  const dependencies = await getDependenciesWithVersions(
+    config.dependencies,
+    infra
+  );
   const devDependencies = await getDependenciesWithVersions(
-    config.devDependencies
+    config.devDependencies,
+    infra
   );
 
   const fullProjectName = scopeName
@@ -64,23 +74,23 @@ async function getPackageJsonData(
 }
 
 async function getDependenciesWithVersions(
-  deps: readonly string[]
+  deps: readonly string[],
+  infra: GenerateInfrastructure
 ): Promise<readonly DependencyWithVersion[]> {
   return await lastValueFrom(
     from(deps).pipe(
-      mergeMap((dep) => from(toDependencyWithVersion(dep))),
+      mergeMap((dep) => from(toDependencyWithVersion(dep, infra))),
       toArray(),
-      map((deps) =>
-        sortArray(deps, (a, b) => compareFnStringAsc(a.name, b.name))
-      )
+      map((deps) => deps.sort((a, b) => a.name.localeCompare(b.name)))
     )
   );
 }
 
 async function toDependencyWithVersion(
-  dep: string
+  dep: string,
+  infra: GenerateInfrastructure
 ): Promise<DependencyWithVersion> {
-  const version = await getLatestVersion(dep);
+  const version = await infra.getDepLatestVersion(dep);
   return {
     name: dep,
     version: `^${version}`,

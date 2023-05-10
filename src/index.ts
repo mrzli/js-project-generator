@@ -1,8 +1,9 @@
 import { join } from 'node:path';
-import { generate } from './generate';
-import { Config } from './types/types';
+import { generate, writeGeneratedFiles } from './impl';
+import { Config, GenerateInfrastructure } from './types';
 import { readTextAsync } from '@gmjs/fs-async';
 import { invariant } from '@gmjs/assert';
+import { getLatestVersion } from './util/npm';
 
 // const cli = meow(
 //   `
@@ -49,11 +50,16 @@ async function run(): Promise<void> {
   const options: Record<string, unknown> = {
     config: join('example-configs', 'node.json'),
     output: 'output',
-    projectName: 'fs-observable',
+    projectName: 'test-util',
   };
 
   const config = await getConfig(options);
-  await generate(config);
+  const infra: GenerateInfrastructure = {
+    getDepLatestVersion: getLatestVersion,
+  };
+
+  const generatedFiles = await generate(config, infra);
+  await writeGeneratedFiles(config, generatedFiles);
 }
 
 async function getConfig(options: Record<string, unknown>): Promise<Config> {
@@ -61,9 +67,7 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
   const cliOutput = options['output'] as string | undefined;
   const cliProjectName = options['projectName'] as string | undefined;
 
-  const config = JSON.parse(
-    await readTextAsync(configPath)
-  ) as Partial<Config>;
+  const config = JSON.parse(await readTextAsync(configPath)) as Partial<Config>;
 
   const {
     output,

@@ -8,14 +8,17 @@ import {
   toArray,
 } from 'rxjs';
 import ejs from 'ejs';
-import { Config } from './types/types';
-import { generatePackageJson } from './generators/package-json';
+import { Config, GenerateInfrastructure, GeneratedFiles } from '../../types';
+import { generatePackageJson } from './generators';
 import { FilePathStats, FilePathTextContent } from '@gmjs/fs-shared';
-import { createFileAsync, readTextAsync, writeTextAsync } from '@gmjs/fs-async';
+import { readTextAsync } from '@gmjs/fs-async';
 import { pathExtension } from '@gmjs/path';
 import { fromFindFsEntries } from '@gmjs/fs-observable';
 
-export async function generate(config: Config): Promise<void> {
+export async function generate(
+  config: Config,
+  infra: GenerateInfrastructure
+): Promise<GeneratedFiles> {
   const templatesPath = './templates/project';
 
   const filesFromTemplates: readonly FilePathTextContent[] =
@@ -31,27 +34,22 @@ export async function generate(config: Config): Promise<void> {
       )
     );
 
-  const filesFromNonTemplates = await generateNonTemplateFiles(config);
+  const filesFromNonTemplates = await generateNonTemplateFiles(config, infra);
 
   const files: readonly FilePathTextContent[] = [
     ...filesFromTemplates,
     ...filesFromNonTemplates,
   ];
 
-  await lastValueFrom(
-    from(files).pipe(
-      mergeMap((file) => from(writeTextFile(config.output, file)))
-    )
-  );
-}
-
-async function writeTextFile(
-  destinationDirectory: string,
-  file: FilePathTextContent
-): Promise<void> {
-  const targetFilePath = join(destinationDirectory, file.path);
-  await createFileAsync(targetFilePath);
-  await writeTextAsync(targetFilePath, file.content);
+  return {
+    textFiles: files,
+    binaryFiles: [],
+  };
+  // await lastValueFrom(
+  //   from(files).pipe(
+  //     mergeMap((file) => from(writeTextFile(config.output, file)))
+  //   )
+  // );
 }
 
 async function processTemplateFile(
@@ -71,32 +69,38 @@ async function processTemplateFile(
     });
     const processedPath = relativePath.replace(/\.ejs$/, '');
     return {
-      path: processedPath,
+      path: toFinalPath(processedPath, config),
       content: processedContent,
     };
   } else if (extension === 'plain') {
     const processedPath = relativePath.replace(/\.plain$/, '');
     return {
-      path: processedPath,
+      path: toFinalPath(processedPath, config),
       content,
     };
   }
 
   return {
-    path: relativePath,
+    path: toFinalPath(relativePath, config),
     content,
   };
 }
 
 async function generateNonTemplateFiles(
-  config: Config
+  config: Config,
+  infra: GenerateInfrastructure
 ): Promise<readonly FilePathTextContent[]> {
-  const packageJson = await generatePackageJson(config);
+  const packageJson = await generatePackageJson(config, infra);
 
   return [
     {
-      path: 'package.json',
+      path: toFinalPath('package.json', config),
       content: packageJson,
     },
   ];
+}
+
+function toFinalPath(filePath: string, config: Config): string {
+  const { projectName, output } = config;
+  return join(output, projectName, filePath);
 }

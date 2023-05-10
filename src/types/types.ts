@@ -1,3 +1,5 @@
+import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
+
 export type ProjectType = 'shared' | 'node' | 'browser' | 'react';
 
 export interface Config {
@@ -16,4 +18,13 @@ export interface Config {
 export interface DependencyWithVersion {
   readonly name: string;
   readonly version: string;
+}
+
+export interface GenerateInfrastructure {
+  readonly getDepLatestVersion: (dep: string) => Promise<string>;
+}
+
+export interface GeneratedFiles {
+  readonly textFiles: readonly FilePathTextContent[];
+  readonly binaryFiles: readonly FilePathBinaryContent[];
 }
