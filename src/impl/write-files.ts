@@ -14,17 +14,21 @@ export async function writeGeneratedFiles(
 ): Promise<void> {
   const { textFiles, binaryFiles } = files;
 
-  await lastValueFrom(
-    from(textFiles).pipe(
-      mergeMap((file) => from(writeTextFile(config.output, file)))
-    )
-  );
+  if (textFiles.length > 0) {
+    await lastValueFrom(
+      from(textFiles).pipe(
+        mergeMap((file) => from(writeTextFile(config.output, file)))
+      )
+    );
+  }
 
-  await lastValueFrom(
-    from(binaryFiles).pipe(
-      mergeMap((file) => from(writeBinaryFile(config.output, file)))
-    )
-  );
+  if (binaryFiles.length > 0) {
+    await lastValueFrom(
+      from(binaryFiles).pipe(
+        mergeMap((file) => from(writeBinaryFile(config.output, file)))
+      )
+    );
+  }
 }
 
 async function writeTextFile(
