@@ -1,7 +1,7 @@
 {
   "name": "js-project-generator",
   "version": "0.0.1",
-  "description": "js-project-generator",
+  "description": "Project generator for JavaScript/TypeScript projects.",
   "author": {
     "name": "Goran Mržljak",
     "email": "goran.mrzljak@gmail.com",
@@ -13,6 +13,9 @@
     "url": "https://github.com/mrzli/js-project-generator"
   },
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "jsgen": "dist/index.js"
   },
@@ -43,6 +46,7 @@
     "@gmjs/eslint-config": "^0.0.6",
     "@gmjs/prettier-config": "^1.0.0",
     "@gmjs/test-util": "^0.0.8",
+    "@gmjs/tsconfig": "^1.0.0",
     "@jest/globals": "^29.5.0",
     "@types/ejs": "^3.1.2",
     "@types/jest": "^29.5.1",
