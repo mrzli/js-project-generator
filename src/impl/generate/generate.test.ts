@@ -1,44 +1,45 @@
 import { join } from 'node:path';
 import { describe, expect, it } from '@jest/globals';
-import { readFakeFiles, filesToTestString } from '@gmjs/test-util';
-import { generate } from './generate';
+import { FilesContainer, getFileSystemTestCaseRuns } from '@gmjs/test-util';
 import { readTextAsync } from '@gmjs/fs-async';
+import { generate } from './generate';
 import { Config, GenerateInfrastructure } from '../../types';
 
 describe('generate', () => {
+  const testCasesParentDirectory = join(__dirname, 'test-assets');
+
   describe('generate()', () => {
-    it('should add 2 to a number', async () => {
-      const configContent = await readTextAsync(
-        join(__dirname, 'test-assets/example-00/input/config.json')
-      );
-      const config = parseConfig(configContent);
+    const testCaseRuns = getFileSystemTestCaseRuns(
+      testCasesParentDirectory,
+      getActualFiles,
+      {
+        sharedDirectoryRelativePath: '../../../shared/files',
+      }
+    );
 
-      const files = await readFakeFiles(
-        join(__dirname, 'test-assets/example-00/expected'),
-        { sharedDirectoryRelativePath: '../../../shared/files' }
-      );
-
-      const infra: GenerateInfrastructure = {
-        getDepLatestVersion: () => Promise.resolve('1.0.0'),
-      };
-
-      const generatedFiles = await generate(config, infra);
-
-      const expected = filesToTestString(files.textFiles, files.binaryFiles);
-      const actual = filesToTestString(
-        generatedFiles.textFiles,
-        generatedFiles.binaryFiles
-      );
-
-      // console.log('expected');
-      // console.log(expected);
-      // console.log('actual')
-      // console.log(actual);
-
-      expect(actual).toBe(expected);
-    });
+    for (const testCaseRun of testCaseRuns) {
+      it(testCaseRun.name, async () => {
+        const { expected, actual } = await testCaseRun.run();
+        expect(actual).toBe(expected);
+      });
+    }
   });
 });
+
+async function getActualFiles(
+  testCaseDirectory: string
+): Promise<FilesContainer> {
+  const configContent = await readTextAsync(
+    join(testCaseDirectory, 'input/config.json')
+  );
+  const config = parseConfig(configContent);
+
+  const infra: GenerateInfrastructure = {
+    getDepLatestVersion: () => Promise.resolve('1.0.0'),
+  };
+
+  return await generate(config, infra);
+}
 
 function parseConfig(configContent: string): Config {
   const config = JSON.parse(configContent);
