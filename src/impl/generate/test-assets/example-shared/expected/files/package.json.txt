@@ -1,0 +1,59 @@
+{
+  "name": "@scope/test-project",
+  "version": "0.0.1",
+  "description": "test-project",
+  "author": {
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "url": "https://example.com"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnsmith/test-project"
+  },
+  "homepage": "https://github.com/johnsmith/test-project",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start:dev": "ts-node src/index.ts",
+    "lint": "eslint --fix . && prettier --write .",
+    "lint:nofix": "eslint . && prettier .",
+    "test-only": "jest --passWithNoTests",
+    "test": "npm run lint && npm run test-only",
+    "build-only": "shx rm -rf ./dist && tsc --project tsconfig.lib.json",
+    "build": "npm run test && npm run build-only",
+    "pub-only": "npm publish --access public",
+    "pub": "npm run build && npm run pub-only"
+  },
+  "dependencies": {
+    "tslib": "^1.0.0"
+  },
+  "devDependencies": {
+    "@gmjs/eslint-config": "^1.0.0",
+    "@gmjs/prettier-config": "^1.0.0",
+    "@gmjs/tsconfig": "^1.0.0",
+    "@jest/globals": "^1.0.0",
+    "@types/eslint": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.0.0",
+    "@typescript-eslint/parser": "^1.0.0",
+    "eslint": "^1.0.0",
+    "eslint-config-prettier": "^1.0.0",
+    "eslint-import-resolver-typescript": "^1.0.0",
+    "eslint-plugin-import": "^1.0.0",
+    "eslint-plugin-unicorn": "^1.0.0",
+    "jest": "^1.0.0",
+    "prettier": "^1.0.0",
+    "shx": "^1.0.0",
+    "ts-jest": "^1.0.0",
+    "ts-node": "^1.0.0",
+    "typescript": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "prettier": "@gmjs/prettier-config"
+}

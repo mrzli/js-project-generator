@@ -1,0 +1,66 @@
+[
+  {
+    "testFile": "<shared>/.editorconfig.txt",
+    "path": "output/test-project/.editorconfig"
+  },
+  {
+    "testFile": "<shared>/.eslintignore.txt",
+    "path": "output/test-project/.eslintignore"
+  },
+  {
+    "testFile": "<shared>/.gitignore.txt",
+    "path": "output/test-project/.gitignore"
+  },
+  {
+    "testFile": "<shared>/.prettierignore.txt",
+    "path": "output/test-project/.prettierignore"
+  },
+  {
+    "testFile": "<shared>/CHANGELOG.md.txt",
+    "path": "output/test-project/CHANGELOG.md"
+  },
+  {
+    "testFile": "<shared>/jest.config.ts.txt",
+    "path": "output/test-project/jest.config.ts"
+  },
+  {
+    "testFile": "<shared>/LICENSE.md.txt",
+    "path": "output/test-project/LICENSE.md"
+  },
+  {
+    "testFile": "<shared>/README.md.txt",
+    "path": "output/test-project/README.md"
+  },
+  {
+    "testFile": "<shared>/tsconfig.json.txt",
+    "path": "output/test-project/tsconfig.json"
+  },
+  {
+    "testFile": "<shared>/tsconfig.lib.json.txt",
+    "path": "output/test-project/tsconfig.lib.json"
+  },
+  {
+    "testFile": "<shared>/tsconfig.test.json.txt",
+    "path": "output/test-project/tsconfig.test.json"
+  },
+  {
+    "testFile": "<shared>/src-example.test.ts.txt",
+    "path": "output/test-project/src/example.test.ts"
+  },
+  {
+    "testFile": "<shared>/src-example.ts.txt",
+    "path": "output/test-project/src/example.ts"
+  },
+  {
+    "testFile": "<shared>/src-index.ts.txt",
+    "path": "output/test-project/src/index.ts"
+  },
+  {
+    "testFile": ".eslintrc.js.txt",
+    "path": "output/test-project/.eslintrc.js"
+  },
+  {
+    "testFile": "package.json.txt",
+    "path": "output/test-project/package.json"
+  }
+]
