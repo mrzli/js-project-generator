@@ -10,7 +10,7 @@ export async function generatePackageJson(
   infra: GenerateInfrastructure
 ): Promise<string> {
   const data = await getPackageJsonData(config, infra);
-  return JSON.stringify(data, undefined, 2);
+  return JSON.stringify(data, undefined, 2) + '\n';
 }
 
 async function getPackageJsonData(
