@@ -8,11 +8,7 @@
   "email": "john.smith@example.com",
   "authorUrl": "https://example.com",
   "githubUserOrOrg": "johnsmith",
-  "dependencies": [
-    "@gmjs/cli-wrapper",
-    "@gmjs/package-json",
-    "tslib"
-  ],
+  "dependencies": ["@gmjs/cli-wrapper", "@gmjs/package-json", "tslib"],
   "devDependencies": [
     "@gmjs/eslint-config",
     "@gmjs/prettier-config",

@@ -63,7 +63,10 @@ async function getPackageJsonData(
     homepage: githubUrl,
     main: 'dist/index.js',
     files: ['dist'],
-    bin: projectType === 'cli' ? { [finalCommandName]: `dist/index.js` } : undefined,
+    bin:
+      projectType === 'cli'
+        ? { [finalCommandName]: `dist/index.js` }
+        : undefined,
     scripts: {
       'start:dev': 'ts-node src/index.ts',
       lint: 'eslint --fix . && prettier --write .',

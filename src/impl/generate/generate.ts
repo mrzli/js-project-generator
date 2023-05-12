@@ -19,7 +19,7 @@ export async function generate(
   config: Config,
   infra: GenerateInfrastructure
 ): Promise<GeneratedFiles> {
-  const templatesPath = './templates/project';
+  const templatesPath = './data/files/project';
 
   const filesFromTemplates: readonly FilePathTextContent[] =
     await lastValueFrom(
