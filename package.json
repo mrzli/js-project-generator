@@ -35,7 +35,6 @@
   "dependencies": {
     "@gmjs/assert": "^0.0.2",
     "@gmjs/fs-async": "^0.0.4",
-    "@gmjs/fs-observable": "^0.0.1",
     "@gmjs/fs-shared": "^0.0.2",
     "@gmjs/path": "^0.0.1",
     "ejs": "^3.1.9",

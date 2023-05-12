@@ -1,106 +1,135 @@
-import { relative, join } from 'node:path';
-import {
-  ObservableInput,
-  filter,
-  from,
-  lastValueFrom,
-  mergeMap,
-  toArray,
-} from 'rxjs';
+import { join } from 'node:path';
 import ejs from 'ejs';
-import { Config, GenerateInfrastructure, GeneratedFiles } from '../../types';
-import { generatePackageJson } from './generators';
-import { FilePathStats, FilePathTextContent } from '@gmjs/fs-shared';
-import { readTextAsync } from '@gmjs/fs-async';
+import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
+import { readBinaryAsync, readTextAsync } from '@gmjs/fs-async';
 import { pathExtension } from '@gmjs/path';
-import { fromFindFsEntries } from '@gmjs/fs-observable';
+import { invariant } from '@gmjs/assert';
+import {
+  Config,
+  GenerateInfrastructure,
+  GeneratedFiles,
+  TemplateMappingEntry,
+} from '../../types';
+import { generatePackageJson } from './generators';
+import { getCommandName, getEslintProjectType } from '../../util';
 
 export async function generate(
   config: Config,
   infra: GenerateInfrastructure
 ): Promise<GeneratedFiles> {
-  const templatesPath = './data/files/project';
+  const templateMappings = await getTemplateMappings(config.projectType);
 
-  const filesFromTemplates: readonly FilePathTextContent[] =
-    await lastValueFrom(
-      fromFindFsEntries(templatesPath).pipe(
-        filter((item) => item.stats.isFile()),
-        mergeMap<FilePathStats, ObservableInput<FilePathTextContent>>(
-          (item) => {
-            return from(processTemplateFile(item.path, templatesPath, config));
-          }
-        ),
-        toArray()
-      )
-    );
+  const filesFromTemplates = await getTemplateGeneratedFiles(
+    config,
+    templateMappings
+  );
 
   const filesFromNonTemplates = await generateNonTemplateFiles(config, infra);
 
-  const files: readonly FilePathTextContent[] = [
-    ...filesFromTemplates,
-    ...filesFromNonTemplates,
-  ];
-
   return {
-    textFiles: files,
-    binaryFiles: [],
+    textFiles: [
+      ...filesFromTemplates.textFiles,
+      ...filesFromNonTemplates.textFiles,
+    ],
+    binaryFiles: [
+      ...filesFromTemplates.binaryFiles,
+      ...filesFromNonTemplates.binaryFiles,
+    ],
   };
-  // await lastValueFrom(
-  //   from(files).pipe(
-  //     mergeMap((file) => from(writeTextFile(config.output, file)))
-  //   )
-  // );
 }
 
-async function processTemplateFile(
-  fullFilePath: string,
-  templatesPath: string,
-  config: Config
-): Promise<FilePathTextContent> {
-  const relativePath = relative(templatesPath, fullFilePath);
-  const content = await readTextAsync(fullFilePath);
+async function getTemplateMappings(
+  projectType: string
+): Promise<readonly TemplateMappingEntry[]> {
+  const templateMappingsContent = await readTextAsync(
+    join(TEMPLATE_MAPPINGS_DIRECTORY, `${projectType}.json`)
+  );
+  return JSON.parse(templateMappingsContent);
+}
 
-  const extension = pathExtension(relativePath);
+async function getTemplateGeneratedFiles(
+  config: Config,
+  templateMappings: readonly TemplateMappingEntry[]
+): Promise<GeneratedFiles> {
+  const textFiles: FilePathTextContent[] = [];
+  const binaryFiles: FilePathBinaryContent[] = [];
 
-  if (extension === 'ejs') {
-    const processedContent = ejs.render(content, {
-      ...config,
-      people: ['geddy', 'neil', 'alex'],
-    });
-    const processedPath = relativePath.replace(/\.ejs$/, '');
-    return {
-      path: toFinalPath(processedPath, config),
-      content: processedContent,
-    };
-  } else if (extension === 'plain') {
-    const processedPath = relativePath.replace(/\.plain$/, '');
-    return {
-      path: toFinalPath(processedPath, config),
-      content,
-    };
+  for (const mapping of templateMappings) {
+    const { template, output } = mapping;
+
+    const templateFilePath = join(TEMPLATE_FILES_DIRECTORY, template);
+    const extension = pathExtension(templateFilePath);
+
+    switch (extension) {
+      case 'plain': {
+        const content = await readTextAsync(templateFilePath);
+        textFiles.push({
+          path: toFinalPath(output, config),
+          content,
+        });
+        break;
+      }
+      case 'ejs': {
+        const content = await readTextAsync(templateFilePath);
+        const processedContent = ejs.render(
+          content,
+          getEjsPlaceholders(config)
+        );
+        textFiles.push({
+          path: toFinalPath(output, config),
+          content: processedContent,
+        });
+        break;
+      }
+      case 'bin': {
+        const content = await readBinaryAsync(templateFilePath);
+        binaryFiles.push({
+          path: toFinalPath(output, config),
+          content,
+        });
+        break;
+      }
+      default: {
+        invariant(false, `Unknown template file type: '${extension}'`);
+      }
+    }
   }
 
   return {
-    path: toFinalPath(relativePath, config),
-    content,
+    textFiles,
+    binaryFiles,
+  };
+}
+
+function getEjsPlaceholders(config: Config): Record<string, unknown> {
+  return {
+    ...config,
+    commandName: getCommandName(config),
+    eslintProjectType: getEslintProjectType(config),
   };
 }
 
 async function generateNonTemplateFiles(
   config: Config,
   infra: GenerateInfrastructure
-): Promise<readonly FilePathTextContent[]> {
+): Promise<GeneratedFiles> {
   const packageJson = await generatePackageJson(config, infra);
 
-  return [
-    {
-      path: toFinalPath('package.json', config),
-      content: packageJson,
-    },
-  ];
+  return {
+    textFiles: [
+      {
+        path: toFinalPath('package.json', config),
+        content: packageJson,
+      },
+    ],
+    binaryFiles: [],
+  };
 }
 
 function toFinalPath(filePath: string, config: Config): string {
   const { projectName, output } = config;
   return join(output, projectName, filePath);
 }
+
+const TEMPLATE_MAPPINGS_DIRECTORY = './data/mappings';
+const TEMPLATE_FILES_DIRECTORY = './data/files';

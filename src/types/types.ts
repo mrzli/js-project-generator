@@ -29,3 +29,8 @@ export interface GeneratedFiles {
   readonly textFiles: readonly FilePathTextContent[];
   readonly binaryFiles: readonly FilePathBinaryContent[];
 }
+
+export interface TemplateMappingEntry {
+  readonly template: string;
+  readonly output: string;
+}

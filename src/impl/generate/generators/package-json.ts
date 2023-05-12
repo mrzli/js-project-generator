@@ -4,6 +4,7 @@ import {
   DependencyWithVersion,
   GenerateInfrastructure,
 } from '../../../types';
+import { getCommandName } from '../../../util';
 
 export async function generatePackageJson(
   config: Config,
@@ -21,7 +22,6 @@ async function getPackageJsonData(
     projectType,
     scopeName,
     projectName,
-    commandName,
     author,
     email,
     authorUrl,
@@ -43,8 +43,6 @@ async function getPackageJsonData(
 
   const githubUrl = `https://github.com/${githubUserOrOrg}/${projectName}`;
 
-  const finalCommandName = commandName ?? projectName;
-
   return {
     name: fullProjectName,
     version: '0.0.1',
@@ -65,7 +63,7 @@ async function getPackageJsonData(
     files: ['dist'],
     bin:
       projectType === 'cli'
-        ? { [finalCommandName]: `dist/index.js` }
+        ? { [getCommandName(config)]: `dist/index.js` }
         : undefined,
     scripts: {
       'start:dev': 'ts-node src/index.ts',

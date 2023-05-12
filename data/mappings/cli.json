@@ -1,0 +1,58 @@
+[
+  {
+    "template": "shared-files/documents/README.md.ejs",
+    "output": "README.md"
+  },
+  {
+    "template": "shared-files/documents/LICENSE.md.ejs",
+    "output": "LICENSE.md"
+  },
+  {
+    "template": "shared-files/documents/CHANGELOG.md.ejs",
+    "output": "CHANGELOG.md"
+  },
+  {
+    "template": "shared-files/configs/.gitignore.plain",
+    "output": ".gitignore"
+  },
+  {
+    "template": "shared-files/configs/.editorconfig.plain",
+    "output": ".editorconfig"
+  },
+  {
+    "template": "shared-files/configs/.prettierignore.plain",
+    "output": ".prettierignore"
+  },
+  {
+    "template": "shared-files/configs/.eslintignore.plain",
+    "output": ".eslintignore"
+  },
+  {
+    "template": "shared-files/configs/.eslintrc.js.ejs",
+    "output": ".eslintrc.js"
+  },
+  {
+    "template": "shared-files/configs/jest.config.ts.plain",
+    "output": "jest.config.ts"
+  },
+  {
+    "template": "shared-files/configs/tsconfig.json.ejs",
+    "output": "tsconfig.json"
+  },
+  {
+    "template": "shared-files/configs/tsconfig.lib.json.ejs",
+    "output": "tsconfig.lib.json"
+  },
+  {
+    "template": "shared-files/configs/tsconfig.test.json.ejs",
+    "output": "tsconfig.test.json"
+  },
+  {
+    "template": "cli/src/index.ts.ejs",
+    "output": "src/index.ts"
+  },
+  {
+    "template": "cli/src/command.ts.ejs",
+    "output": "src/command.ts"
+  }
+]
