@@ -17,8 +17,16 @@ async function getPackageJsonData(
   config: Config,
   infra: GenerateInfrastructure
 ): Promise<Record<string, unknown>> {
-  const { scopeName, projectName, author, email, authorUrl, githubUserOrOrg } =
-    config;
+  const {
+    projectType,
+    scopeName,
+    projectName,
+    commandName,
+    author,
+    email,
+    authorUrl,
+    githubUserOrOrg,
+  } = config;
 
   const dependencies = await getDependenciesWithVersions(
     config.dependencies,
@@ -34,6 +42,8 @@ async function getPackageJsonData(
     : projectName;
 
   const githubUrl = `https://github.com/${githubUserOrOrg}/${projectName}`;
+
+  const finalCommandName = commandName ?? projectName;
 
   return {
     name: fullProjectName,
@@ -53,6 +63,7 @@ async function getPackageJsonData(
     homepage: githubUrl,
     main: 'dist/index.js',
     files: ['dist'],
+    bin: projectType === 'cli' ? { [finalCommandName]: `dist/index.js` } : undefined,
     scripts: {
       'start:dev': 'ts-node src/index.ts',
       lint: 'eslint --fix . && prettier --write .',

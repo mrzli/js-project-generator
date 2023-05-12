@@ -1,12 +1,13 @@
 import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
 
-export type ProjectType = 'shared' | 'node' | 'browser' | 'react';
+export type ProjectType = 'shared' | 'node' | 'cli' | 'browser' | 'react';
 
 export interface Config {
   readonly output: string;
   readonly projectType: ProjectType;
   readonly scopeName: string;
   readonly projectName: string;
+  readonly commandName?: string;
   readonly author: string;
   readonly email: string;
   readonly authorUrl?: string;
