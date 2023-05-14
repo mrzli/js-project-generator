@@ -84,6 +84,7 @@ async function readConfig(_configPath: string): Promise<Config> {
     dependencies: ['tslib'],
     devDependencies: [
       '@gmjs/eslint-config',
+      '@gmjs/jest-config',
       '@gmjs/prettier-config',
       '@gmjs/tsconfig',
       '@jest/globals',

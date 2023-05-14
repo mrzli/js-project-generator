@@ -10,6 +10,7 @@
   "dependencies": ["tslib"],
   "devDependencies": [
     "@gmjs/eslint-config",
+    "@gmjs/jest-config",
     "@gmjs/prettier-config",
     "@gmjs/tsconfig",
     "@jest/globals",
