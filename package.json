@@ -21,7 +21,7 @@
   },
   "prettier": "@gmjs/prettier-config",
   "scripts": {
-    "start:dev": "ts-node src/index.ts",
+    "start:dev": "ts-node src/run.ts",
     "lint": "eslint --fix . && prettier --write .",
     "lint:nofix": "eslint . && prettier .",
     "test-only": "jest",

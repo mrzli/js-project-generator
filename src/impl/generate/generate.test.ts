@@ -8,7 +8,7 @@ import { Config, GenerateInfrastructure } from '../../types';
 describe('generate', () => {
   const testCasesParentDirectory = join(__dirname, 'test-assets');
 
-  describe('generate()', () => {
+  describe('generateImpl()', () => {
     const testCaseRuns = getFileSystemTestCaseRuns(
       testCasesParentDirectory,
       getActualFiles,
