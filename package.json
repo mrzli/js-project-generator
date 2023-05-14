@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^0.0.10",
+    "@gmjs/jest-config": "^0.0.1",
     "@gmjs/prettier-config": "^1.0.2",
     "@gmjs/test-util": "^0.0.9",
     "@gmjs/tsconfig": "^1.0.0",
