@@ -24,13 +24,12 @@
     "start:dev": "ts-node src/run.ts",
     "lint": "eslint --fix . && prettier --write .",
     "lint:nofix": "eslint . && prettier .",
-    "test-only": "jest",
-    "test": "npm run lint && jest",
+    "test-only": "jest --passWithNoTests",
+    "test": "npm run lint && npm run test-only",
     "build-only": "shx rm -rf ./dist && tsc --project tsconfig.lib.json",
     "build": "npm run test && npm run build-only",
-    "publish-only": "npm publish --access public",
-    "publish": "npm run build && npm run publish-only",
-    "postbuild": "chmod +x ./dist/index.js"
+    "pub-only": "npm publish --access public",
+    "pub": "npm run build && npm run pub-only"
   },
   "dependencies": {
     "@gmjs/assert": "^0.0.2",
