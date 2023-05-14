@@ -1,14 +1,14 @@
 import { join } from 'node:path';
 import { generateProject } from './impl';
 import { Config } from './types';
-import { readTextAsync } from '@gmjs/fs-async';
+// import { readTextAsync } from '@gmjs/fs-async';
 import { invariant } from '@gmjs/assert';
 
 async function run(): Promise<void> {
   const options: Record<string, unknown> = {
     config: join('example-configs', 'node.json'),
     output: 'output',
-    projectName: 'test-util',
+    projectName: 'jest-config',
   };
 
   const config = await getConfig(options);
@@ -20,8 +20,7 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
   const cliOutput = options['output'] as string | undefined;
   const cliProjectName = options['projectName'] as string | undefined;
 
-  const configContent = await readTextAsync(configPath);
-  const config = JSON.parse(configContent) as Partial<Config>;
+  const config = await readConfig(configPath);
 
   const {
     output,
@@ -67,6 +66,44 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
   };
 
   return finalConfig;
+}
+
+async function readConfig(_configPath: string): Promise<Config> {
+  // const configContent = await readTextAsync(configPath);
+  // const config = JSON.parse(configContent) as Partial<Config>;
+
+  return {
+    output: 'output',
+    projectType: 'node',
+    scopeName: 'gmjs',
+    projectName: 'project',
+    author: 'Goran Mržljak',
+    email: 'goran.mrzljak@gmail.com',
+    authorUrl: 'https://mrzli.com',
+    githubUserOrOrg: 'mrzli',
+    dependencies: ['tslib'],
+    devDependencies: [
+      '@gmjs/eslint-config',
+      '@gmjs/prettier-config',
+      '@gmjs/tsconfig',
+      '@jest/globals',
+      '@types/eslint',
+      '@typescript-eslint/eslint-plugin',
+      '@typescript-eslint/parser',
+      'eslint',
+      'eslint-config-prettier',
+      'eslint-import-resolver-typescript',
+      'eslint-plugin-import',
+      'eslint-plugin-unicorn',
+      'eslint-plugin-n',
+      'jest',
+      'prettier',
+      'shx',
+      'ts-jest',
+      'ts-node',
+      'typescript',
+    ],
+  };
 }
 
 run().then(() => {
