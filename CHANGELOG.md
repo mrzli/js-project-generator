@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.4] - 2023-06-02
+
+### Fixed
+
+- By default only build files in `src` directory.
+
 ## [0.0.3] - 2023-06-02
 
 ### Changed
