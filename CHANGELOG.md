@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.3] - 2023-06-02
+
+### Changed
+
+- Add shebang to `index.ts` for generated cli project.
+
 ## [0.0.2] - 2023-05-14
 
 ### Changed
