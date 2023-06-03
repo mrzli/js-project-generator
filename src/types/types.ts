@@ -12,8 +12,6 @@ export interface Config {
   readonly email: string;
   readonly authorUrl?: string;
   readonly githubUserOrOrg: string;
-  readonly dependencies: readonly string[];
-  readonly devDependencies: readonly string[];
 }
 
 export interface DependencyWithVersion {

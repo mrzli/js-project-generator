@@ -6,27 +6,5 @@
   "author": "John Smith",
   "email": "john.smith@example.com",
   "authorUrl": "https://example.com",
-  "githubUserOrOrg": "johnsmith",
-  "dependencies": ["tslib"],
-  "devDependencies": [
-    "@gmjs/eslint-config",
-    "@gmjs/jest-config",
-    "@gmjs/prettier-config",
-    "@gmjs/tsconfig",
-    "@jest/globals",
-    "@types/eslint",
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser",
-    "eslint",
-    "eslint-config-prettier",
-    "eslint-import-resolver-typescript",
-    "eslint-plugin-import",
-    "eslint-plugin-unicorn",
-    "jest",
-    "prettier",
-    "shx",
-    "ts-jest",
-    "ts-node",
-    "typescript"
-  ]
+  "githubUserOrOrg": "johnsmith"
 }

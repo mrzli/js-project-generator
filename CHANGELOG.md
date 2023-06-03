@@ -4,6 +4,10 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- Hardcode dependencies for generated `package.json` files instead of having them in a config.
+
 ## [0.0.7] - 2023-06-03
 
 ### Fixed

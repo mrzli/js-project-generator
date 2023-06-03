@@ -3,8 +3,9 @@ import {
   Config,
   DependencyWithVersion,
   GenerateInfrastructure,
-} from '../../../types';
-import { getCommandName } from '../../../util';
+} from '../../../../types';
+import { getCommandName } from '../../../../util';
+import { getDependencies, getDevDependencies } from './dependencies';
 
 export async function generatePackageJson(
   config: Config,
@@ -29,11 +30,11 @@ async function getPackageJsonData(
   } = config;
 
   const dependencies = await getDependenciesWithVersions(
-    config.dependencies,
+    sortDependencies(getDependencies(projectType)),
     infra
   );
   const devDependencies = await getDependenciesWithVersions(
-    config.devDependencies,
+    sortDependencies(getDevDependencies(projectType)),
     infra
   );
 
@@ -82,6 +83,10 @@ async function getPackageJsonData(
     },
     prettier: '@gmjs/prettier-config',
   };
+}
+
+function sortDependencies(deps: readonly string[]): readonly string[] {
+  return [...deps].sort((d1, d2) => d1.localeCompare(d2));
 }
 
 async function getDependenciesWithVersions(
