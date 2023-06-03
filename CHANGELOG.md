@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.9] - 2023-06-03
+
+### Changed
+
+- Small change related to project type typing.
+
 ## [0.0.8] - 2023-06-03
 
 ### Changed
