@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.6] - 2023-06-03
+
+### Fixed
+
+- Fix `main` and `bin` fields in `package.json` for this project, and for project generation.
+
 ## [0.0.5] - 2023-06-03
 
 ### Fixed

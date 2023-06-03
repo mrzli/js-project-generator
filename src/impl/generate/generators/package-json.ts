@@ -59,10 +59,10 @@ async function getPackageJsonData(
       url: githubUrl,
     },
     homepage: githubUrl,
-    main: 'dist/index.js',
+    main: 'src/index.js',
     bin:
       projectType === 'cli'
-        ? { [getCommandName(config)]: `dist/index.js` }
+        ? { [getCommandName(config)]: `src/index.js` }
         : undefined,
     scripts: {
       'start:dev': 'ts-node src/index.ts',
