@@ -4,6 +4,16 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.10] - 2023-06-03
+
+### Added
+
+- Add tests for config validation.
+
+### Fixed
+
+- Fix issues with config validations.
+
 ## [0.0.9] - 2023-06-03
 
 ### Changed

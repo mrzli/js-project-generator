@@ -56,7 +56,7 @@ function validateConfigCli(config: Partial<ConfigCli>): ConfigCli {
   const { projectType, commandName } = config;
 
   invariant(!!projectType, `Missing ${'projectType'}.`);
-  invariant(projectType !== 'cli', `Project type is expected to be 'cli'.`);
+  invariant(projectType === 'cli', `Project type is expected to be 'cli'.`);
   invariant(!!commandName, `Missing ${'commandName'}.`);
 
   return {
@@ -74,6 +74,7 @@ function validateConfigBase(config: Partial<ConfigBase>): ConfigBase {
     projectName,
     author,
     email,
+    authorUrl,
     githubUserOrOrg,
   } = config;
 
@@ -92,6 +93,7 @@ function validateConfigBase(config: Partial<ConfigBase>): ConfigBase {
     projectName,
     author,
     email,
+    authorUrl,
     githubUserOrOrg,
   };
 }
