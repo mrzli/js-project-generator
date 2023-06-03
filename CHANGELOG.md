@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.7] - 2023-06-03
+
+### Fixed
+
+- Fix data file paths so they work when this package is used as a dependency.
+
 ## [0.0.6] - 2023-06-03
 
 ### Fixed

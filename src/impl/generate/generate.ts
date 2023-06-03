@@ -42,7 +42,7 @@ async function getTemplateMappings(
   projectType: string
 ): Promise<readonly TemplateMappingEntry[]> {
   const templateMappingsContent = await readTextAsync(
-    join(TEMPLATE_MAPPINGS_DIRECTORY, `${projectType}.json`)
+    join(__dirname, TEMPLATE_MAPPINGS_DIRECTORY, `${projectType}.json`)
   );
   return JSON.parse(templateMappingsContent);
 }
@@ -57,7 +57,11 @@ async function getTemplateGeneratedFiles(
   for (const mapping of templateMappings) {
     const { template, output } = mapping;
 
-    const templateFilePath = join(TEMPLATE_FILES_DIRECTORY, template);
+    const templateFilePath = join(
+      __dirname,
+      TEMPLATE_FILES_DIRECTORY,
+      template
+    );
     const extension = pathExtension(templateFilePath);
 
     switch (extension) {
@@ -131,5 +135,5 @@ function toFinalPath(filePath: string, config: Config): string {
   return join(output, projectName, filePath);
 }
 
-const TEMPLATE_MAPPINGS_DIRECTORY = './data/mappings';
-const TEMPLATE_FILES_DIRECTORY = './data/files';
+const TEMPLATE_MAPPINGS_DIRECTORY = '../../../data/mappings';
+const TEMPLATE_FILES_DIRECTORY = '../../../data/files';
