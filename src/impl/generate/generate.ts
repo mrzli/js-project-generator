@@ -11,7 +11,7 @@ import {
   TemplateMappingEntry,
 } from '../../types';
 import { generatePackageJson } from './generators';
-import { getCommandName, getEslintProjectType } from '../../util';
+import { getEslintProjectType } from '../../util';
 
 export async function generate(
   config: Config,
@@ -108,7 +108,7 @@ async function getTemplateGeneratedFiles(
 function getEjsPlaceholders(config: Config): Record<string, unknown> {
   return {
     ...config,
-    commandName: getCommandName(config),
+    commandName: config.projectType === 'cli' ? config.commandName : undefined,
     eslintProjectType: getEslintProjectType(config),
   };
 }

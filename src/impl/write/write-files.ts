@@ -5,7 +5,7 @@ import {
   writeTextAsync,
 } from '@gmjs/fs-async';
 import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
-import { Config, GeneratedFiles } from '../types';
+import { Config, GeneratedFiles } from '../../types';
 import { lastValueFrom, from, mergeMap } from 'rxjs';
 
 export async function writeGeneratedFiles(

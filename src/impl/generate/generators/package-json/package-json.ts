@@ -4,7 +4,6 @@ import {
   DependencyWithVersion,
   GenerateInfrastructure,
 } from '../../../../types';
-import { getCommandName } from '../../../../util';
 import { getDependencies, getDevDependencies } from './dependencies';
 
 export async function generatePackageJson(
@@ -63,7 +62,8 @@ async function getPackageJsonData(
     main: 'src/index.js',
     bin:
       projectType === 'cli'
-        ? { [getCommandName(config)]: `src/index.js` }
+        ? // eslint-disable-next-line unicorn/consistent-destructuring
+          { [config.commandName]: `src/index.js` }
         : undefined,
     scripts: {
       'start:dev': 'ts-node src/index.ts',

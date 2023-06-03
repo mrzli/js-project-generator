@@ -2,7 +2,6 @@ import { join } from 'node:path';
 import { generateProject } from './impl';
 import { Config } from './types';
 // import { readTextAsync } from '@gmjs/fs-async';
-import { invariant } from '@gmjs/assert';
 
 async function run(): Promise<void> {
   const options: Record<string, unknown> = {
@@ -15,7 +14,9 @@ async function run(): Promise<void> {
   await generateProject(config);
 }
 
-async function getConfig(options: Record<string, unknown>): Promise<Config> {
+async function getConfig(
+  options: Record<string, unknown>
+): Promise<Partial<Config>> {
   const configPath = options['config'] as string;
   const cliOutput = options['output'] as string | undefined;
   const cliProjectName = options['projectName'] as string | undefined;
@@ -31,28 +32,12 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
     email,
     authorUrl,
     githubUserOrOrg,
-    dependencies,
-    devDependencies,
   } = config;
 
   const finalOutput = cliOutput ?? output;
   const finalProjectName = cliProjectName ?? projectName;
 
-  if (
-    !finalOutput ||
-    !projectType ||
-    !scopeName ||
-    !finalProjectName ||
-    !author ||
-    !email ||
-    !githubUserOrOrg ||
-    !dependencies ||
-    !devDependencies
-  ) {
-    invariant(false, `Invalid config: ${configPath}`);
-  }
-
-  const finalConfig: Config = {
+  const finalConfig: Partial<Config> = {
     output: finalOutput,
     projectType,
     scopeName,
@@ -60,9 +45,8 @@ async function getConfig(options: Record<string, unknown>): Promise<Config> {
     author,
     authorUrl,
     email,
+    commandName: projectType === 'cli' ? finalProjectName : undefined,
     githubUserOrOrg,
-    dependencies,
-    devDependencies,
   };
 
   return finalConfig;
@@ -81,29 +65,6 @@ async function readConfig(_configPath: string): Promise<Config> {
     email: 'goran.mrzljak@gmail.com',
     authorUrl: 'https://mrzli.com',
     githubUserOrOrg: 'mrzli',
-    dependencies: ['tslib'],
-    devDependencies: [
-      '@gmjs/eslint-config',
-      '@gmjs/jest-config',
-      '@gmjs/prettier-config',
-      '@gmjs/tsconfig',
-      '@jest/globals',
-      '@types/eslint',
-      '@typescript-eslint/eslint-plugin',
-      '@typescript-eslint/parser',
-      'eslint',
-      'eslint-config-prettier',
-      'eslint-import-resolver-typescript',
-      'eslint-plugin-import',
-      'eslint-plugin-unicorn',
-      'eslint-plugin-n',
-      'jest',
-      'prettier',
-      'shx',
-      'ts-jest',
-      'ts-node',
-      'typescript',
-    ],
   };
 }
 
