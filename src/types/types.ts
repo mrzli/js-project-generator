@@ -1,6 +1,14 @@
 import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
 
-export type ProjectType = 'shared' | 'node' | 'cli' | 'browser' | 'react';
+export const PROJECT_TYPE_LIST = [
+  'shared',
+  'node',
+  'cli',
+  'browser',
+  'react',
+] as const;
+
+export type ProjectType = (typeof PROJECT_TYPE_LIST)[number];
 
 export interface DependencyWithVersion {
   readonly name: string;
