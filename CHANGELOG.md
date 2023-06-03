@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.5] - 2023-06-03
+
+### Fixed
+
+- Fix published data.
+
 ## [0.0.4] - 2023-06-02
 
 ### Fixed

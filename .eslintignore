@@ -2,3 +2,4 @@
 /dist/
 /.eslintrc.js
 /output/
+/publish.js

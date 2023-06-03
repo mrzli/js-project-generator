@@ -36,6 +36,10 @@
     "output": "jest.config.ts"
   },
   {
+    "template": "shared-files/configs/project.json.plain",
+    "output": "project.json"
+  },
+  {
     "template": "shared-files/configs/tsconfig.json.ejs",
     "output": "tsconfig.json"
   },

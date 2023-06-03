@@ -60,7 +60,6 @@ async function getPackageJsonData(
     },
     homepage: githubUrl,
     main: 'dist/index.js',
-    files: ['dist'],
     bin:
       projectType === 'cli'
         ? { [getCommandName(config)]: `dist/index.js` }

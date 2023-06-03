@@ -15,9 +15,6 @@
   },
   "homepage": "https://github.com/johnsmith/test-project",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
   "bin": {
     "test-command": "dist/index.js"
   },

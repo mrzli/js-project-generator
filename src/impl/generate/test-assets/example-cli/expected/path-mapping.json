@@ -28,6 +28,10 @@
     "path": "output/test-project/LICENSE.md"
   },
   {
+    "testFile": "<shared>/project.json.txt",
+    "path": "output/test-project/project.json"
+  },
+  {
     "testFile": "<shared>/README.md.txt",
     "path": "output/test-project/README.md"
   },

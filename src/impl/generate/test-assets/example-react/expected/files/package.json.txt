@@ -15,9 +15,6 @@
   },
   "homepage": "https://github.com/johnsmith/test-project",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "start:dev": "ts-node src/index.ts",
     "lint": "eslint --fix . && prettier --write .",
