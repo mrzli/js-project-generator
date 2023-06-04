@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.11] - 2023-06-04
+
+### Fixed
+
+- Fix double application of `output` directory option when generating a project.
+
 ## [0.0.10] - 2023-06-03
 
 ### Added

@@ -1,66 +1,66 @@
 [
   {
     "template": "shared-files/documents/README.md.ejs",
-    "output": "README.md"
+    "target": "README.md"
   },
   {
     "template": "shared-files/documents/LICENSE.md.ejs",
-    "output": "LICENSE.md"
+    "target": "LICENSE.md"
   },
   {
     "template": "shared-files/documents/CHANGELOG.md.ejs",
-    "output": "CHANGELOG.md"
+    "target": "CHANGELOG.md"
   },
   {
     "template": "shared-files/configs/.gitignore.plain",
-    "output": ".gitignore"
+    "target": ".gitignore"
   },
   {
     "template": "shared-files/configs/.editorconfig.plain",
-    "output": ".editorconfig"
+    "target": ".editorconfig"
   },
   {
     "template": "shared-files/configs/.prettierignore.plain",
-    "output": ".prettierignore"
+    "target": ".prettierignore"
   },
   {
     "template": "shared-files/configs/.eslintignore.plain",
-    "output": ".eslintignore"
+    "target": ".eslintignore"
   },
   {
     "template": "shared-files/configs/.eslintrc.js.ejs",
-    "output": ".eslintrc.js"
+    "target": ".eslintrc.js"
   },
   {
     "template": "shared-files/configs/jest.config.ts.plain",
-    "output": "jest.config.ts"
+    "target": "jest.config.ts"
   },
   {
     "template": "shared-files/configs/project.json.plain",
-    "output": "project.json"
+    "target": "project.json"
   },
   {
     "template": "shared-files/configs/tsconfig.json.ejs",
-    "output": "tsconfig.json"
+    "target": "tsconfig.json"
   },
   {
     "template": "shared-files/configs/tsconfig.lib.json.ejs",
-    "output": "tsconfig.lib.json"
+    "target": "tsconfig.lib.json"
   },
   {
     "template": "shared-files/configs/tsconfig.test.json.ejs",
-    "output": "tsconfig.test.json"
+    "target": "tsconfig.test.json"
   },
   {
     "template": "shared-files/src-lib/index.ts.ejs",
-    "output": "src/index.ts"
+    "target": "src/index.ts"
   },
   {
     "template": "shared-files/src-lib/example.ts.ejs",
-    "output": "src/example.ts"
+    "target": "src/example.ts"
   },
   {
     "template": "shared-files/src-lib/example.test.ts.ejs",
-    "output": "src/example.test.ts"
+    "target": "src/example.test.ts"
   }
 ]

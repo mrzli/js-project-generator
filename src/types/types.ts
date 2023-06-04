@@ -26,5 +26,5 @@ export interface GeneratedFiles {
 
 export interface TemplateMappingEntry {
   readonly template: string;
-  readonly output: string;
+  readonly target: string;
 }

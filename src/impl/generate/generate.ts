@@ -55,7 +55,7 @@ async function getTemplateGeneratedFiles(
   const binaryFiles: FilePathBinaryContent[] = [];
 
   for (const mapping of templateMappings) {
-    const { template, output } = mapping;
+    const { template, target } = mapping;
 
     const templateFilePath = join(
       __dirname,
@@ -68,7 +68,7 @@ async function getTemplateGeneratedFiles(
       case 'plain': {
         const content = await readTextAsync(templateFilePath);
         textFiles.push({
-          path: toFinalPath(output, config),
+          path: toFinalPath(target, config),
           content,
         });
         break;
@@ -80,7 +80,7 @@ async function getTemplateGeneratedFiles(
           getEjsPlaceholders(config)
         );
         textFiles.push({
-          path: toFinalPath(output, config),
+          path: toFinalPath(target, config),
           content: processedContent,
         });
         break;
@@ -88,7 +88,7 @@ async function getTemplateGeneratedFiles(
       case 'bin': {
         const content = await readBinaryAsync(templateFilePath);
         binaryFiles.push({
-          path: toFinalPath(output, config),
+          path: toFinalPath(target, config),
           content,
         });
         break;
@@ -131,8 +131,8 @@ async function generateNonTemplateFiles(
 }
 
 function toFinalPath(filePath: string, config: Config): string {
-  const { projectName, output } = config;
-  return join(output, projectName, filePath);
+  const { projectName } = config;
+  return join(projectName, filePath);
 }
 
 const TEMPLATE_MAPPINGS_DIRECTORY = '../../../data/mappings';
