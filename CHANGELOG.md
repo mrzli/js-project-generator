@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.12] - 2023-06-04
+
+### Changed
+
+- Use `@gmjs/npm-publish-cli` for publishing this project.
+
 ## [0.0.11] - 2023-06-04
 
 ### Fixed

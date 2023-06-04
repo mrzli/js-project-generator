@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/js-project-generator",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Project generator for JavaScript/TypeScript projects.",
   "author": {
     "name": "Goran Mržljak",
@@ -25,7 +25,7 @@
     "test": "npm run lint && npm run test-only",
     "build-only": "shx rm -rf ./dist && tsc --project tsconfig.lib.json",
     "build": "npm run test && npm run build-only",
-    "pub-only": "node publish.js",
+    "pub-only": "npmpub",
     "pub": "npm run build && npm run pub-only"
   },
   "dependencies": {
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@gmjs/eslint-config": "^0.0.10",
     "@gmjs/jest-config": "^0.0.1",
+    "@gmjs/npm-publish-cli": "^0.0.2",
     "@gmjs/prettier-config": "^1.0.2",
     "@gmjs/test-util": "^0.0.9",
     "@gmjs/tsconfig": "^1.0.0",
