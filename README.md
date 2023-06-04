@@ -50,7 +50,7 @@ All fields are required unless otherwise noted.
     - `cli`
       - Description
         - Generates a CLI application project.
-- `scopeName` - NPM scope.
+- `scopeName` - NPM scope, without the `@`.
 - `projectName`
   - Description
     - Base project name.
@@ -69,15 +69,23 @@ All fields are required unless otherwise noted.
     - Optional.
     - URL to the author's website.
 - `githubUserOrOrg` - GitHub user or organization name.
-- `dependencies`
-  - Description
-    - List of NPM dependencies to install.
-    - Specific types of projects may require specific dependencies. See [examples](#examples).
-- `devDependencies`
-  - Description
-    - List of NPM dev dependencies to install.
-    - Specific types of projects may require specific dev dependencies. See [examples](#examples).
 
 ## Examples
 
-See examples [here](src/impl/generate/test-assets).
+Here is one example of a configuration:
+
+```json
+{
+  "output": "some/path",
+  "projectType": "cli",
+  "scopeName": "my-scope",
+  "projectName": "test-project",
+  "commandName": "test-command",
+  "author": "John Smith",
+  "email": "john.smith@example.com",
+  "authorUrl": "https://example.com",
+  "githubUserOrOrg": "johnsmith"
+}
+```
+
+See more examples [here](src/impl/generate/test-assets).
