@@ -73,7 +73,7 @@ async function getPackageJsonData(
       test: 'npm run lint && npm run test-only',
       'build-only': 'shx rm -rf ./dist && tsc --project tsconfig.lib.json',
       build: 'npm run test && npm run build-only',
-      'pub-only': 'npm publish --access public',
+      'pub-only': 'npmpub',
       pub: 'npm run build && npm run pub-only',
     },
     dependencies: toDependenciesObject(dependencies),

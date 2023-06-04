@@ -67,4 +67,7 @@ const DEV_DEPENDENCIES_TYPESCRIPT: readonly string[] = [
   'typescript',
 ];
 
-const DEV_DEPENDENCIES_TOOLING: readonly string[] = ['shx'];
+const DEV_DEPENDENCIES_TOOLING: readonly string[] = [
+  '@gmjs/npm-publish-cli',
+  'shx',
+];
