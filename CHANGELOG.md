@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.14] - 2023-06-09
+
+### Fixed
+
+- Fix `lint:nofix` script.
+
 ## [0.0.13] - 2023-06-04
 
 ### Changed

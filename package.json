@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/js-project-generator",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Project generator for JavaScript/TypeScript projects.",
   "author": {
     "name": "Goran Mržljak",
@@ -20,7 +20,7 @@
   "scripts": {
     "start:dev": "ts-node src/run.ts",
     "lint": "eslint --fix . && prettier --write .",
-    "lint:nofix": "eslint . && prettier .",
+    "lint:nofix": "eslint . && prettier --check .",
     "test-only": "jest --passWithNoTests",
     "test": "npm run lint && npm run test-only",
     "build-only": "shx rm -rf ./dist && tsc --project tsconfig.lib.json",
