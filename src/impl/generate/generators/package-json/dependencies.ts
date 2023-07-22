@@ -12,7 +12,7 @@ export function getDependencies(projectType: ProjectType): readonly string[] {
 const DEPENDENCIES_RUNTIME: readonly string[] = ['tslib'];
 
 export function getDevDependencies(
-  projectType: ProjectType
+  projectType: ProjectType,
 ): readonly string[] {
   return [
     ...DEV_DEPENDENCIES_GMJS_CONFIGS,
@@ -31,7 +31,7 @@ const DEV_DEPENDENCIES_GMJS_CONFIGS: readonly string[] = [
 ];
 
 function getDevDependenciesLinting(
-  projectType: ProjectType
+  projectType: ProjectType,
 ): readonly string[] {
   return [
     '@types/eslint',

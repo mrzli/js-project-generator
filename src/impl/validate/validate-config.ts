@@ -22,7 +22,7 @@ export function validateConfig(config: ConfigUnvalidated): Config {
 }
 
 export function validateConfigValidProjectType(
-  config: ConfigValidProjectType
+  config: ConfigValidProjectType,
 ): Config {
   const { projectType } = config;
 
@@ -44,7 +44,7 @@ export function validateConfigValidProjectType(
 
 function validateConfigNonCli<TProjectType extends Exclude<ProjectType, 'cli'>>(
   projectType: TProjectType,
-  config: Partial<ConfigBase>
+  config: Partial<ConfigBase>,
 ): Exclude<Config, ConfigCli> {
   return {
     ...validateConfigBase(config),

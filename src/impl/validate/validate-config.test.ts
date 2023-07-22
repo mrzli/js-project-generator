@@ -124,8 +124,7 @@ describe('validate-config', () => {
 
       for (const example of EXAMPLES) {
         it(JSON.stringify(example), () => {
-          // eslint-disable-next-line unicorn/consistent-function-scoping
-          const call = () => validateConfig(example.input);
+          const call = (): Config => validateConfig(example.input);
           expect(call).toThrow();
         });
       }

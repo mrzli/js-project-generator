@@ -8,7 +8,7 @@ import { getDependencies, getDevDependencies } from './dependencies';
 
 export async function generatePackageJson(
   config: Config,
-  infra: GenerateInfrastructure
+  infra: GenerateInfrastructure,
 ): Promise<string> {
   const data = await getPackageJsonData(config, infra);
   return JSON.stringify(data, undefined, 2) + '\n';
@@ -16,7 +16,7 @@ export async function generatePackageJson(
 
 async function getPackageJsonData(
   config: Config,
-  infra: GenerateInfrastructure
+  infra: GenerateInfrastructure,
 ): Promise<Record<string, unknown>> {
   const {
     projectType,
@@ -30,11 +30,11 @@ async function getPackageJsonData(
 
   const dependencies = await getDependenciesWithVersions(
     sortDependencies(getDependencies(projectType)),
-    infra
+    infra,
   );
   const devDependencies = await getDependenciesWithVersions(
     sortDependencies(getDevDependencies(projectType)),
-    infra
+    infra,
   );
 
   const fullProjectName = scopeName
@@ -91,20 +91,20 @@ function sortDependencies(deps: readonly string[]): readonly string[] {
 
 async function getDependenciesWithVersions(
   deps: readonly string[],
-  infra: GenerateInfrastructure
+  infra: GenerateInfrastructure,
 ): Promise<readonly DependencyWithVersion[]> {
   return await lastValueFrom(
     from(deps).pipe(
       mergeMap((dep) => from(toDependencyWithVersion(dep, infra))),
       toArray(),
-      map((deps) => deps.sort((a, b) => a.name.localeCompare(b.name)))
-    )
+      map((deps) => deps.sort((a, b) => a.name.localeCompare(b.name))),
+    ),
   );
 }
 
 async function toDependencyWithVersion(
   dep: string,
-  infra: GenerateInfrastructure
+  infra: GenerateInfrastructure,
 ): Promise<DependencyWithVersion> {
   const version = await infra.getDepLatestVersion(dep);
   return {
@@ -114,7 +114,7 @@ async function toDependencyWithVersion(
 }
 
 function toDependenciesObject(
-  deps: readonly DependencyWithVersion[]
+  deps: readonly DependencyWithVersion[],
 ): Record<string, string> {
   return Object.fromEntries(deps.map(({ name, version }) => [name, version]));
 }

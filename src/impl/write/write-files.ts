@@ -10,30 +10,30 @@ import { lastValueFrom, from, mergeMap } from 'rxjs';
 
 export async function writeGeneratedFiles(
   config: Config,
-  files: GeneratedFiles
+  files: GeneratedFiles,
 ): Promise<void> {
   const { textFiles, binaryFiles } = files;
 
   if (textFiles.length > 0) {
     await lastValueFrom(
       from(textFiles).pipe(
-        mergeMap((file) => from(writeTextFile(config.output, file)))
-      )
+        mergeMap((file) => from(writeTextFile(config.output, file))),
+      ),
     );
   }
 
   if (binaryFiles.length > 0) {
     await lastValueFrom(
       from(binaryFiles).pipe(
-        mergeMap((file) => from(writeBinaryFile(config.output, file)))
-      )
+        mergeMap((file) => from(writeBinaryFile(config.output, file))),
+      ),
     );
   }
 }
 
 async function writeTextFile(
   destinationDirectory: string,
-  file: FilePathTextContent
+  file: FilePathTextContent,
 ): Promise<void> {
   const targetFilePath = join(destinationDirectory, file.path);
   await createFileAsync(targetFilePath);
@@ -42,7 +42,7 @@ async function writeTextFile(
 
 async function writeBinaryFile(
   destinationDirectory: string,
-  file: FilePathBinaryContent
+  file: FilePathBinaryContent,
 ): Promise<void> {
   const targetFilePath = join(destinationDirectory, file.path);
   await createFileAsync(targetFilePath);

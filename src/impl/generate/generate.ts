@@ -15,13 +15,13 @@ import { getEslintProjectType } from '../../util';
 
 export async function generate(
   config: Config,
-  infra: GenerateInfrastructure
+  infra: GenerateInfrastructure,
 ): Promise<GeneratedFiles> {
   const templateMappings = await getTemplateMappings(config.projectType);
 
   const filesFromTemplates = await getTemplateGeneratedFiles(
     config,
-    templateMappings
+    templateMappings,
   );
 
   const filesFromNonTemplates = await generateNonTemplateFiles(config, infra);
@@ -39,17 +39,17 @@ export async function generate(
 }
 
 async function getTemplateMappings(
-  projectType: string
+  projectType: string,
 ): Promise<readonly TemplateMappingEntry[]> {
   const templateMappingsContent = await readTextAsync(
-    join(__dirname, TEMPLATE_MAPPINGS_DIRECTORY, `${projectType}.json`)
+    join(__dirname, TEMPLATE_MAPPINGS_DIRECTORY, `${projectType}.json`),
   );
   return JSON.parse(templateMappingsContent);
 }
 
 async function getTemplateGeneratedFiles(
   config: Config,
-  templateMappings: readonly TemplateMappingEntry[]
+  templateMappings: readonly TemplateMappingEntry[],
 ): Promise<GeneratedFiles> {
   const textFiles: FilePathTextContent[] = [];
   const binaryFiles: FilePathBinaryContent[] = [];
@@ -60,7 +60,7 @@ async function getTemplateGeneratedFiles(
     const templateFilePath = join(
       __dirname,
       TEMPLATE_FILES_DIRECTORY,
-      template
+      template,
     );
     const extension = pathExtension(templateFilePath);
 
@@ -77,7 +77,7 @@ async function getTemplateGeneratedFiles(
         const content = await readTextAsync(templateFilePath);
         const processedContent = ejs.render(
           content,
-          getEjsPlaceholders(config)
+          getEjsPlaceholders(config),
         );
         textFiles.push({
           path: toFinalPath(target, config),
@@ -115,7 +115,7 @@ function getEjsPlaceholders(config: Config): Record<string, unknown> {
 
 async function generateNonTemplateFiles(
   config: Config,
-  infra: GenerateInfrastructure
+  infra: GenerateInfrastructure,
 ): Promise<GeneratedFiles> {
   const packageJson = await generatePackageJson(config, infra);
 

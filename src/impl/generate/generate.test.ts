@@ -14,7 +14,7 @@ describe('generate', () => {
       getActualFiles,
       {
         sharedDirectoryRelativePath: '../../../shared/files',
-      }
+      },
     );
 
     for (const testCaseRun of testCaseRuns) {
@@ -27,10 +27,10 @@ describe('generate', () => {
 });
 
 async function getActualFiles(
-  testCaseDirectory: string
+  testCaseDirectory: string,
 ): Promise<FilesContainer> {
   const configContent = await readTextAsync(
-    join(testCaseDirectory, 'input/config.json')
+    join(testCaseDirectory, 'input/config.json'),
   );
   const config = parseConfig(configContent);
 

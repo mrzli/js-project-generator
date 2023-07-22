@@ -15,7 +15,7 @@ async function run(): Promise<void> {
 }
 
 async function getConfig(
-  options: Record<string, unknown>
+  options: Record<string, unknown>,
 ): Promise<Partial<Config>> {
   const configPath = options['config'] as string;
   const cliOutput = options['output'] as string | undefined;
