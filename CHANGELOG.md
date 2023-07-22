@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.15] - 2023-07-22
+
+### Changed
+
+- Add `spec.ts` files to the exclusion list for production builds.
+
 ## [0.0.14] - 2023-06-09
 
 ### Fixed
