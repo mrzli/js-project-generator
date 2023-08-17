@@ -1,4 +1,4 @@
-import { join } from 'node:path';
+import { join } from '@gmjs/path';
 import { generateProject } from './impl';
 import { Config } from './types';
 // import { readTextAsync } from '@gmjs/fs-async';

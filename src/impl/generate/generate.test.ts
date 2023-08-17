@@ -1,7 +1,7 @@
-import { join } from 'node:path';
 import { describe, expect, it } from '@jest/globals';
 import { FilesContainer, getFileSystemTestCaseRuns } from '@gmjs/test-util';
 import { readTextAsync } from '@gmjs/fs-async';
+import { join } from '@gmjs/path';
 import { generate } from './generate';
 import { Config, GenerateInfrastructure } from '../../types';
 

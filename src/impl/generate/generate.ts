@@ -1,8 +1,7 @@
-import { join } from 'node:path';
 import ejs from 'ejs';
 import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
 import { readBinaryAsync, readTextAsync } from '@gmjs/fs-async';
-import { pathExtension } from '@gmjs/path';
+import { join, pathExtension } from '@gmjs/path';
 import { invariant } from '@gmjs/assert';
 import {
   Config,
