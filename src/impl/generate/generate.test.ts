@@ -3,7 +3,7 @@ import { FilesContainer, getFileSystemTestCaseRuns } from '@gmjs/test-util';
 import { readTextAsync } from '@gmjs/fs-async';
 import { join } from '@gmjs/path';
 import { generate } from './generate';
-import { Config, GenerateInfrastructure } from '../../types';
+import { GenerateInfrastructure, GenerateInput } from '../../types';
 
 describe('generate', () => {
   const testCasesParentDirectory = join(__dirname, 'test-assets');
@@ -32,7 +32,7 @@ async function getActualFiles(
   const configContent = await readTextAsync(
     join(testCaseDirectory, 'input/config.json'),
   );
-  const config = parseConfig(configContent);
+  const config = parseInput(configContent);
 
   const infra: GenerateInfrastructure = {
     getDepLatestVersion: () => Promise.resolve('1.0.0'),
@@ -41,8 +41,8 @@ async function getActualFiles(
   return await generate(config, infra);
 }
 
-function parseConfig(configContent: string): Config {
-  const config = JSON.parse(configContent);
+function parseInput(inputJson: string): GenerateInput {
+  const config = JSON.parse(inputJson);
   // validate if necessary
   return config;
 }

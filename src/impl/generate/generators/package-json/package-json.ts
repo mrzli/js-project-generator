@@ -1,39 +1,38 @@
 import { lastValueFrom, from, mergeMap, toArray, map } from 'rxjs';
 import {
-  Config,
   DependencyWithVersion,
   GenerateInfrastructure,
+  GenerateInput,
 } from '../../../../types';
 import { getDependencies, getDevDependencies } from './dependencies';
 
 export async function generatePackageJson(
-  config: Config,
+  input: GenerateInput,
   infra: GenerateInfrastructure,
 ): Promise<string> {
-  const data = await getPackageJsonData(config, infra);
+  const data = await getPackageJsonData(input, infra);
   return JSON.stringify(data, undefined, 2) + '\n';
 }
 
 async function getPackageJsonData(
-  config: Config,
+  input: GenerateInput,
   infra: GenerateInfrastructure,
 ): Promise<Record<string, unknown>> {
-  const {
-    projectType,
-    scopeName,
-    projectName,
-    author,
-    email,
-    authorUrl,
-    githubUserOrOrg,
-  } = config;
+  const { projectName, authorData, projectData } = input;
+  const { scopeName, author, email, authorUrl, githubAccount } = authorData;
+  const { kind: projectKind, template } = projectData;
+
+  const commandName =
+    projectKind === 'app' && template.kind === 'cli'
+      ? template.commandName
+      : undefined;
 
   const dependencies = await getDependenciesWithVersions(
-    sortDependencies(getDependencies(projectType)),
+    sortDependencies(getDependencies(input)),
     infra,
   );
   const devDependencies = await getDependenciesWithVersions(
-    sortDependencies(getDevDependencies(projectType)),
+    sortDependencies(getDevDependencies(input)),
     infra,
   );
 
@@ -41,7 +40,7 @@ async function getPackageJsonData(
     ? `@${scopeName}/${projectName}`
     : projectName;
 
-  const githubUrl = `https://github.com/${githubUserOrOrg}/${projectName}`;
+  const githubUrl = `https://github.com/${githubAccount}/${projectName}`;
 
   return {
     name: fullProjectName,
@@ -60,11 +59,7 @@ async function getPackageJsonData(
     },
     homepage: githubUrl,
     main: 'src/index.js',
-    bin:
-      projectType === 'cli'
-        ? // eslint-disable-next-line unicorn/consistent-destructuring
-          { [config.commandName]: `src/index.js` }
-        : undefined,
+    bin: commandName ? { [commandName]: `src/index.js` } : undefined,
     scripts: {
       'start:dev': 'ts-node src/index.ts',
       lint: 'eslint --fix . && prettier --write .',

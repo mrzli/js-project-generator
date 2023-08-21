@@ -1,0 +1,17 @@
+{
+  "output": "output",
+  "projectName": "test-project",
+  "authorData": {
+    "scopeName": "scope",
+    "author": "John Smith",
+    "email": "john.smith@example.com",
+    "authorUrl": "https://example.com",
+    "githubAccount": "johnsmith"
+  },
+  "projectData": {
+    "kind": "lib",
+    "template": {
+      "kind": "react"
+    }
+  }
+}

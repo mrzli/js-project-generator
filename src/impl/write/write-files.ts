@@ -5,11 +5,11 @@ import {
   writeTextAsync,
 } from '@gmjs/fs-async';
 import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
-import { Config, GeneratedFiles } from '../../types';
+import { GenerateInput, GeneratedFiles } from '../../types';
 import { lastValueFrom, from, mergeMap } from 'rxjs';
 
 export async function writeGeneratedFiles(
-  config: Config,
+  input: GenerateInput,
   files: GeneratedFiles,
 ): Promise<void> {
   const { textFiles, binaryFiles } = files;
@@ -17,7 +17,7 @@ export async function writeGeneratedFiles(
   if (textFiles.length > 0) {
     await lastValueFrom(
       from(textFiles).pipe(
-        mergeMap((file) => from(writeTextFile(config.output, file))),
+        mergeMap((file) => from(writeTextFile(input.output, file))),
       ),
     );
   }
@@ -25,7 +25,7 @@ export async function writeGeneratedFiles(
   if (binaryFiles.length > 0) {
     await lastValueFrom(
       from(binaryFiles).pipe(
-        mergeMap((file) => from(writeBinaryFile(config.output, file))),
+        mergeMap((file) => from(writeBinaryFile(input.output, file))),
       ),
     );
   }

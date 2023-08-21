@@ -30,7 +30,6 @@
     "pub": "npm run build && npm run pub-only"
   },
   "dependencies": {
-    "@gmjs/cli-wrapper": "^1.0.0",
     "@gmjs/package-json": "^1.0.0",
     "tslib": "^1.0.0"
   },

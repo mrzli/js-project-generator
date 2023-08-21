@@ -4,26 +4,26 @@ import { readBinaryAsync, readTextAsync } from '@gmjs/fs-async';
 import { join, pathExtension } from '@gmjs/path';
 import { invariant } from '@gmjs/assert';
 import {
-  Config,
+  GenerateInput,
   GenerateInfrastructure,
   GeneratedFiles,
   TemplateMappingEntry,
 } from '../../types';
 import { generatePackageJson } from './generators';
-import { getEslintProjectType } from '../../util';
+import { getAppCliTemplateOrUndefined, getEslintProjectType } from '../../util';
 
 export async function generate(
-  config: Config,
+  input: GenerateInput,
   infra: GenerateInfrastructure,
 ): Promise<GeneratedFiles> {
-  const templateMappings = await getTemplateMappings(config.projectType);
+  const templateMappings = await getTemplateMappings(input);
 
   const filesFromTemplates = await getTemplateGeneratedFiles(
-    config,
+    input,
     templateMappings,
   );
 
-  const filesFromNonTemplates = await generateNonTemplateFiles(config, infra);
+  const filesFromNonTemplates = await generateNonTemplateFiles(input, infra);
 
   return {
     textFiles: [
@@ -38,16 +38,24 @@ export async function generate(
 }
 
 async function getTemplateMappings(
-  projectType: string,
+  input: GenerateInput,
 ): Promise<readonly TemplateMappingEntry[]> {
+  const { kind: projectKind, template } = input.projectData;
+  const { kind: templateKind } = template;
+
   const templateMappingsContent = await readTextAsync(
-    join(__dirname, TEMPLATE_MAPPINGS_DIRECTORY, `${projectType}.json`),
+    join(
+      __dirname,
+      TEMPLATE_MAPPINGS_DIRECTORY,
+      projectKind,
+      `${templateKind}.json`,
+    ),
   );
   return JSON.parse(templateMappingsContent);
 }
 
 async function getTemplateGeneratedFiles(
-  config: Config,
+  input: GenerateInput,
   templateMappings: readonly TemplateMappingEntry[],
 ): Promise<GeneratedFiles> {
   const textFiles: FilePathTextContent[] = [];
@@ -55,6 +63,7 @@ async function getTemplateGeneratedFiles(
 
   for (const mapping of templateMappings) {
     const { template, target } = mapping;
+    const finalPath = toFinalPath(target, input);
 
     const templateFilePath = join(
       __dirname,
@@ -67,19 +76,16 @@ async function getTemplateGeneratedFiles(
       case 'plain': {
         const content = await readTextAsync(templateFilePath);
         textFiles.push({
-          path: toFinalPath(target, config),
+          path: finalPath,
           content,
         });
         break;
       }
       case 'ejs': {
         const content = await readTextAsync(templateFilePath);
-        const processedContent = ejs.render(
-          content,
-          getEjsPlaceholders(config),
-        );
+        const processedContent = ejs.render(content, getEjsPlaceholders(input));
         textFiles.push({
-          path: toFinalPath(target, config),
+          path: finalPath,
           content: processedContent,
         });
         break;
@@ -87,7 +93,7 @@ async function getTemplateGeneratedFiles(
       case 'bin': {
         const content = await readBinaryAsync(templateFilePath);
         binaryFiles.push({
-          path: toFinalPath(target, config),
+          path: finalPath,
           content,
         });
         break;
@@ -104,24 +110,33 @@ async function getTemplateGeneratedFiles(
   };
 }
 
-function getEjsPlaceholders(config: Config): Record<string, unknown> {
+function getEjsPlaceholders(input: GenerateInput): Record<string, unknown> {
+  const { authorData, projectName } = input;
+  const { scopeName, author, email, authorUrl, githubAccount } = authorData;
+  const commandName = getAppCliTemplateOrUndefined(input)?.commandName;
+
   return {
-    ...config,
-    commandName: config.projectType === 'cli' ? config.commandName : undefined,
-    eslintProjectType: getEslintProjectType(config),
+    projectName,
+    scopeName,
+    author,
+    email,
+    authorUrl,
+    githubAccount,
+    commandName,
+    eslintProjectType: getEslintProjectType(input),
   };
 }
 
 async function generateNonTemplateFiles(
-  config: Config,
+  input: GenerateInput,
   infra: GenerateInfrastructure,
 ): Promise<GeneratedFiles> {
-  const packageJson = await generatePackageJson(config, infra);
+  const packageJson = await generatePackageJson(input, infra);
 
   return {
     textFiles: [
       {
-        path: toFinalPath('package.json', config),
+        path: toFinalPath('package.json', input),
         content: packageJson,
       },
     ],
@@ -129,8 +144,8 @@ async function generateNonTemplateFiles(
   };
 }
 
-function toFinalPath(filePath: string, config: Config): string {
-  const { projectName } = config;
+function toFinalPath(filePath: string, input: GenerateInput): string {
+  const { projectName } = input;
   return join(projectName, filePath);
 }
 

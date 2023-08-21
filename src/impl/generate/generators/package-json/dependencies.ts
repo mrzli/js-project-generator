@@ -1,22 +1,19 @@
-import { ProjectType } from '../../../../types';
+import { GenerateInput } from '../../../../types';
+import { isAppCliTemplate } from '../../../../util';
 
-export function getDependencies(projectType: ProjectType): readonly string[] {
+export function getDependencies(input: GenerateInput): readonly string[] {
   return [
     ...DEPENDENCIES_RUNTIME,
-    ...(projectType === 'cli'
-      ? ['@gmjs/cli-wrapper', '@gmjs/package-json']
-      : []),
+    ...(isAppCliTemplate(input) ? ['@gmjs/package-json'] : []),
   ];
 }
 
 const DEPENDENCIES_RUNTIME: readonly string[] = ['tslib'];
 
-export function getDevDependencies(
-  projectType: ProjectType,
-): readonly string[] {
+export function getDevDependencies(input: GenerateInput): readonly string[] {
   return [
     ...DEV_DEPENDENCIES_GMJS_CONFIGS,
-    ...getDevDependenciesLinting(projectType),
+    ...getDevDependenciesLinting(input),
     ...DEV_DEPENDENCIES_TEST,
     ...DEV_DEPENDENCIES_TYPESCRIPT,
     ...DEV_DEPENDENCIES_TOOLING,
@@ -30,9 +27,9 @@ const DEV_DEPENDENCIES_GMJS_CONFIGS: readonly string[] = [
   '@gmjs/tsconfig',
 ];
 
-function getDevDependenciesLinting(
-  projectType: ProjectType,
-): readonly string[] {
+function getDevDependenciesLinting(input: GenerateInput): readonly string[] {
+  const templateKind = input.projectData.template.kind;
+
   return [
     '@types/eslint',
     '@typescript-eslint/eslint-plugin',
@@ -43,10 +40,10 @@ function getDevDependenciesLinting(
     'eslint-plugin-import',
     'eslint-plugin-unicorn',
     'prettier',
-    ...(projectType === 'node' || projectType === 'cli'
+    ...(templateKind === 'node' || templateKind === 'cli'
       ? ['eslint-plugin-n']
       : []),
-    ...(projectType === 'react'
+    ...(templateKind === 'react'
       ? [
           'eslint-plugin-jsx-a11y',
           'eslint-plugin-react',

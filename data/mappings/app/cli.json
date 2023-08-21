@@ -52,11 +52,11 @@
     "target": "tsconfig.test.json"
   },
   {
-    "template": "cli/src/index.ts.ejs",
+    "template": "app/cli/src/index.ts.ejs",
     "target": "src/index.ts"
   },
   {
-    "template": "cli/src/command.ts.ejs",
+    "template": "app/cli/src/command.ts.ejs",
     "target": "src/command.ts"
   }
 ]
