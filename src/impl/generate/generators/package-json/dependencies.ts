@@ -4,7 +4,7 @@ import { isAppCliTemplate } from '../../../../util';
 export function getDependencies(input: GenerateInput): readonly string[] {
   return [
     ...DEPENDENCIES_RUNTIME,
-    ...(isAppCliTemplate(input) ? ['@gmjs/package-json'] : []),
+    ...(isAppCliTemplate(input) ? ['@gmjs/package-json', 'commander'] : []),
   ];
 }
 
