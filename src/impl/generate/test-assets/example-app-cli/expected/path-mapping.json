@@ -48,12 +48,32 @@
     "path": "test-project/tsconfig.test.json"
   },
   {
-    "testFile": "src-index.ts.txt",
+    "testFile": "src/index.ts.txt",
     "path": "test-project/src/index.ts"
   },
   {
-    "testFile": "src-command.ts.txt",
-    "path": "test-project/src/command.ts"
+    "testFile": "src/run.ts.txt",
+    "path": "test-project/src/run.ts"
+  },
+  {
+    "testFile": "src/cli/index.ts.txt",
+    "path": "test-project/src/cli/index.ts"
+  },
+  {
+    "testFile": "src/cli/program.ts.txt",
+    "path": "test-project/src/cli/program.ts"
+  },
+  {
+    "testFile": "src/cli/commands/index.ts.txt",
+    "path": "test-project/src/cli/commands/index.ts"
+  },
+  {
+    "testFile": "src/cli/commands/commands/index.ts.txt",
+    "path": "test-project/src/cli/commands/commands/index.ts"
+  },
+  {
+    "testFile": "src/cli/commands/commands/example.ts.txt",
+    "path": "test-project/src/cli/commands/commands/example.ts"
   },
   {
     "testFile": ".eslintrc.js.txt",

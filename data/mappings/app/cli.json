@@ -56,7 +56,27 @@
     "target": "src/index.ts"
   },
   {
-    "template": "app/cli/src/command.ts.ejs",
-    "target": "src/command.ts"
+    "template": "app/cli/src/run.ts.ejs",
+    "target": "src/run.ts"
+  },
+  {
+    "template": "app/cli/src/cli/index.ts.ejs",
+    "target": "src/cli/index.ts"
+  },
+  {
+    "template": "app/cli/src/cli/program.ts.ejs",
+    "target": "src/cli/program.ts"
+  },
+  {
+    "template": "app/cli/src/cli/commands/index.ts.ejs",
+    "target": "src/cli/commands/index.ts"
+  },
+  {
+    "template": "app/cli/src/cli/commands/commands/index.ts.ejs",
+    "target": "src/cli/commands/commands/index.ts"
+  },
+  {
+    "template": "app/cli/src/cli/commands/commands/example.ts.ejs",
+    "target": "src/cli/commands/commands/example.ts"
   }
 ]
