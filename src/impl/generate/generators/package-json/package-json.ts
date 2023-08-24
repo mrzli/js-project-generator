@@ -61,9 +61,10 @@ async function getPackageJsonData(
     main: 'src/index.js',
     bin: commandName ? { [commandName]: `src/index.js` } : undefined,
     scripts: {
-      'start:dev': 'ts-node src/index.ts',
-      lint: 'eslint --fix . && prettier --write .',
-      'lint:nofix': 'eslint . && prettier --check .',
+      dev: 'ts-node src/index.ts',
+      lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
+      'lint:nofix':
+        'eslint --report-unused-disable-directives . && prettier --check .',
       'test-only': 'jest --passWithNoTests',
       test: 'npm run lint && npm run test-only',
       'build-only': 'shx rm -rf ./dist && tsc --project tsconfig.lib.json',

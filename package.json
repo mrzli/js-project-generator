@@ -18,9 +18,9 @@
   },
   "prettier": "@gmjs/prettier-config",
   "scripts": {
-    "start:dev": "ts-node src/run.ts",
-    "lint": "eslint --fix . && prettier --write .",
-    "lint:nofix": "eslint . && prettier --check .",
+    "dev": "ts-node src/run.ts",
+    "lint": "eslint --report-unused-disable-directives --fix . && prettier --write .",
+    "lint:nofix": "eslint --report-unused-disable-directives . && prettier --check .",
     "test-only": "jest --passWithNoTests",
     "test": "npm run lint && npm run test-only",
     "build-only": "shx rm -rf ./dist && tsc --project tsconfig.lib.json",
@@ -29,6 +29,7 @@
     "pub": "npm run build && npm run pub-only"
   },
   "dependencies": {
+    "@gmjs/array-transformers": "^0.0.1",
     "@gmjs/assert": "^0.0.2",
     "@gmjs/exec-observable": "^0.0.2",
     "@gmjs/fs-async": "^0.0.4",
