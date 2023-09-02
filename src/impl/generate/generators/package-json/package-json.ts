@@ -77,7 +77,7 @@ async function getPackageJsonData(
     dependencies: toDependenciesObject(dependencies),
     devDependencies: toDependenciesObject(devDependencies),
     engines: {
-      node: '>=16.0.0',
+      node: '>=18.17.0',
     },
     prettier: '@gmjs/prettier-config',
   };

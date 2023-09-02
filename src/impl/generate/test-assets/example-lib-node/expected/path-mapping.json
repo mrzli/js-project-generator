@@ -40,7 +40,7 @@
     "path": "test-project/tsconfig.json"
   },
   {
-    "testFile": "<shared>/tsconfig.lib.json.txt",
+    "testFile": "tsconfig.lib.json.txt",
     "path": "test-project/tsconfig.lib.json"
   },
   {

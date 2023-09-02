@@ -44,7 +44,7 @@
     "target": "tsconfig.json"
   },
   {
-    "template": "shared-files/configs/tsconfig.lib.json.ejs",
+    "template": "lib/shared/tsconfig.lib.json.ejs",
     "target": "tsconfig.lib.json"
   },
   {
