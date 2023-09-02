@@ -10,7 +10,12 @@ import {
   TemplateMappingEntry,
 } from '../../types';
 import { generatePackageJson } from './generators';
-import { getAppCliTemplateOrUndefined, getEslintProjectType } from '../../util';
+import {
+  getAppCliTemplateOrUndefined,
+  getEslintProjectType,
+  isAppReactTemplate,
+} from '../../util';
+import { filterOutNullish } from '@gmjs/array-transformers';
 
 export async function generate(
   input: GenerateInput,
@@ -134,12 +139,14 @@ async function generateNonTemplateFiles(
   const packageJson = await generatePackageJson(input, infra);
 
   return {
-    textFiles: [
-      {
-        path: toFinalPath('package.json', input),
-        content: packageJson,
-      },
-    ],
+    textFiles: filterOutNullish([
+      isAppReactTemplate(input)
+        ? undefined
+        : {
+            path: toFinalPath('package.json', input),
+            content: packageJson,
+          },
+    ]),
     binaryFiles: [],
   };
 }

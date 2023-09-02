@@ -7,6 +7,8 @@ async function run(): Promise<void> {
 }
 
 function getConfig(): GenerateInput {
+  const experimentDir = '/Users/Mrzli/Development/Projects/private/experiment';
+
   // return {
   //   output: 'output',
   //   projectName: 'test-project',
@@ -26,8 +28,8 @@ function getConfig(): GenerateInput {
   //   },
   // };
   return {
-    output: '../output',
-    projectName: 'js-project-generator-cli',
+    output: experimentDir,
+    projectName: 'example-react',
     authorData: {
       scopeName: 'gmjs',
       author: 'Goran Mržljak',
@@ -38,8 +40,7 @@ function getConfig(): GenerateInput {
     projectData: {
       kind: 'app',
       template: {
-        kind: 'cli',
-        commandName: 'jsgen',
+        kind: 'react',
       },
     },
   };

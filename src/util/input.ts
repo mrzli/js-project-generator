@@ -5,6 +5,11 @@ export function isAppCliTemplate(input: GenerateInput): boolean {
   return projectData.kind === 'app' && projectData.template.kind === 'cli';
 }
 
+export function isAppReactTemplate(input: GenerateInput): boolean {
+  const { projectData } = input;
+  return projectData.kind === 'app' && projectData.template.kind === 'react';
+}
+
 export function getAppCliTemplateOrUndefined(
   input: GenerateInput,
 ): TemplateAppDataCli | undefined {

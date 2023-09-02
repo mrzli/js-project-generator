@@ -4,6 +4,14 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.18] - 2023-09-02
+
+### Changed
+
+- Update packages to latest versions.
+- Update package.json generation.
+- Update tsconfig generation.
+
 ## [0.0.17] - 2023-08-18
 
 ### Changed
