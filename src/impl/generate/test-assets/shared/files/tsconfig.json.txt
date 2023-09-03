@@ -2,8 +2,7 @@
   "extends": "@gmjs/tsconfig",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "./dist",
-    "moduleResolution": "NodeNext"
+    "outDir": "./dist"
   },
   "include": ["src/**/*.ts"]
 }

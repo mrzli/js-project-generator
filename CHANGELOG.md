@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.22] - 2023-09-03
+
+### Changed
+
+- Revert to old moduleResolution strategy in generated tsconfig.json.
+
 ## [0.0.21] - 2023-09-03
 
 ### Changed
