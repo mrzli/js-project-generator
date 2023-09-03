@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.20] - 2023-09-03
+
+### Changed
+
+- Small update to generated tsconfig.json.
+
 ## [0.0.19] - 2023-09-03
 
 ### Changed
