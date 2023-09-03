@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.19] - 2023-09-03
+
+### Changed
+
+- Update generated tsconfig for app cli project.
+
 ## [0.0.18] - 2023-09-02
 
 ### Changed

@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/js-project-generator",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Project generator for JavaScript/TypeScript projects.",
   "author": {
     "name": "Goran Mržljak",
