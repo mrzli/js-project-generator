@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/js-project-generator",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Project generator for JavaScript/TypeScript projects.",
   "author": {
     "name": "Goran Mržljak",
@@ -13,9 +13,7 @@
     "url": "https://github.com/mrzli/js-project-generator"
   },
   "type": "commonjs",
-  "exports": {
-    ".": "./src/index.js"
-  },
+  "main": "./src/index.js",
   "bin": {
     "jsgen": "src/index.js"
   },
@@ -43,11 +41,11 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^0.0.18",
-    "@gmjs/jest-config": "^0.0.5",
+    "@gmjs/jest-config": "^0.0.6",
     "@gmjs/npm-publish-cli": "^0.0.4",
-    "@gmjs/prettier-config": "^1.0.3",
+    "@gmjs/prettier-config": "^1.0.45",
     "@gmjs/test-util": "^0.0.11",
-    "@gmjs/tsconfig": "^1.0.6",
+    "@gmjs/tsconfig": "^1.0.8",
     "@jest/globals": "^29.6.4",
     "@types/ejs": "^3.1.2",
     "@types/jest": "^29.5.4",

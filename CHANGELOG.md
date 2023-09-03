@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.21] - 2023-09-03
+
+### Changed
+
+- Use 'main' instead of 'exports' in generated package.json.
+
 ## [0.0.20] - 2023-09-03
 
 ### Changed

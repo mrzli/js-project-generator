@@ -14,9 +14,7 @@
     "url": "https://github.com/johnsmith/test-project"
   },
   "type": "commonjs",
-  "exports": {
-    ".": "./src/index.js"
-  },
+  "main": "./src/index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
     "lint": "eslint --report-unused-disable-directives --fix . && prettier --write .",
