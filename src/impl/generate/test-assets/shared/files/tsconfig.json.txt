@@ -1,8 +1,9 @@
 {
   "extends": "@gmjs/tsconfig",
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts"],
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist"
-  },
-  "include": ["src/**/*.ts"]
+  }
 }
