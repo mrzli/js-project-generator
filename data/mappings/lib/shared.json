@@ -40,7 +40,7 @@
     "target": "project.json"
   },
   {
-    "template": "shared-files/configs/tsconfig.json.ejs",
+    "template": "lib/shared/tsconfig.json.ejs",
     "target": "tsconfig.json"
   },
   {
