@@ -29,16 +29,16 @@ describe('generate', () => {
 async function getActualFiles(
   testCaseDirectory: string,
 ): Promise<FilesContainer> {
-  const configContent = await readTextAsync(
-    join(testCaseDirectory, 'input/config.json'),
+  const inputContent = await readTextAsync(
+    join(testCaseDirectory, 'input/input.json'),
   );
-  const config = parseInput(configContent);
+  const input = parseInput(inputContent);
 
   const infra: GenerateInfrastructure = {
     getDepLatestVersion: () => Promise.resolve('1.0.0'),
   };
 
-  return await generate(config, infra);
+  return await generate(input, infra);
 }
 
 function parseInput(inputJson: string): GenerateInput {
