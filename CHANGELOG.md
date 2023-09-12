@@ -7,6 +7,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 ### Changed
 
 - Update tsconfigs.
+- Use pnpm scripts instead of npm scripts in generated `package.json`.
 
 ## [0.0.22] - 2023-09-03
 
