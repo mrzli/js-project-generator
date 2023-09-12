@@ -20,8 +20,16 @@
     "group": "config",
     "files": [
       {
+        "fr": "<shared>/.gitignore.txt",
+        "to": "test-project/.gitignore"
+      },
+      {
         "fr": "<shared>/.editorconfig.txt",
         "to": "test-project/.editorconfig"
+      },
+      {
+        "fr": "<shared>/.prettierignore.txt",
+        "to": "test-project/.prettierignore"
       },
       {
         "fr": "<shared>/.eslintignore.txt",
@@ -30,14 +38,6 @@
       {
         "fr": ".eslintrc.js.txt",
         "to": "test-project/.eslintrc.js"
-      },
-      {
-        "fr": "<shared>/.gitignore.txt",
-        "to": "test-project/.gitignore"
-      },
-      {
-        "fr": "<shared>/.prettierignore.txt",
-        "to": "test-project/.prettierignore"
       },
       {
         "fr": "<shared>/jest.config.ts.txt",
