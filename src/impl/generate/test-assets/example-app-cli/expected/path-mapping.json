@@ -1,86 +1,101 @@
 [
   {
-    "testFile": "<shared>/.editorconfig.txt",
-    "path": "test-project/.editorconfig"
+    "group": "documents",
+    "files": [
+      {
+        "fr": "<shared>/CHANGELOG.md.txt",
+        "to": "test-project/CHANGELOG.md"
+      },
+      {
+        "fr": "<shared>/LICENSE.md.txt",
+        "to": "test-project/LICENSE.md"
+      },
+      {
+        "fr": "<shared>/README.md.txt",
+        "to": "test-project/README.md"
+      }
+    ]
   },
   {
-    "testFile": "<shared>/.eslintignore.txt",
-    "path": "test-project/.eslintignore"
+    "group": "config",
+    "files": [
+      {
+        "fr": "<shared>/.editorconfig.txt",
+        "to": "test-project/.editorconfig"
+      },
+      {
+        "fr": "<shared>/.eslintignore.txt",
+        "to": "test-project/.eslintignore"
+      },
+      {
+        "fr": ".eslintrc.js.txt",
+        "to": "test-project/.eslintrc.js"
+      },
+      {
+        "fr": "<shared>/.gitignore.txt",
+        "to": "test-project/.gitignore"
+      },
+      {
+        "fr": "<shared>/.prettierignore.txt",
+        "to": "test-project/.prettierignore"
+      },
+      {
+        "fr": "<shared>/jest.config.ts.txt",
+        "to": "test-project/jest.config.ts"
+      },
+      {
+        "fr": "package.json.txt",
+        "to": "test-project/package.json"
+      },
+      {
+        "fr": "<shared>/project.json.txt",
+        "to": "test-project/project.json"
+      },
+      {
+        "fr": "tsconfig.json.txt",
+        "to": "test-project/tsconfig.json"
+      },
+      {
+        "fr": "tsconfig.lib.json.txt",
+        "to": "test-project/tsconfig.lib.json"
+      },
+      {
+        "fr": "<shared>/tsconfig.test.json.txt",
+        "to": "test-project/tsconfig.test.json"
+      }
+    ]
   },
   {
-    "testFile": "<shared>/.gitignore.txt",
-    "path": "test-project/.gitignore"
-  },
-  {
-    "testFile": "<shared>/.prettierignore.txt",
-    "path": "test-project/.prettierignore"
-  },
-  {
-    "testFile": "<shared>/CHANGELOG.md.txt",
-    "path": "test-project/CHANGELOG.md"
-  },
-  {
-    "testFile": "<shared>/jest.config.ts.txt",
-    "path": "test-project/jest.config.ts"
-  },
-  {
-    "testFile": "<shared>/LICENSE.md.txt",
-    "path": "test-project/LICENSE.md"
-  },
-  {
-    "testFile": "<shared>/project.json.txt",
-    "path": "test-project/project.json"
-  },
-  {
-    "testFile": "<shared>/README.md.txt",
-    "path": "test-project/README.md"
-  },
-  {
-    "testFile": "tsconfig.json.txt",
-    "path": "test-project/tsconfig.json"
-  },
-  {
-    "testFile": "tsconfig.lib.json.txt",
-    "path": "test-project/tsconfig.lib.json"
-  },
-  {
-    "testFile": "<shared>/tsconfig.test.json.txt",
-    "path": "test-project/tsconfig.test.json"
-  },
-  {
-    "testFile": "src/index.ts.txt",
-    "path": "test-project/src/index.ts"
-  },
-  {
-    "testFile": "src/run.ts.txt",
-    "path": "test-project/src/run.ts"
-  },
-  {
-    "testFile": "src/cli/index.ts.txt",
-    "path": "test-project/src/cli/index.ts"
-  },
-  {
-    "testFile": "src/cli/program.ts.txt",
-    "path": "test-project/src/cli/program.ts"
-  },
-  {
-    "testFile": "src/cli/commands/index.ts.txt",
-    "path": "test-project/src/cli/commands/index.ts"
-  },
-  {
-    "testFile": "src/cli/commands/commands/index.ts.txt",
-    "path": "test-project/src/cli/commands/commands/index.ts"
-  },
-  {
-    "testFile": "src/cli/commands/commands/example.ts.txt",
-    "path": "test-project/src/cli/commands/commands/example.ts"
-  },
-  {
-    "testFile": ".eslintrc.js.txt",
-    "path": "test-project/.eslintrc.js"
-  },
-  {
-    "testFile": "package.json.txt",
-    "path": "test-project/package.json"
+    "group": "source-files",
+    "files": [
+      {
+        "fr": "src/index.ts.txt",
+        "to": "test-project/src/index.ts"
+      },
+      {
+        "fr": "src/run.ts.txt",
+        "to": "test-project/src/run.ts"
+      },
+      {
+        "fr": "src/cli/index.ts.txt",
+        "to": "test-project/src/cli/index.ts"
+      },
+      {
+        "fr": "src/cli/program.ts.txt",
+        "to": "test-project/src/cli/program.ts"
+      },
+      {
+        "fr": "src/cli/commands/index.ts.txt",
+        "to": "test-project/src/cli/commands/index.ts"
+      },
+      {
+        "fr": "src/cli/commands/commands/index.ts.txt",
+        "to": "test-project/src/cli/commands/commands/index.ts"
+      },
+      {
+        "fr": "src/cli/commands/commands/example.ts.txt",
+        "to": "test-project/src/cli/commands/commands/example.ts"
+      }
+    ]
   }
 ]
