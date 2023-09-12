@@ -22,11 +22,11 @@
     "lint": "eslint --report-unused-disable-directives --fix . && prettier --write .",
     "lint:nofix": "eslint --report-unused-disable-directives . && prettier --check .",
     "test-only": "jest --passWithNoTests",
-    "test": "npm run lint && npm run test-only",
+    "test": "pnpm run lint && pnpm run test-only",
     "build-only": "shx rm -rf ./dist && tsc --project tsconfig.lib.json",
-    "build": "npm run test && npm run build-only",
+    "build": "pnpm run test && pnpm run build-only",
     "pub-only": "npmpub",
-    "pub": "npm run build && npm run pub-only"
+    "pub": "pnpm run build && pnpm run pub-only"
   },
   "dependencies": {
     "@gmjs/array-transformers": "^0.0.1",
