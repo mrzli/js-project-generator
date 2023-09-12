@@ -1,4 +1,4 @@
-export const KINDS_OF_TEMPLATE_APP = ['react', 'node', 'cli'] as const;
+export const KINDS_OF_TEMPLATE_APP = ['react', 'nest', 'cli'] as const;
 
 export type TemplateAppKind = (typeof KINDS_OF_TEMPLATE_APP)[number];
 
@@ -10,8 +10,8 @@ export interface TemplateAppDataReact extends TemplateAppDataBase {
   readonly kind: 'react';
 }
 
-export interface TemplateAppDataNode extends TemplateAppDataBase {
-  readonly kind: 'node';
+export interface TemplateAppDataNest extends TemplateAppDataBase {
+  readonly kind: 'nest';
 }
 
 export interface TemplateAppDataCli extends TemplateAppDataBase {
@@ -21,5 +21,5 @@ export interface TemplateAppDataCli extends TemplateAppDataBase {
 
 export type TemplateAppDataAny =
   | TemplateAppDataReact
-  | TemplateAppDataNode
+  | TemplateAppDataNest
   | TemplateAppDataCli;

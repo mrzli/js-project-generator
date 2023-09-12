@@ -1,0 +1,82 @@
+{
+  "name": "@scope/test-project",
+  "version": "0.0.1",
+  "description": "test-project",
+  "private": true,
+  "author": {
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "url": "https://example.com"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnsmith/test-project"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "build": "shx rm -rf ./dist && nest build",
+    "format": "prettier --write .",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/src/main",
+    "lint": "eslint --report-unused-disable-directives --fix .",
+    "test": "jest",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@gmjs/number-util": "^1.0.0",
+    "@nestjs/common": "^1.0.0",
+    "@nestjs/core": "^1.0.0",
+    "@nestjs/platform-express": "^1.0.0",
+    "cookie-parser": "^1.0.0",
+    "dotenv": "^1.0.0",
+    "helmet": "^1.0.0",
+    "reflect-metadata": "^1.0.0",
+    "rxjs": "^1.0.0",
+    "tslib": "^1.0.0",
+    "zod": "^1.0.0"
+  },
+  "devDependencies": {
+    "@gmjs/eslint-config": "^1.0.0",
+    "@gmjs/jest-config": "^1.0.0",
+    "@gmjs/prettier-config": "^1.0.0",
+    "@gmjs/tsconfig": "^1.0.0",
+    "@jest/globals": "^1.0.0",
+    "@nestjs/cli": "^1.0.0",
+    "@nestjs/schematics": "^1.0.0",
+    "@nestjs/testing": "^1.0.0",
+    "@types/cookie-parser": "^1.0.0",
+    "@types/express": "^1.0.0",
+    "@types/jest": "^1.0.0",
+    "@types/node": "^1.0.0",
+    "@types/supertest": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.0.0",
+    "@typescript-eslint/parser": "^1.0.0",
+    "eslint": "^1.0.0",
+    "eslint-config-prettier": "^1.0.0",
+    "eslint-import-resolver-typescript": "^1.0.0",
+    "eslint-plugin-import": "^1.0.0",
+    "eslint-plugin-n": "^1.0.0",
+    "eslint-plugin-prettier": "^1.0.0",
+    "eslint-plugin-unicorn": "^1.0.0",
+    "jest": "^1.0.0",
+    "prettier": "^1.0.0",
+    "shx": "^1.0.0",
+    "source-map-support": "^1.0.0",
+    "supertest": "^1.0.0",
+    "ts-jest": "^1.0.0",
+    "ts-loader": "^1.0.0",
+    "ts-node": "^1.0.0",
+    "tsconfig-paths": "^1.0.0",
+    "type-fest": "^1.0.0",
+    "typescript": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "prettier": "@gmjs/prettier-config"
+}

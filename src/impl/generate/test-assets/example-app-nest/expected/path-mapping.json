@@ -1,0 +1,174 @@
+[
+  {
+    "group": "documents",
+    "files": [
+      {
+        "fr": "<shared>/CHANGELOG.md.txt",
+        "to": "test-project/CHANGELOG.md"
+      },
+      {
+        "fr": "<shared>/LICENSE.md.txt",
+        "to": "test-project/LICENSE.md"
+      },
+      {
+        "fr": "<shared>/README.md.txt",
+        "to": "test-project/README.md"
+      }
+    ]
+  },
+  {
+    "group": "config",
+    "files": [
+      {
+        "fr": "<shared>/.gitignore.txt",
+        "to": "test-project/.gitignore"
+      },
+      {
+        "fr": "<shared>/.editorconfig.txt",
+        "to": "test-project/.editorconfig"
+      },
+      {
+        "fr": "<shared>/.prettierignore.txt",
+        "to": "test-project/.prettierignore"
+      },
+      {
+        "fr": "<shared>/.eslintignore.txt",
+        "to": "test-project/.eslintignore"
+      },
+      {
+        "fr": ".eslintrc.js.txt",
+        "to": "test-project/.eslintrc.js"
+      },
+      {
+        "fr": "<shared>/jest.config.ts.txt",
+        "to": "test-project/jest.config.ts"
+      },
+      {
+        "fr": "package.json.txt",
+        "to": "test-project/package.json"
+      },
+      {
+        "fr": "<shared>/project.json.txt",
+        "to": "test-project/project.json"
+      },
+      {
+        "fr": "tsconfig.json.txt",
+        "to": "test-project/tsconfig.json"
+      },
+      {
+        "fr": "tsconfig.build.json.txt",
+        "to": "test-project/tsconfig.lib.json"
+      },
+      {
+        "fr": "tsconfig.test.json.txt",
+        "to": "test-project/tsconfig.test.json"
+      },
+      {
+        "fr": ".env.local.txt",
+        "to": "test-project/.env.local"
+      },
+      {
+        "fr": ".env.sample.txt",
+        "to": "test-project/.env.sample"
+      }
+    ]
+  },
+  {
+    "group": "src",
+    "files": [
+      {
+        "fr": "src/main.ts.txt",
+        "to": "src/main.ts"
+      },
+      {
+        "fr": "src/types/index.ts.txt",
+        "to": "src/types/index.ts"
+      },
+      {
+        "fr": "src/types/config-options.ts.txt",
+        "to": "src/types/config-options.ts"
+      },
+      {
+        "fr": "src/types/env.ts.txt",
+        "to": "src/types/env.ts"
+      },
+      {
+        "fr": "src/types/generic/index.ts.txt",
+        "to": "src/types/generic/index.ts"
+      },
+      {
+        "fr": "src/types/generic/log-level.ts.txt",
+        "to": "src/types/generic/log-level.ts"
+      },
+      {
+        "fr": "src/setup/index.ts.txt",
+        "to": "src/setup/index.ts"
+      },
+      {
+        "fr": "src/setup/app-setup.ts.txt",
+        "to": "src/setup/app-setup.ts"
+      },
+      {
+        "fr": "src/setup/config-options.ts.txt",
+        "to": "src/setup/config-options.ts"
+      },
+      {
+        "fr": "src/setup/env.ts.txt",
+        "to": "src/setup/env.ts"
+      },
+      {
+        "fr": "src/modules/root/root.module.ts.txt",
+        "to": "src/modules/root/root.module.ts"
+      },
+      {
+        "fr": "src/modules/config/config.module.ts.txt",
+        "to": "src/modules/config/config.module.ts"
+      },
+      {
+        "fr": "src/modules/config/config.service.ts.txt",
+        "to": "src/modules/config/config.service.ts"
+      },
+      {
+        "fr": "src/modules/config/provider-keys.ts.txt",
+        "to": "src/modules/config/provider-keys.ts"
+      },
+      {
+        "fr": "src/modules/logger/logger.module.ts.txt",
+        "to": "src/modules/logger/logger.module.ts"
+      },
+      {
+        "fr": "src/modules/logger/app-logger.service.ts.txt",
+        "to": "src/modules/logger/app-logger.service.ts"
+      },
+      {
+        "fr": "src/modules/app/app.module.ts.txt",
+        "to": "src/modules/app/app.module.ts"
+      },
+      {
+        "fr": "src/modules/app/app.controller.ts.txt",
+        "to": "src/modules/app/app.controller.ts"
+      },
+      {
+        "fr": "src/modules/app/app.controller.test.ts.txt",
+        "to": "src/modules/app/app.controller.test.ts"
+      },
+      {
+        "fr": "src/modules/app/app.service.ts.txt",
+        "to": "src/modules/app/app.service.ts"
+      }
+    ]
+  },
+  {
+    "group": "test",
+    "files": [
+      {
+        "fr": "test/app.e2e-test.ts.txt",
+        "to": "test/app.e2e-test.ts"
+      },
+      {
+        "fr": "test/jest-e2e.json.txt",
+        "to": "test/jest-e2e.json"
+      }
+    ]
+  }
+]
