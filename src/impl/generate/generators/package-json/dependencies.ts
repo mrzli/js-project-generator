@@ -12,6 +12,7 @@ const DEPENDENCIES_RUNTIME: readonly string[] = ['tslib'];
 
 export function getDevDependencies(input: GenerateInput): readonly string[] {
   return [
+    ...DEV_DEPENDENCIES_GENERIC,
     ...DEV_DEPENDENCIES_GMJS_CONFIGS,
     ...getDevDependenciesLinting(input),
     ...DEV_DEPENDENCIES_TEST,
@@ -19,6 +20,8 @@ export function getDevDependencies(input: GenerateInput): readonly string[] {
     ...DEV_DEPENDENCIES_TOOLING,
   ];
 }
+
+const DEV_DEPENDENCIES_GENERIC: readonly string[] = ['@types/node'];
 
 const DEV_DEPENDENCIES_GMJS_CONFIGS: readonly string[] = [
   '@gmjs/eslint-config',
