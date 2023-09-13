@@ -5,6 +5,7 @@ import {
   GenerateInput,
 } from '../../../../types';
 import { getDependencies, getDevDependencies } from './dependencies';
+import { getScripts } from './scripts';
 
 export async function generatePackageJson(
   input: GenerateInput,
@@ -21,6 +22,8 @@ async function getPackageJsonData(
   const { projectName, authorData, projectData } = input;
   const { scopeName, author, email, authorUrl, githubAccount } = authorData;
   const { kind: projectKind, template } = projectData;
+
+  const isDeployedApp = projectKind === 'app' && template.kind !== 'cli';
 
   const commandName =
     projectKind === 'app' && template.kind === 'cli'
@@ -46,6 +49,7 @@ async function getPackageJsonData(
     name: fullProjectName,
     version: '0.0.1',
     description: projectName,
+    private: isDeployedApp ? true : undefined,
     author: {
       name: author,
       email,
@@ -58,20 +62,9 @@ async function getPackageJsonData(
       url: githubUrl,
     },
     type: 'commonjs',
-    main: './src/index.js',
+    main: isDeployedApp ? undefined : './src/index.js',
     bin: commandName ? { [commandName]: `src/index.js` } : undefined,
-    scripts: {
-      dev: 'ts-node src/index.ts',
-      lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
-      'lint:nofix':
-        'eslint --report-unused-disable-directives . && prettier --check .',
-      'test-only': 'jest --passWithNoTests',
-      test: 'pnpm run lint && pnpm run test-only',
-      'build-only': 'shx rm -rf ./dist && tsc --project tsconfig.lib.json',
-      build: 'pnpm run test && pnpm run build-only',
-      'pub-only': 'npmpub',
-      pub: 'pnpm run build && pnpm run pub-only',
-    },
+    scripts: getScripts(input),
     dependencies: toDependenciesObject(dependencies),
     devDependencies: toDependenciesObject(devDependencies),
     engines: {
