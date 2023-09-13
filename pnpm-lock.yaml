@@ -11,7 +11,7 @@ specifiers:
   '@gmjs/npm-publish-cli': ^0.0.4
   '@gmjs/path': ^0.0.2
   '@gmjs/prettier-config': ^1.0.45
-  '@gmjs/test-util': ^0.0.12
+  '@gmjs/test-util': ^0.0.13
   '@gmjs/tsconfig': ^1.0.9
   '@jest/globals': ^29.7.0
   '@types/ejs': ^3.1.2
@@ -59,7 +59,7 @@ devDependencies:
   '@gmjs/jest-config': 0.0.6
   '@gmjs/npm-publish-cli': 0.0.4
   '@gmjs/prettier-config': 1.0.45
-  '@gmjs/test-util': 0.0.12
+  '@gmjs/test-util': 0.0.13
   '@gmjs/tsconfig': 1.0.9
   '@jest/globals': 29.7.0
   '@types/ejs': 3.1.2
@@ -652,8 +652,8 @@ packages:
     resolution: {integrity: sha512-pDVdasYadwsaGcCyPRRghrsKqJQurGiUNakaELmfWyM3OXdZT+OYkcbCBhV3WY+mUEJGvaPIFk2kG0uzytpByw==}
     dev: true
 
-  /@gmjs/test-util/0.0.12:
-    resolution: {integrity: sha512-mECdILrCLrCCVrKY+D3zIneYXD5+3wbhi50KFi8m6Jyoy6AkckqqzuQUD2Sz0DEQwe0qC2gTPF49Abxd2flivA==}
+  /@gmjs/test-util/0.0.13:
+    resolution: {integrity: sha512-gTsP9RkVnrn7fXkff7HT6kOBRjztoiP0Rql2TOf1D79PK3jAZVNX9Ez8bsCfUkmv928ada6BqxS5m9kki8XmaA==}
     engines: {node: '>=16.0.0'}
     dependencies:
       '@gmjs/crypto': 0.0.2

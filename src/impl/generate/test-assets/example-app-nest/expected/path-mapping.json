@@ -57,7 +57,7 @@
       },
       {
         "fr": "tsconfig.build.json.txt",
-        "to": "test-project/tsconfig.lib.json"
+        "to": "test-project/tsconfig.build.json"
       },
       {
         "fr": "tsconfig.test.json.txt",
