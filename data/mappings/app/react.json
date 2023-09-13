@@ -1,86 +1,101 @@
 [
   {
-    "template": "shared-files/documents/README.md.ejs",
-    "target": "README.md"
+    "group": "documents",
+    "files": [
+      {
+        "fr": "shared-files/documents/CHANGELOG.md.ejs",
+        "to": "CHANGELOG.md"
+      },
+      {
+        "fr": "shared-files/documents/LICENSE.md.ejs",
+        "to": "LICENSE.md"
+      },
+      {
+        "fr": "shared-files/documents/README.md.ejs",
+        "to": "README.md"
+      }
+    ]
   },
   {
-    "template": "shared-files/documents/LICENSE.md.ejs",
-    "target": "LICENSE.md"
+    "group": "config",
+    "files": [
+      {
+        "fr": "shared-files/configs/.gitignore.plain",
+        "to": ".gitignore"
+      },
+      {
+        "fr": "shared-files/configs/.editorconfig.plain",
+        "to": ".editorconfig"
+      },
+      {
+        "fr": "shared-files/configs/.prettierignore.plain",
+        "to": ".prettierignore"
+      },
+      {
+        "fr": "shared-files/configs/.eslintignore.plain",
+        "to": ".eslintignore"
+      },
+      {
+        "fr": "app/react/.eslintrc.cjs.plain",
+        "to": ".eslintrc.cjs"
+      },
+      {
+        "fr": "shared-files/configs/jest.config.ts.plain",
+        "to": "jest.config.ts"
+      },
+      {
+        "fr": "app/react/package.json.plain",
+        "to": "package.json"
+      },
+      {
+        "fr": "app/react/tsconfig.json.plain",
+        "to": "tsconfig.json"
+      },
+      {
+        "fr": "app/react/tsconfig.node.json.plain",
+        "to": "tsconfig.node.json"
+      },
+      {
+        "fr": "shared-files/configs/tsconfig.test.json.ejs",
+        "to": "tsconfig.test.json"
+      },
+      {
+        "fr": "app/react/vite.config.ts.plain",
+        "to": "vite.config.ts"
+      }
+    ]
   },
   {
-    "template": "shared-files/documents/CHANGELOG.md.ejs",
-    "target": "CHANGELOG.md"
-  },
-  {
-    "template": "shared-files/configs/.gitignore.plain",
-    "target": ".gitignore"
-  },
-  {
-    "template": "shared-files/configs/.editorconfig.plain",
-    "target": ".editorconfig"
-  },
-  {
-    "template": "shared-files/configs/.prettierignore.plain",
-    "target": ".prettierignore"
-  },
-  {
-    "template": "shared-files/configs/.eslintignore.plain",
-    "target": ".eslintignore"
-  },
-  {
-    "template": "app/react/.eslintrc.cjs.plain",
-    "target": ".eslintrc.cjs"
-  },
-  {
-    "template": "shared-files/configs/jest.config.ts.plain",
-    "target": "jest.config.ts"
-  },
-  {
-    "template": "app/react/package.json.plain",
-    "target": "package.json"
-  },
-  {
-    "template": "app/react/tsconfig.json.plain",
-    "target": "tsconfig.json"
-  },
-  {
-    "template": "app/react/tsconfig.node.json.plain",
-    "target": "tsconfig.node.json"
-  },
-  {
-    "template": "shared-files/configs/tsconfig.test.json.ejs",
-    "target": "tsconfig.test.json"
-  },
-  {
-    "template": "app/react/vite.config.ts.plain",
-    "target": "vite.config.ts"
-  },
-  {
-    "template": "app/react/index.html.ejs",
-    "target": "index.html"
-  },
-  {
-    "template": "app/react/public/icon.svg.plain",
-    "target": "public/icon.svg"
-  },
-  {
-    "template": "app/react/src/vite-env.d.ts.plain",
-    "target": "src/vite-env.d.ts"
-  },
-  {
-    "template": "app/react/src/main.tsx.plain",
-    "target": "src/main.tsx"
-  },
-  {
-    "template": "app/react/src/index.css.plain",
-    "target": "src/index.css"
-  },
-  {
-    "template": "app/react/src/App.tsx.plain",
-    "target": "src/App.tsx"
-  },
-  {
-    "template": "app/react/src/assets/react.svg.plain",
-    "target": "src/assets/react.svg"
+    "group": "src",
+    "files": [
+      {
+        "fr": "app/react/index.html.ejs",
+        "to": "index.html"
+      },
+      {
+        "fr": "app/react/public/icon.svg.plain",
+        "to": "public/icon.svg"
+      },
+      {
+        "fr": "app/react/src/vite-env.d.ts.plain",
+        "to": "src/vite-env.d.ts"
+      },
+      {
+        "fr": "app/react/src/main.tsx.plain",
+        "to": "src/main.tsx"
+      },
+      {
+        "fr": "app/react/src/index.css.plain",
+        "to": "src/index.css"
+      },
+      {
+        "fr": "app/react/src/App.tsx.plain",
+        "to": "src/App.tsx"
+      },
+      {
+        "fr": "app/react/src/assets/react.svg.plain",
+        "to": "src/assets/react.svg"
+      }
+    ]
   }
 ]

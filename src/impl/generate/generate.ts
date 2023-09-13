@@ -7,7 +7,7 @@ import {
   GenerateInput,
   GenerateInfrastructure,
   GeneratedFiles,
-  TemplateMappingEntry,
+  TemplateMappingFile,
 } from '../../types';
 import { generatePackageJson } from './generators';
 import {
@@ -16,16 +16,17 @@ import {
   isAppReactTemplate,
 } from '../../util';
 import { filterOutNullish } from '@gmjs/array-transformers';
+import { parseTemplateMappingFile } from './util';
 
 export async function generate(
   input: GenerateInput,
   infra: GenerateInfrastructure,
 ): Promise<GeneratedFiles> {
-  const templateMappings = await getTemplateMappings(input);
+  const templateMappingFile = await getTemplateMappingFile(input);
 
   const filesFromTemplates = await getTemplateGeneratedFiles(
     input,
-    templateMappings,
+    templateMappingFile,
   );
 
   const filesFromNonTemplates = await generateNonTemplateFiles(input, infra);
@@ -42,13 +43,13 @@ export async function generate(
   };
 }
 
-async function getTemplateMappings(
+async function getTemplateMappingFile(
   input: GenerateInput,
-): Promise<readonly TemplateMappingEntry[]> {
+): Promise<TemplateMappingFile> {
   const { kind: projectKind, template } = input.projectData;
   const { kind: templateKind } = template;
 
-  const templateMappingsContent = await readTextAsync(
+  const content = await readTextAsync(
     join(
       __dirname,
       TEMPLATE_MAPPINGS_DIRECTORY,
@@ -56,25 +57,24 @@ async function getTemplateMappings(
       `${templateKind}.json`,
     ),
   );
-  return JSON.parse(templateMappingsContent);
+
+  return parseTemplateMappingFile(content);
 }
 
 async function getTemplateGeneratedFiles(
   input: GenerateInput,
-  templateMappings: readonly TemplateMappingEntry[],
+  templateMappingFile: TemplateMappingFile,
 ): Promise<GeneratedFiles> {
   const textFiles: FilePathTextContent[] = [];
   const binaryFiles: FilePathBinaryContent[] = [];
 
-  for (const mapping of templateMappings) {
-    const { template, target } = mapping;
-    const finalPath = toFinalPath(target, input);
+  const templateMappings = templateMappingFile.flatMap((group) => group.files);
 
-    const templateFilePath = join(
-      __dirname,
-      TEMPLATE_FILES_DIRECTORY,
-      template,
-    );
+  for (const mapping of templateMappings) {
+    const { fr, to } = mapping;
+    const finalPath = toFinalPath(to, input);
+
+    const templateFilePath = join(__dirname, TEMPLATE_FILES_DIRECTORY, fr);
     const extension = pathExtension(templateFilePath);
 
     switch (extension) {

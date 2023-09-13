@@ -1,2 +1,2 @@
 export * from './dependency-with-version';
-export * from './template-mapping-entry';
+export * from './template-mapping';

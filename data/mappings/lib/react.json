@@ -1,66 +1,81 @@
 [
   {
-    "template": "shared-files/documents/README.md.ejs",
-    "target": "README.md"
+    "group": "documents",
+    "files": [
+      {
+        "fr": "shared-files/documents/CHANGELOG.md.ejs",
+        "to": "CHANGELOG.md"
+      },
+      {
+        "fr": "shared-files/documents/LICENSE.md.ejs",
+        "to": "LICENSE.md"
+      },
+      {
+        "fr": "shared-files/documents/README.md.ejs",
+        "to": "README.md"
+      }
+    ]
   },
   {
-    "template": "shared-files/documents/LICENSE.md.ejs",
-    "target": "LICENSE.md"
+    "group": "config",
+    "files": [
+      {
+        "fr": "shared-files/configs/.gitignore.plain",
+        "to": ".gitignore"
+      },
+      {
+        "fr": "shared-files/configs/.editorconfig.plain",
+        "to": ".editorconfig"
+      },
+      {
+        "fr": "shared-files/configs/.prettierignore.plain",
+        "to": ".prettierignore"
+      },
+      {
+        "fr": "shared-files/configs/.eslintignore.plain",
+        "to": ".eslintignore"
+      },
+      {
+        "fr": "shared-files/configs/.eslintrc.js.ejs",
+        "to": ".eslintrc.js"
+      },
+      {
+        "fr": "shared-files/configs/jest.config.ts.plain",
+        "to": "jest.config.ts"
+      },
+      {
+        "fr": "shared-files/configs/project.json.plain",
+        "to": "project.json"
+      },
+      {
+        "fr": "lib/react/tsconfig.json.ejs",
+        "to": "tsconfig.json"
+      },
+      {
+        "fr": "lib/react/tsconfig.lib.json.ejs",
+        "to": "tsconfig.lib.json"
+      },
+      {
+        "fr": "shared-files/configs/tsconfig.test.json.ejs",
+        "to": "tsconfig.test.json"
+      }
+    ]
   },
   {
-    "template": "shared-files/documents/CHANGELOG.md.ejs",
-    "target": "CHANGELOG.md"
-  },
-  {
-    "template": "shared-files/configs/.gitignore.plain",
-    "target": ".gitignore"
-  },
-  {
-    "template": "shared-files/configs/.editorconfig.plain",
-    "target": ".editorconfig"
-  },
-  {
-    "template": "shared-files/configs/.prettierignore.plain",
-    "target": ".prettierignore"
-  },
-  {
-    "template": "shared-files/configs/.eslintignore.plain",
-    "target": ".eslintignore"
-  },
-  {
-    "template": "shared-files/configs/.eslintrc.js.ejs",
-    "target": ".eslintrc.js"
-  },
-  {
-    "template": "shared-files/configs/jest.config.ts.plain",
-    "target": "jest.config.ts"
-  },
-  {
-    "template": "shared-files/configs/project.json.plain",
-    "target": "project.json"
-  },
-  {
-    "template": "lib/react/tsconfig.json.ejs",
-    "target": "tsconfig.json"
-  },
-  {
-    "template": "lib/react/tsconfig.lib.json.ejs",
-    "target": "tsconfig.lib.json"
-  },
-  {
-    "template": "shared-files/configs/tsconfig.test.json.ejs",
-    "target": "tsconfig.test.json"
-  },
-  {
-    "template": "shared-files/src-lib/index.ts.ejs",
-    "target": "src/index.ts"
-  },
-  {
-    "template": "shared-files/src-lib/example.ts.ejs",
-    "target": "src/example.ts"
-  },
-  {
-    "template": "shared-files/src-lib/example.test.ts.ejs",
-    "target": "src/example.test.ts"
+    "group": "src",
+    "files": [
+      {
+        "fr": "shared-files/src-lib/index.ts.ejs",
+        "to": "src/index.ts"
+      },
+      {
+        "fr": "shared-files/src-lib/example.ts.ejs",
+        "to": "src/example.ts"
+      },
+      {
+        "fr": "shared-files/src-lib/example.test.ts.ejs",
+        "to": "src/example.test.ts"
+      }
+    ]
   }
 ]
