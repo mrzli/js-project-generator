@@ -1,12 +1,25 @@
 import { GenerateInput } from '../../../../types';
-import { isAppNestTemplate } from '../../../../util';
+import { isAppNestTemplate, isAppReactTemplate } from '../../../../util';
 
 export function getScripts(input: GenerateInput): Record<string, string> {
+  if (isAppReactTemplate(input)) {
+    return getScriptsReact();
+  }
+
   if (isAppNestTemplate(input)) {
     return getScriptsNest();
   }
 
   return getScriptsPublished();
+}
+
+function getScriptsReact(): Record<string, string> {
+  return {
+    dev: 'vite',
+    build: 'tsc && vite build',
+    lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
+    preview: 'vite preview',
+  };
 }
 
 function getScriptsNest(): Record<string, string> {

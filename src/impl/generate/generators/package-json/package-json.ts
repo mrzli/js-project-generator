@@ -6,6 +6,7 @@ import {
 } from '../../../../types';
 import { getDependencies, getDevDependencies } from './dependencies';
 import { getScripts } from './scripts';
+import { isAppReactTemplate } from '../../../../util';
 
 export async function generatePackageJson(
   input: GenerateInput,
@@ -61,7 +62,7 @@ async function getPackageJsonData(
       type: 'git',
       url: githubUrl,
     },
-    type: 'commonjs',
+    type: isAppReactTemplate(input) ? 'module' : 'commonjs',
     main: isDeployedApp ? undefined : './src/index.js',
     bin: commandName ? { [commandName]: `src/index.js` } : undefined,
     scripts: getScripts(input),
