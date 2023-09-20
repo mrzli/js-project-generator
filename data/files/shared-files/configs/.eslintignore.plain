@@ -2,3 +2,4 @@
 /dist/
 /.eslintrc.js
 /jest.config.ts
+/vite.config.ts
