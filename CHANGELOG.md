@@ -9,6 +9,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Small update to other template types, mostly their `package.json` files.
 - Update tsconfigs.
 - Use pnpm scripts instead of npm scripts in generated `package.json`.
+- Update 'nest' generator to use `example` module.
 
 ### Added
 

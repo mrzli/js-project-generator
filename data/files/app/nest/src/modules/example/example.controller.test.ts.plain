@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from '@jest/globals';
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ExampleController } from './example.controller';
+import { ExampleService } from './example.service';
 import { ConfigOptions } from '../../types';
 import { ConfigModule } from '../config/config.module';
 
@@ -12,22 +12,22 @@ const CONFIG_OPTIONS: ConfigOptions = {
   apiPrefix: 'api',
 };
 
-describe('AppController', () => {
-  let appController: AppController;
+describe('ExampleController', () => {
+  let exampleController: ExampleController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [ConfigModule.register(CONFIG_OPTIONS)],
-      controllers: [AppController],
-      providers: [AppService],
+      controllers: [ExampleController],
+      providers: [ExampleService],
     }).compile();
 
-    appController = app.get<AppController>(AppController);
+    exampleController = app.get<ExampleController>(ExampleController);
   });
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+      expect(exampleController.getExample()).toBe('Hello World!');
     });
   });
 });

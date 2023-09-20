@@ -141,16 +141,20 @@
         "to": "src/modules/app/app.module.ts"
       },
       {
-        "fr": "app/nest/src/modules/app/app.controller.ts.plain",
-        "to": "src/modules/app/app.controller.ts"
+        "fr": "app/nest/src/modules/example/example.module.ts.plain",
+        "to": "src/modules/example/example.module.ts"
       },
       {
-        "fr": "app/nest/src/modules/app/app.controller.test.ts.plain",
-        "to": "src/modules/app/app.controller.test.ts"
+        "fr": "app/nest/src/modules/example/example.controller.ts.plain",
+        "to": "src/modules/example/example.controller.ts"
       },
       {
-        "fr": "app/nest/src/modules/app/app.service.ts.plain",
-        "to": "src/modules/app/app.service.ts"
+        "fr": "app/nest/src/modules/example/example.controller.test.ts.plain",
+        "to": "src/modules/example/example.controller.test.ts"
+      },
+      {
+        "fr": "app/nest/src/modules/example/example.service.ts.plain",
+        "to": "src/modules/example/example.service.ts"
       }
     ]
   },
