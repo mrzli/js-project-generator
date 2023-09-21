@@ -40,14 +40,6 @@
         "to": ".eslintrc.cjs"
       },
       {
-        "fr": "shared-files/configs/jest.config.ts.plain",
-        "to": "jest.config.ts"
-      },
-      {
-        "fr": "app/react/package.json.plain",
-        "to": "package.json"
-      },
-      {
         "fr": "app/react/tsconfig.json.plain",
         "to": "tsconfig.json"
       },
@@ -56,17 +48,21 @@
         "to": "tsconfig.node.json"
       },
       {
-        "fr": "shared-files/configs/tsconfig.test.json.ejs",
-        "to": "tsconfig.test.json"
-      },
-      {
         "fr": "app/react/vite.config.ts.plain",
         "to": "vite.config.ts"
+      },
+      {
+        "fr": "app/react/.env.local.plain",
+        "to": ".env.local"
+      },
+      {
+        "fr": "app/react/.env.sample.plain",
+        "to": ".env.sample"
       }
     ]
   },
   {
-    "group": "src",
+    "group": "web",
     "files": [
       {
         "fr": "app/react/index.html.ejs",
@@ -75,6 +71,15 @@
       {
         "fr": "app/react/public/icon.svg.plain",
         "to": "public/icon.svg"
+      }
+    ]
+  },
+  {
+    "group": "src",
+    "files": [
+      {
+        "fr": "app/react/src/index.css.plain",
+        "to": "src/index.css"
       },
       {
         "fr": "app/react/src/vite-env.d.ts.plain",
@@ -85,16 +90,108 @@
         "to": "src/main.tsx"
       },
       {
-        "fr": "app/react/src/index.css.plain",
-        "to": "src/index.css"
+        "fr": "app/react/src/assets/icon.svg.plain",
+        "to": "src/assets/icon.svg"
       },
       {
-        "fr": "app/react/src/App.tsx.plain",
-        "to": "src/App.tsx"
+        "fr": "app/react/src/app-setup/index.ts.plain",
+        "to": "src/app-setup/index.ts"
       },
       {
-        "fr": "app/react/src/assets/react.svg.plain",
-        "to": "src/assets/react.svg"
+        "fr": "app/react/src/app-setup/render.tsx.plain",
+        "to": "src/app-setup/render.tsx"
+      },
+      {
+        "fr": "app/react/src/app-setup/setup.ts.plain",
+        "to": "src/app-setup/setup.ts"
+      },
+      {
+        "fr": "app/react/src/app-setup/app-config.ts.plain",
+        "to": "src/app-setup/app-config.ts"
+      },
+      {
+        "fr": "app/react/src/app-setup/app-context.ts.plain",
+        "to": "src/app-setup/app-context.ts"
+      },
+      {
+        "fr": "app/react/src/app-setup/app-dependencies.ts.plain",
+        "to": "src/app-setup/app-dependencies.ts"
+      },
+      {
+        "fr": "app/react/src/app-setup/app-env.ts.plain",
+        "to": "src/app-setup/app-env.ts"
+      },
+      {
+        "fr": "app/react/src/app-setup/app-globals.ts.plain",
+        "to": "src/app-setup/app-globals.ts"
+      },
+      {
+        "fr": "app/react/src/app-setup/app-params.ts.plain",
+        "to": "src/app-setup/app-params.ts"
+      },
+      {
+        "fr": "app/react/src/app-setup/server.ts.plain",
+        "to": "src/app-setup/server.ts"
+      },
+      {
+        "fr": "app/react/src/api/index.ts.plain",
+        "to": "src/api/index.ts"
+      },
+      {
+        "fr": "app/react/src/api/app-api.ts.plain",
+        "to": "src/api/app-api.ts"
+      },
+      {
+        "fr": "app/react/src/api/parts/index.ts.plain",
+        "to": "src/api/parts/index.ts"
+      },
+      {
+        "fr": "app/react/src/api/parts/example-api.ts.plain",
+        "to": "src/api/parts/example-api.ts"
+      },
+      {
+        "fr": "app/react/src/store/index.ts.plain",
+        "to": "src/store/index.ts"
+      },
+      {
+        "fr": "app/react/src/store/app/index.ts.plain",
+        "to": "src/store/app/index.ts"
+      },
+      {
+        "fr": "app/react/src/store/app/app-state.ts.plain",
+        "to": "src/store/app/app-state.ts"
+      },
+      {
+        "fr": "app/react/src/store/app/app-store-api.ts.plain",
+        "to": "src/store/app/app-store-api.ts"
+      },
+      {
+        "fr": "app/react/src/store/app/create-store.ts.plain",
+        "to": "src/store/app/create-store.ts"
+      },
+      {
+        "fr": "app/react/src/store/app/store-hooks.ts.plain",
+        "to": "src/store/app/store-hooks.ts"
+      },
+      {
+        "fr": "app/react/src/store/parts/index.ts.plain",
+        "to": "src/store/parts/index.ts"
+      },
+      {
+        "fr": "app/react/src/store/parts/example.ts.plain",
+        "to": "src/store/parts/example.ts"
+      },
+      {
+        "fr": "app/react/src/app/components/App.tsx.plain",
+        "to": "src/app/components/App.tsx"
+      },
+      {
+        "fr": "app/react/src/app/util/index.ts.plain",
+        "to": "src/app/util/index.ts"
+      },
+      {
+        "fr": "app/react/src/app/util/hooks.ts.plain",
+        "to": "src/app/util/hooks.ts"
       }
     ]
   }

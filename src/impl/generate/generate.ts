@@ -10,11 +10,7 @@ import {
   TemplateMappingFile,
 } from '../../types';
 import { generatePackageJson } from './generators';
-import {
-  getAppCliTemplateOrUndefined,
-  getEslintProjectType,
-  isAppReactTemplate,
-} from '../../util';
+import { getAppCliTemplateOrUndefined, getEslintProjectType } from '../../util';
 import { filterOutNullish } from '@gmjs/array-transformers';
 import { parseTemplateMappingFile } from './util';
 
@@ -140,12 +136,10 @@ async function generateNonTemplateFiles(
 
   return {
     textFiles: filterOutNullish([
-      isAppReactTemplate(input)
-        ? undefined
-        : {
-            path: toFinalPath('package.json', input),
-            content: packageJson,
-          },
+      {
+        path: toFinalPath('package.json', input),
+        content: packageJson,
+      },
     ]),
     binaryFiles: [],
   };

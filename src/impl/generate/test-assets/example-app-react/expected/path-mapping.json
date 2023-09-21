@@ -1,0 +1,202 @@
+[
+  {
+    "group": "documents",
+    "files": [
+      {
+        "fr": "<shared>/CHANGELOG.md.txt",
+        "to": "test-project/CHANGELOG.md"
+      },
+      {
+        "fr": "<shared>/LICENSE.md.txt",
+        "to": "test-project/LICENSE.md"
+      },
+      {
+        "fr": "<shared>/README.md.txt",
+        "to": "test-project/README.md"
+      }
+    ]
+  },
+  {
+    "group": "config",
+    "files": [
+      {
+        "fr": "<shared>/.gitignore.txt",
+        "to": "test-project/.gitignore"
+      },
+      {
+        "fr": "<shared>/.editorconfig.txt",
+        "to": "test-project/.editorconfig"
+      },
+      {
+        "fr": "<shared>/.prettierignore.txt",
+        "to": "test-project/.prettierignore"
+      },
+      {
+        "fr": "<shared>/.eslintignore.txt",
+        "to": "test-project/.eslintignore"
+      },
+      {
+        "fr": ".eslintrc.cjs.txt",
+        "to": "test-project/.eslintrc.cjs"
+      },
+      {
+        "fr": "package.json.txt",
+        "to": "test-project/package.json"
+      },
+      {
+        "fr": "tsconfig.json.txt",
+        "to": "test-project/tsconfig.json"
+      },
+      {
+        "fr": "tsconfig.node.json.txt",
+        "to": "test-project/tsconfig.node.json"
+      },
+      {
+        "fr": "vite.config.ts.txt",
+        "to": "test-project/vite.config.ts"
+      },
+      {
+        "fr": ".env.local.txt",
+        "to": "test-project/.env.local"
+      },
+      {
+        "fr": ".env.sample.txt",
+        "to": "test-project/.env.sample"
+      }
+    ]
+  },
+  {
+    "group": "web",
+    "files": [
+      {
+        "fr": "index.html.txt",
+        "to": "test-project/index.html"
+      },
+      {
+        "fr": "public/icon.svg.txt",
+        "to": "test-project/public/icon.svg"
+      }
+    ]
+  },
+  {
+    "group": "src",
+    "files": [
+      {
+        "fr": "src/index.css.txt",
+        "to": "test-project/src/index.css"
+      },
+      {
+        "fr": "src/vite-env.d.ts.txt",
+        "to": "test-project/src/vite-env.d.ts"
+      },
+      {
+        "fr": "src/main.tsx.txt",
+        "to": "test-project/src/main.tsx"
+      },
+      {
+        "fr": "src/assets/icon.svg.txt",
+        "to": "test-project/src/assets/icon.svg"
+      },
+      {
+        "fr": "src/app-setup/index.ts.txt",
+        "to": "test-project/src/app-setup/index.ts"
+      },
+      {
+        "fr": "src/app-setup/render.tsx.txt",
+        "to": "test-project/src/app-setup/render.tsx"
+      },
+      {
+        "fr": "src/app-setup/setup.ts.txt",
+        "to": "test-project/src/app-setup/setup.ts"
+      },
+      {
+        "fr": "src/app-setup/app-config.ts.txt",
+        "to": "test-project/src/app-setup/app-config.ts"
+      },
+      {
+        "fr": "src/app-setup/app-context.ts.txt",
+        "to": "test-project/src/app-setup/app-context.ts"
+      },
+      {
+        "fr": "src/app-setup/app-dependencies.ts.txt",
+        "to": "test-project/src/app-setup/app-dependencies.ts"
+      },
+      {
+        "fr": "src/app-setup/app-env.ts.txt",
+        "to": "test-project/src/app-setup/app-env.ts"
+      },
+      {
+        "fr": "src/app-setup/app-globals.ts.txt",
+        "to": "test-project/src/app-setup/app-globals.ts"
+      },
+      {
+        "fr": "src/app-setup/app-params.ts.txt",
+        "to": "test-project/src/app-setup/app-params.ts"
+      },
+      {
+        "fr": "src/app-setup/server.ts.txt",
+        "to": "test-project/src/app-setup/server.ts"
+      },
+      {
+        "fr": "src/api/index.ts.txt",
+        "to": "test-project/src/api/index.ts"
+      },
+      {
+        "fr": "src/api/app-api.ts.txt",
+        "to": "test-project/src/api/app-api.ts"
+      },
+      {
+        "fr": "src/api/parts/index.ts.txt",
+        "to": "test-project/src/api/parts/index.ts"
+      },
+      {
+        "fr": "src/api/parts/example-api.ts.txt",
+        "to": "test-project/src/api/parts/example-api.ts"
+      },
+      {
+        "fr": "src/store/index.ts.txt",
+        "to": "test-project/src/store/index.ts"
+      },
+      {
+        "fr": "src/store/app/index.ts.txt",
+        "to": "test-project/src/store/app/index.ts"
+      },
+      {
+        "fr": "src/store/app/app-state.ts.txt",
+        "to": "test-project/src/store/app/app-state.ts"
+      },
+      {
+        "fr": "src/store/app/app-store-api.ts.txt",
+        "to": "test-project/src/store/app/app-store-api.ts"
+      },
+      {
+        "fr": "src/store/app/create-store.ts.txt",
+        "to": "test-project/src/store/app/create-store.ts"
+      },
+      {
+        "fr": "src/store/app/store-hooks.ts.txt",
+        "to": "test-project/src/store/app/store-hooks.ts"
+      },
+      {
+        "fr": "src/store/parts/index.ts.txt",
+        "to": "test-project/src/store/parts/index.ts"
+      },
+      {
+        "fr": "src/store/parts/example.ts.txt",
+        "to": "test-project/src/store/parts/example.ts"
+      },
+      {
+        "fr": "src/app/components/App.tsx.txt",
+        "to": "test-project/src/app/components/App.tsx"
+      },
+      {
+        "fr": "src/app/util/index.ts.txt",
+        "to": "test-project/src/app/util/index.ts"
+      },
+      {
+        "fr": "src/app/util/hooks.ts.txt",
+        "to": "test-project/src/app/util/hooks.ts"
+      }
+    ]
+  }
+]
