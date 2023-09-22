@@ -44,10 +44,6 @@
         "to": "jest.config.ts"
       },
       {
-        "fr": "shared-files/configs/project.json.plain",
-        "to": "project.json"
-      },
-      {
         "fr": "app/nest/tsconfig.json.plain",
         "to": "tsconfig.json"
       },

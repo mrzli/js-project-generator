@@ -48,10 +48,6 @@
         "to": "test-project/package.json"
       },
       {
-        "fr": "<shared>/project.json.txt",
-        "to": "test-project/project.json"
-      },
-      {
         "fr": "tsconfig.json.txt",
         "to": "test-project/tsconfig.json"
       },
