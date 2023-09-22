@@ -230,5 +230,22 @@
         "to": "test-project/src/app/util/hooks.ts"
       }
     ]
+  },
+  {
+    "group": "storybook",
+    "files": [
+      {
+        "fr": ".storybook/main.ts.txt",
+        "to": "test-project/.storybook/main.ts"
+      },
+      {
+        "fr": ".storybook/preview.ts.txt",
+        "to": "test-project/.storybook/preview.ts"
+      },
+      {
+        "fr": "src/app/components/AnotherScreenContent.stories.tsx.txt",
+        "to": "test-project/src/app/components/AnotherScreenContent.stories.tsx"
+      }
+    ]
   }
 ]
