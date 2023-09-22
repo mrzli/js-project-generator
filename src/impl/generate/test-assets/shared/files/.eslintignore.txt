@@ -1,5 +1,6 @@
 /node_modules/
 /dist/
 /.eslintrc.js
+/.eslintrc.cjs
 /jest.config.ts
 /vite.config.ts

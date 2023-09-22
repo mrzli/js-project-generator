@@ -7,29 +7,12 @@ async function run(): Promise<void> {
 }
 
 function getConfig(): GenerateInput {
-  const experimentDir = '/Users/Mrzli/Development/Projects/private/experiment';
+  const experimentDir =
+    'C:\\Users\\Mrzli\\Development\\Projects\\private\\projects\\js\\trading';
 
-  // return {
-  //   output: 'output',
-  //   projectName: 'test-project',
-  //   authorData: {
-  //     scopeName: 'scope',
-  //     author: 'John Smith',
-  //     email: 'john.smith@example.com',
-  //     authorUrl: 'https://example.com',
-  //     githubAccount: 'johnsmith',
-  //   },
-  //   projectData: {
-  //     kind: 'app',
-  //     template: {
-  //       kind: 'cli',
-  //       commandName: 'test-command',
-  //     },
-  //   },
-  // };
   return {
     output: experimentDir,
-    projectName: 'example-react',
+    projectName: 'gm-trading-fe',
     authorData: {
       scopeName: 'gmjs',
       author: 'Goran Mržljak',

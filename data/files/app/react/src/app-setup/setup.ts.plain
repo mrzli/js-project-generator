@@ -2,7 +2,8 @@ import { createAppGlobals } from './app-globals';
 import { createAppConfig } from './app-config';
 import { AppEnv } from './app-env';
 import { AppParams } from './app-params';
-import { createAppContext, createAppDependencies } from './app-context';
+import { createAppContext } from './app-context';
+import { createAppDependencies } from './app-dependencies';
 import { createAppStore } from '../store';
 
 export async function setupApp(env: AppEnv): Promise<AppParams> {
