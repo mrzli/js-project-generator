@@ -186,8 +186,32 @@
         "to": "test-project/src/store/parts/example.ts"
       },
       {
-        "fr": "src/app/components/App.tsx.txt",
-        "to": "test-project/src/app/components/App.tsx"
+        "fr": "src/app/App.tsx.txt",
+        "to": "test-project/src/app/App.tsx"
+      },
+      {
+        "fr": "src/app/navigation/index.ts.txt",
+        "to": "test-project/src/app/navigation/index.ts"
+      },
+      {
+        "fr": "src/app/navigation/route-data.ts.txt",
+        "to": "test-project/src/app/navigation/route-data.ts"
+      },
+      {
+        "fr": "src/app/navigation/routes.tsx.txt",
+        "to": "test-project/src/app/navigation/routes.tsx"
+      },
+      {
+        "fr": "src/app/screens/AnotherScreen.tsx.txt",
+        "to": "test-project/src/app/screens/AnotherScreen.tsx"
+      },
+      {
+        "fr": "src/app/screens/HomeScreen.tsx.txt",
+        "to": "test-project/src/app/screens/HomeScreen.tsx"
+      },
+      {
+        "fr": "src/app/components/AnotherScreenContent.tsx.txt",
+        "to": "test-project/src/app/components/AnotherScreenContent.tsx"
       },
       {
         "fr": "src/app/util/index.ts.txt",

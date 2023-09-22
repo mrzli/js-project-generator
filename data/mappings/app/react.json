@@ -182,8 +182,32 @@
         "to": "src/store/parts/example.ts"
       },
       {
-        "fr": "app/react/src/app/components/App.tsx.plain",
-        "to": "src/app/components/App.tsx"
+        "fr": "app/react/src/app/App.tsx.plain",
+        "to": "src/app/App.tsx"
+      },
+      {
+        "fr": "app/react/src/app/navigation/index.ts.plain",
+        "to": "src/app/navigation/index.ts"
+      },
+      {
+        "fr": "app/react/src/app/navigation/route-data.ts.plain",
+        "to": "src/app/navigation/route-data.ts"
+      },
+      {
+        "fr": "app/react/src/app/navigation/routes.tsx.plain",
+        "to": "src/app/navigation/routes.tsx"
+      },
+      {
+        "fr": "app/react/src/app/screens/AnotherScreen.tsx.plain",
+        "to": "src/app/screens/AnotherScreen.tsx"
+      },
+      {
+        "fr": "app/react/src/app/screens/HomeScreen.tsx.plain",
+        "to": "src/app/screens/HomeScreen.tsx"
+      },
+      {
+        "fr": "app/react/src/app/components/AnotherScreenContent.tsx.plain",
+        "to": "src/app/components/AnotherScreenContent.tsx"
       },
       {
         "fr": "app/react/src/app/util/index.ts.plain",

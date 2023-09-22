@@ -1,10 +1,5 @@
 import { GenerateInput } from '../../../../../types';
 import {
-  isAppCliTemplate,
-  isAppNestTemplate,
-  isAppReactTemplate,
-} from '../../../../../util';
-import {
   DEV_DEPENDENCIES_APP_CLI,
   DEV_DEPENDENCIES_APP_NEST,
   DEV_DEPENDENCIES_APP_REACT,

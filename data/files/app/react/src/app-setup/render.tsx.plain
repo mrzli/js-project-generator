@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { AppContext } from './app-context';
 import { AppParams } from './app-params';
-import { App } from '../app/components/App';
+import { App } from '../app/App';
 
 export function renderApp(params: AppParams): void {
   const { context } = params;

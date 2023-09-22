@@ -1,0 +1,14 @@
+import { RouteData } from './route-data';
+import { HomeScreen } from '../screens/HomeScreen';
+import { AnotherScreen } from '../screens/AnotherScreen';
+
+export const ROUTES: readonly RouteData[] = [
+  {
+    path: '/',
+    element: <HomeScreen />,
+  },
+  {
+    path: '/another',
+    element: <AnotherScreen />,
+  },
+];
