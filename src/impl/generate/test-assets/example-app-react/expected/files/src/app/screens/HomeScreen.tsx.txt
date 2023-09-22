@@ -22,6 +22,8 @@ export function HomeScreen(): React.ReactElement {
           <Link to='/another'>Another Screen</Link>
         </div>
         <br />
+        <div className='text-3xl font-bold underline'>Tailwind styled</div>
+        <br />
         <a href='https://example.com' target='_blank' rel='noreferrer'>
           <img
             src={iconLogo}
@@ -29,7 +31,7 @@ export function HomeScreen(): React.ReactElement {
             style={{ width: 64, height: 64 }}
           />
         </a>
-        <a href='https://example.come' target='_blank' rel='noreferrer'>
+        <a href='https://example.com' target='_blank' rel='noreferrer'>
           <img
             src={iconAsset}
             alt='example asset'

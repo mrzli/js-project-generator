@@ -52,6 +52,14 @@
         "to": "vite.config.ts"
       },
       {
+        "fr": "app/react/postcss.config.js.plain",
+        "to": "postcss.config.js"
+      },
+      {
+        "fr": "app/react/tailwind.config.js.plain",
+        "to": "tailwind.config.js"
+      },
+      {
         "fr": "app/react/.env.local.plain",
         "to": ".env.local"
       },

@@ -56,6 +56,14 @@
         "to": "test-project/vite.config.ts"
       },
       {
+        "fr": "postcss.config.js.txt",
+        "to": "test-project/postcss.config.js"
+      },
+      {
+        "fr": "tailwind.config.js.txt",
+        "to": "test-project/tailwind.config.js"
+      },
+      {
         "fr": ".env.local.txt",
         "to": "test-project/.env.local"
       },

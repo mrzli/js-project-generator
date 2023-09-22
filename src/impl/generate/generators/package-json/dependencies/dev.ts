@@ -9,6 +9,7 @@ export const DEV_DEPENDENCIES_APP_REACT: readonly string[] = [
   '@typescript-eslint/eslint-plugin',
   '@typescript-eslint/parser',
   '@vitejs/plugin-react',
+  'autoprefixer',
   'eslint',
   'eslint-config-prettier',
   'eslint-import-resolver-typescript',
@@ -19,7 +20,9 @@ export const DEV_DEPENDENCIES_APP_REACT: readonly string[] = [
   'eslint-plugin-react-hooks',
   'eslint-plugin-react-refresh',
   'eslint-plugin-unicorn',
+  'postcss',
   'prettier',
+  'tailwindcss',
   'typescript',
   'vite',
 ];
