@@ -11,6 +11,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Use pnpm scripts instead of npm scripts in generated `package.json`.
 - Update 'nest' generator to use `example` module.
 - Update 'nest' generator to generate `frontendUrl` env variable.
+- Implement 'react' app generator.
 
 ### Added
 
