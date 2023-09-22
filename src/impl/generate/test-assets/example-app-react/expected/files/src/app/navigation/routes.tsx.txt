@@ -1,4 +1,3 @@
-import React from 'react';
 import { RouteData } from './route-data';
 import { HomeScreen } from '../screens/HomeScreen';
 import { AnotherScreen } from '../screens/AnotherScreen';

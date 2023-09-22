@@ -7,5 +7,5 @@ export interface AnotherScreenContentProps {
 export function AnotherScreenContent({
   text,
 }: AnotherScreenContentProps): React.ReactElement {
-  return <div>{text}</div>;
+  return <div className='text-2xl font-bold text-blue-500'>{text}</div>;
 }
