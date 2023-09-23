@@ -19,6 +19,8 @@ function getScriptsReact(): Record<string, string> {
     build: 'tsc && vite build',
     lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
     preview: 'vite preview',
+    storybook: 'storybook dev -p 6006',
+    'build-storybook': 'storybook build',
   };
 }
 
