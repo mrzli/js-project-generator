@@ -48,11 +48,11 @@
         "to": "project.json"
       },
       {
-        "fr": "app/cli/tsconfig.json.ejs",
+        "fr": "app-cli/tsconfig.json.ejs",
         "to": "tsconfig.json"
       },
       {
-        "fr": "app/cli/tsconfig.lib.json.ejs",
+        "fr": "app-cli/tsconfig.lib.json.ejs",
         "to": "tsconfig.lib.json"
       },
       {
@@ -65,31 +65,31 @@
     "group": "src",
     "files": [
       {
-        "fr": "app/cli/src/index.ts.ejs",
+        "fr": "app-cli/src/index.ts.ejs",
         "to": "src/index.ts"
       },
       {
-        "fr": "app/cli/src/run.ts.ejs",
+        "fr": "app-cli/src/run.ts.ejs",
         "to": "src/run.ts"
       },
       {
-        "fr": "app/cli/src/cli/index.ts.ejs",
+        "fr": "app-cli/src/cli/index.ts.ejs",
         "to": "src/cli/index.ts"
       },
       {
-        "fr": "app/cli/src/cli/program.ts.ejs",
+        "fr": "app-cli/src/cli/program.ts.ejs",
         "to": "src/cli/program.ts"
       },
       {
-        "fr": "app/cli/src/cli/commands/index.ts.ejs",
+        "fr": "app-cli/src/cli/commands/index.ts.ejs",
         "to": "src/cli/commands/index.ts"
       },
       {
-        "fr": "app/cli/src/cli/commands/commands/index.ts.ejs",
+        "fr": "app-cli/src/cli/commands/commands/index.ts.ejs",
         "to": "src/cli/commands/commands/index.ts"
       },
       {
-        "fr": "app/cli/src/cli/commands/commands/example.ts.ejs",
+        "fr": "app-cli/src/cli/commands/commands/example.ts.ejs",
         "to": "src/cli/commands/commands/example.ts"
       }
     ]

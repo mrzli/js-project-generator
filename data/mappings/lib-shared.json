@@ -48,11 +48,11 @@
         "to": "project.json"
       },
       {
-        "fr": "lib/shared/tsconfig.json.ejs",
+        "fr": "lib-shared/tsconfig.json.ejs",
         "to": "tsconfig.json"
       },
       {
-        "fr": "lib/shared/tsconfig.lib.json.ejs",
+        "fr": "lib-shared/tsconfig.lib.json.ejs",
         "to": "tsconfig.lib.json"
       },
       {

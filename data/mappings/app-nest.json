@@ -44,11 +44,11 @@
         "to": "jest.config.ts"
       },
       {
-        "fr": "app/nest/tsconfig.json.plain",
+        "fr": "app-nest/tsconfig.json.plain",
         "to": "tsconfig.json"
       },
       {
-        "fr": "app/nest/tsconfig.build.json.plain",
+        "fr": "app-nest/tsconfig.build.json.plain",
         "to": "tsconfig.build.json"
       },
       {
@@ -56,11 +56,11 @@
         "to": "tsconfig.test.json"
       },
       {
-        "fr": "app/nest/.env.local.plain",
+        "fr": "app-nest/.env.local.plain",
         "to": ".env.local"
       },
       {
-        "fr": "app/nest/.env.sample.plain",
+        "fr": "app-nest/.env.sample.plain",
         "to": ".env.sample"
       }
     ]
@@ -69,87 +69,87 @@
     "group": "src",
     "files": [
       {
-        "fr": "app/nest/src/main.ts.plain",
+        "fr": "app-nest/src/main.ts.plain",
         "to": "src/main.ts"
       },
       {
-        "fr": "app/nest/src/types/index.ts.plain",
+        "fr": "app-nest/src/types/index.ts.plain",
         "to": "src/types/index.ts"
       },
       {
-        "fr": "app/nest/src/types/config-options.ts.plain",
+        "fr": "app-nest/src/types/config-options.ts.plain",
         "to": "src/types/config-options.ts"
       },
       {
-        "fr": "app/nest/src/types/env.ts.plain",
+        "fr": "app-nest/src/types/env.ts.plain",
         "to": "src/types/env.ts"
       },
       {
-        "fr": "app/nest/src/types/generic/index.ts.plain",
+        "fr": "app-nest/src/types/generic/index.ts.plain",
         "to": "src/types/generic/index.ts"
       },
       {
-        "fr": "app/nest/src/types/generic/log-level.ts.plain",
+        "fr": "app-nest/src/types/generic/log-level.ts.plain",
         "to": "src/types/generic/log-level.ts"
       },
       {
-        "fr": "app/nest/src/setup/index.ts.plain",
+        "fr": "app-nest/src/setup/index.ts.plain",
         "to": "src/setup/index.ts"
       },
       {
-        "fr": "app/nest/src/setup/app-setup.ts.plain",
+        "fr": "app-nest/src/setup/app-setup.ts.plain",
         "to": "src/setup/app-setup.ts"
       },
       {
-        "fr": "app/nest/src/setup/config-options.ts.plain",
+        "fr": "app-nest/src/setup/config-options.ts.plain",
         "to": "src/setup/config-options.ts"
       },
       {
-        "fr": "app/nest/src/setup/env.ts.plain",
+        "fr": "app-nest/src/setup/env.ts.plain",
         "to": "src/setup/env.ts"
       },
       {
-        "fr": "app/nest/src/modules/root/root.module.ts.plain",
+        "fr": "app-nest/src/modules/root/root.module.ts.plain",
         "to": "src/modules/root/root.module.ts"
       },
       {
-        "fr": "app/nest/src/modules/config/config.module.ts.plain",
+        "fr": "app-nest/src/modules/config/config.module.ts.plain",
         "to": "src/modules/config/config.module.ts"
       },
       {
-        "fr": "app/nest/src/modules/config/config.service.ts.plain",
+        "fr": "app-nest/src/modules/config/config.service.ts.plain",
         "to": "src/modules/config/config.service.ts"
       },
       {
-        "fr": "app/nest/src/modules/config/provider-keys.ts.plain",
+        "fr": "app-nest/src/modules/config/provider-keys.ts.plain",
         "to": "src/modules/config/provider-keys.ts"
       },
       {
-        "fr": "app/nest/src/modules/logger/logger.module.ts.plain",
+        "fr": "app-nest/src/modules/logger/logger.module.ts.plain",
         "to": "src/modules/logger/logger.module.ts"
       },
       {
-        "fr": "app/nest/src/modules/logger/app-logger.service.ts.plain",
+        "fr": "app-nest/src/modules/logger/app-logger.service.ts.plain",
         "to": "src/modules/logger/app-logger.service.ts"
       },
       {
-        "fr": "app/nest/src/modules/app/app.module.ts.plain",
+        "fr": "app-nest/src/modules/app/app.module.ts.plain",
         "to": "src/modules/app/app.module.ts"
       },
       {
-        "fr": "app/nest/src/modules/example/example.module.ts.plain",
+        "fr": "app-nest/src/modules/example/example.module.ts.plain",
         "to": "src/modules/example/example.module.ts"
       },
       {
-        "fr": "app/nest/src/modules/example/example.controller.ts.plain",
+        "fr": "app-nest/src/modules/example/example.controller.ts.plain",
         "to": "src/modules/example/example.controller.ts"
       },
       {
-        "fr": "app/nest/src/modules/example/example.controller.test.ts.plain",
+        "fr": "app-nest/src/modules/example/example.controller.test.ts.plain",
         "to": "src/modules/example/example.controller.test.ts"
       },
       {
-        "fr": "app/nest/src/modules/example/example.service.ts.plain",
+        "fr": "app-nest/src/modules/example/example.service.ts.plain",
         "to": "src/modules/example/example.service.ts"
       }
     ]
@@ -158,11 +158,11 @@
     "group": "test",
     "files": [
       {
-        "fr": "app/nest/test/jest-e2e.json.plain",
+        "fr": "app-nest/test/jest-e2e.json.plain",
         "to": "test/jest-e2e.json"
       },
       {
-        "fr": "app/nest/test/app.e2e-test.ts.plain",
+        "fr": "app-nest/test/app.e2e-test.ts.plain",
         "to": "test/app.e2e-test.ts"
       }
     ]
