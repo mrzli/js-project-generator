@@ -9,9 +9,6 @@
     "githubAccount": "johnsmith"
   },
   "projectData": {
-    "kind": "app",
-    "template": {
-      "kind": "react"
-    }
+    "kind": "app-react"
   }
 }

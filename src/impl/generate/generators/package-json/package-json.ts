@@ -6,7 +6,6 @@ import {
 } from '../../../../types';
 import { getDependencies, getDevDependencies } from './dependencies';
 import { getScripts } from './scripts';
-import { isAppReactTemplate } from '../../../../util';
 
 export async function generatePackageJson(
   input: GenerateInput,
@@ -22,14 +21,14 @@ async function getPackageJsonData(
 ): Promise<Record<string, unknown>> {
   const { projectName, authorData, projectData } = input;
   const { scopeName, author, email, authorUrl, githubAccount } = authorData;
-  const { kind: projectKind, template } = projectData;
+  const { kind: projectKind } = projectData;
 
-  const isDeployedApp = projectKind === 'app' && template.kind !== 'cli';
+  const isDeployedApp =
+    projectKind === 'app-cli' || projectKind.startsWith('lib-');
+  const isReact = projectKind === 'app-react';
 
   const commandName =
-    projectKind === 'app' && template.kind === 'cli'
-      ? template.commandName
-      : undefined;
+    projectKind === 'app-cli' ? projectData.commandName : undefined;
 
   const dependencies = await getDependenciesWithVersions(
     sortDependencies(getDependencies(input)),
@@ -50,7 +49,7 @@ async function getPackageJsonData(
     name: fullProjectName,
     version: '0.0.1',
     description: projectName,
-    private: isDeployedApp ? true : undefined,
+    private: isDeployedApp ? undefined : true,
     author: {
       name: author,
       email,
@@ -62,8 +61,8 @@ async function getPackageJsonData(
       type: 'git',
       url: githubUrl,
     },
-    type: isAppReactTemplate(input) ? 'module' : 'commonjs',
-    main: isDeployedApp ? undefined : './src/index.js',
+    type: isReact ? 'module' : 'commonjs',
+    main: isDeployedApp ? './src/index.js' : undefined,
     bin: commandName ? { [commandName]: `src/index.js` } : undefined,
     scripts: getScripts(input),
     dependencies: toDependenciesObject(dependencies),

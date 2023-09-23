@@ -9,10 +9,7 @@
     "githubAccount": "johnsmith"
   },
   "projectData": {
-    "kind": "app",
-    "template": {
-      "kind": "cli",
-      "commandName": "test-command"
-    }
+    "kind": "app-cli",
+    "commandName": "test-command"
   }
 }

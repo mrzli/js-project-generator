@@ -16,68 +16,40 @@ import {
 
 export function getDependencies(input: GenerateInput): readonly string[] {
   switch (input.projectData.kind) {
-    case 'app': {
-      switch (input.projectData.template.kind) {
-        case 'react': {
-          return DEPENDENCIES_APP_REACT;
-        }
-        case 'nest': {
-          return DEPENDENCIES_APP_NEST;
-        }
-        case 'cli': {
-          return DEPENDENCIES_APP_CLI;
-        }
-      }
+    case 'app-react': {
+      return DEPENDENCIES_APP_REACT;
     }
-    case 'lib': {
-      switch (input.projectData.template.kind) {
-        case 'react': {
-          return [];
-        }
-        case 'browser': {
-          return [];
-        }
-        case 'node': {
-          return DEPENDENCIES_LIB_NODE;
-        }
-        case 'shared': {
-          return DEPENDENCIES_LIB_SHARED;
-        }
-      }
+    case 'app-nest': {
+      return DEPENDENCIES_APP_NEST;
+    }
+    case 'app-cli': {
+      return DEPENDENCIES_APP_CLI;
+    }
+    case 'lib-node': {
+      return DEPENDENCIES_LIB_NODE;
+    }
+    case 'lib-shared': {
+      return DEPENDENCIES_LIB_SHARED;
     }
   }
 }
 
 export function getDevDependencies(input: GenerateInput): readonly string[] {
   switch (input.projectData.kind) {
-    case 'app': {
-      switch (input.projectData.template.kind) {
-        case 'react': {
-          return DEV_DEPENDENCIES_APP_REACT;
-        }
-        case 'nest': {
-          return DEV_DEPENDENCIES_APP_NEST;
-        }
-        case 'cli': {
-          return DEV_DEPENDENCIES_APP_CLI;
-        }
-      }
+    case 'app-react': {
+      return DEV_DEPENDENCIES_APP_REACT;
     }
-    case 'lib': {
-      switch (input.projectData.template.kind) {
-        case 'react': {
-          return [];
-        }
-        case 'browser': {
-          return [];
-        }
-        case 'node': {
-          return DEV_DEPENDENCIES_LIB_NODE;
-        }
-        case 'shared': {
-          return DEV_DEPENDENCIES_LIB_SHARED;
-        }
-      }
+    case 'app-nest': {
+      return DEV_DEPENDENCIES_APP_NEST;
+    }
+    case 'app-cli': {
+      return DEV_DEPENDENCIES_APP_CLI;
+    }
+    case 'lib-node': {
+      return DEV_DEPENDENCIES_LIB_NODE;
+    }
+    case 'lib-shared': {
+      return DEV_DEPENDENCIES_LIB_SHARED;
     }
   }
 }

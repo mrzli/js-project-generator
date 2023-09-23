@@ -10,7 +10,6 @@ import {
   TemplateMappingFile,
 } from '../../types';
 import { generatePackageJson } from './generators';
-import { getAppCliTemplateOrUndefined, getEslintProjectType } from '../../util';
 import { filterOutNullish } from '@gmjs/array-transformers';
 import { parseTemplateMappingFile } from './util';
 
@@ -42,16 +41,10 @@ export async function generate(
 async function getTemplateMappingFile(
   input: GenerateInput,
 ): Promise<TemplateMappingFile> {
-  const { kind: projectKind, template } = input.projectData;
-  const { kind: templateKind } = template;
+  const { kind: projectKind } = input.projectData;
 
   const content = await readTextAsync(
-    join(
-      __dirname,
-      TEMPLATE_MAPPINGS_DIRECTORY,
-      projectKind,
-      `${templateKind}.json`,
-    ),
+    join(__dirname, TEMPLATE_MAPPINGS_DIRECTORY, `${projectKind}.json`),
   );
 
   return parseTemplateMappingFile(content);
@@ -112,9 +105,10 @@ async function getTemplateGeneratedFiles(
 }
 
 function getEjsPlaceholders(input: GenerateInput): Record<string, unknown> {
-  const { authorData, projectName } = input;
+  const { authorData, projectName, projectData } = input;
   const { scopeName, author, email, authorUrl, githubAccount } = authorData;
-  const commandName = getAppCliTemplateOrUndefined(input)?.commandName;
+  const commandName =
+    projectData.kind === 'app-cli' ? projectData.commandName : undefined;
 
   return {
     projectName,
@@ -148,6 +142,28 @@ async function generateNonTemplateFiles(
 function toFinalPath(filePath: string, input: GenerateInput): string {
   const { projectName } = input;
   return join(projectName, filePath);
+}
+
+function getEslintProjectType(input: GenerateInput): string {
+  const { projectData } = input;
+
+  switch (projectData.kind) {
+    case 'app-react': {
+      return 'react';
+    }
+    case 'app-nest': {
+      return 'node';
+    }
+    case 'app-cli': {
+      return 'node';
+    }
+    case 'lib-node': {
+      return 'node';
+    }
+    case 'lib-shared': {
+      return 'shared';
+    }
+  }
 }
 
 const TEMPLATE_MAPPINGS_DIRECTORY = '../../../data/mappings';

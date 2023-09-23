@@ -1,5 +1,5 @@
 import { AuthorData } from './author-data';
-import { ProjectDataAny } from './project-kind';
+import { ProjectDataAny } from './project-data';
 
 export interface GenerateInput {
   readonly output: string;

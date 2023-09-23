@@ -1,12 +1,14 @@
 import { GenerateInput } from '../../../../types';
-import { isAppNestTemplate, isAppReactTemplate } from '../../../../util';
 
 export function getScripts(input: GenerateInput): Record<string, string> {
-  if (isAppReactTemplate(input)) {
+  const { projectData } = input;
+  const { kind: projectKind } = projectData;
+
+  if (projectKind === 'app-react') {
     return getScriptsReact();
   }
 
-  if (isAppNestTemplate(input)) {
+  if (projectKind === 'app-nest') {
     return getScriptsNest();
   }
 

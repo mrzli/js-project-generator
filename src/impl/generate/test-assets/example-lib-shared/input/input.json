@@ -9,9 +9,6 @@
     "githubAccount": "johnsmith"
   },
   "projectData": {
-    "kind": "lib",
-    "template": {
-      "kind": "shared"
-    }
+    "kind": "lib-shared"
   }
 }

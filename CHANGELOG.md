@@ -10,6 +10,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Update 'nest' generator to use `example` module.
 - Update 'nest' generator to generate `frontendUrl` env variable.
 - Implement 'react' app generator.
+- Change inputs to only have one level of project type, instead of project/template type combination that was previsouly used.
 - Other generated files improvements and fixes.
 
 ### Added
