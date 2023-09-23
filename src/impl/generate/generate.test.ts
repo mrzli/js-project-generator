@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { FilesContainer, getFileSystemTestCaseRuns } from '@gmjs/test-util';
+import { createFsTestCases, FilesContainer } from '@gmjs/test-util';
 import { readTextAsync } from '@gmjs/fs-async';
 import { join } from '@gmjs/path';
 import { generate } from './generate';
@@ -9,12 +9,9 @@ describe('generate', () => {
   const testCasesParentDirectory = join(__dirname, 'test-assets');
 
   describe('generateImpl()', () => {
-    const testCaseRuns = getFileSystemTestCaseRuns(
+    const testCaseRuns = createFsTestCases(
       testCasesParentDirectory,
       getActualFiles,
-      {
-        sharedDirectoryRelativePath: '../../../shared/files',
-      },
     );
 
     for (const testCaseRun of testCaseRuns) {
