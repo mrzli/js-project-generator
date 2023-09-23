@@ -1,11 +1,11 @@
-import { GenerateInput } from '../../../../types';
+import { GenerateInput, ProjectDataAppReact } from '../../../../types';
 
 export function getScripts(input: GenerateInput): Record<string, string> {
   const { projectData } = input;
   const { kind: projectKind } = projectData;
 
   if (projectKind === 'app-react') {
-    return getScriptsReact();
+    return getScriptsReact(projectData);
   }
 
   if (projectKind === 'app-nest') {
@@ -15,14 +15,22 @@ export function getScripts(input: GenerateInput): Record<string, string> {
   return getScriptsPublished();
 }
 
-function getScriptsReact(): Record<string, string> {
+function getScriptsReact(
+  projectData: ProjectDataAppReact,
+): Record<string, string> {
+  const scriptsStorybook: Record<string, string> = projectData.storybook
+    ? {
+        storybook: 'storybook dev -p 6006',
+        'build-storybook': 'storybook build',
+      }
+    : {};
+
   return {
     dev: 'vite',
     build: 'tsc && vite build',
     lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
     preview: 'vite preview',
-    storybook: 'storybook dev -p 6006',
-    'build-storybook': 'storybook build',
+    ...scriptsStorybook,
   };
 }
 

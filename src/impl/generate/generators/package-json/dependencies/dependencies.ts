@@ -2,7 +2,8 @@ import { GenerateInput } from '../../../../../types';
 import {
   DEV_DEPENDENCIES_APP_CLI,
   DEV_DEPENDENCIES_APP_NEST,
-  DEV_DEPENDENCIES_APP_REACT,
+  DEV_DEPENDENCIES_APP_REACT_BASE,
+  DEV_DEPENDENCIES_APP_REACT_STORYBOOK,
   DEV_DEPENDENCIES_LIB_NODE,
   DEV_DEPENDENCIES_LIB_SHARED,
 } from './dev';
@@ -37,7 +38,12 @@ export function getDependencies(input: GenerateInput): readonly string[] {
 export function getDevDependencies(input: GenerateInput): readonly string[] {
   switch (input.projectData.kind) {
     case 'app-react': {
-      return DEV_DEPENDENCIES_APP_REACT;
+      return [
+        ...DEV_DEPENDENCIES_APP_REACT_BASE,
+        ...(input.projectData.storybook
+          ? DEV_DEPENDENCIES_APP_REACT_STORYBOOK
+          : []),
+      ];
     }
     case 'app-nest': {
       return DEV_DEPENDENCIES_APP_NEST;

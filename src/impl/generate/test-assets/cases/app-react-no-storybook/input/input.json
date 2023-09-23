@@ -9,6 +9,7 @@
     "githubAccount": "johnsmith"
   },
   "projectData": {
-    "kind": "app-react"
+    "kind": "app-react",
+    "storybook": false
   }
 }

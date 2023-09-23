@@ -14,6 +14,7 @@ export interface ProjectDataBase {
 
 export interface ProjectDataAppReact extends ProjectDataBase {
   readonly kind: 'app-react';
+  readonly storybook: boolean;
 }
 
 export interface ProjectDataAppNest extends ProjectDataBase {

@@ -36,7 +36,7 @@
         "to": ".eslintignore"
       },
       {
-        "fr": "app-react/.eslintrc.cjs.plain",
+        "fr": "app-react/.eslintrc.cjs.ejs",
         "to": ".eslintrc.cjs"
       },
       {
@@ -224,23 +224,6 @@
       {
         "fr": "app-react/src/app/util/hooks.ts.plain",
         "to": "src/app/util/hooks.ts"
-      }
-    ]
-  },
-  {
-    "group": "storybook",
-    "files": [
-      {
-        "fr": "app-react/.storybook/main.ts.plain",
-        "to": ".storybook/main.ts"
-      },
-      {
-        "fr": "app-react/.storybook/preview.ts.plain",
-        "to": ".storybook/preview.ts"
-      },
-      {
-        "fr": "app-react/src/app/components/AnotherScreenContent.stories.tsx.plain",
-        "to": "src/app/components/AnotherScreenContent.stories.tsx"
       }
     ]
   }

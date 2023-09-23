@@ -41,7 +41,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@gmjs/eslint-config": "^0.0.21",
+    "@gmjs/eslint-config": "^0.0.24",
     "@gmjs/jest-config": "^0.0.6",
     "@gmjs/npm-publish-cli": "^0.0.4",
     "@gmjs/prettier-config": "^1.0.45",

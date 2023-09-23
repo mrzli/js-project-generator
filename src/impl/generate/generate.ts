@@ -17,11 +17,15 @@ export async function generate(
   input: GenerateInput,
   infra: GenerateInfrastructure,
 ): Promise<GeneratedFiles> {
-  const templateMappingFile = await getTemplateMappingFile(input);
+  const templateMappingFilePaths = getTemplateMappingFilePaths(input);
+
+  const templateMappings = await readTemplateMappingFiles(
+    templateMappingFilePaths,
+  );
 
   const filesFromTemplates = await getTemplateGeneratedFiles(
     input,
-    templateMappingFile,
+    templateMappings,
   );
 
   const filesFromNonTemplates = await generateNonTemplateFiles(input, infra);
@@ -38,26 +42,57 @@ export async function generate(
   };
 }
 
-async function getTemplateMappingFile(
-  input: GenerateInput,
-): Promise<TemplateMappingFile> {
-  const { kind: projectKind } = input.projectData;
+function getTemplateMappingFilePaths(input: GenerateInput): readonly string[] {
+  const { projectData } = input;
+  const { kind: projectKind } = projectData;
 
-  const content = await readTextAsync(
-    join(__dirname, TEMPLATE_MAPPINGS_DIRECTORY, `${projectKind}.json`),
+  switch (projectKind) {
+    case 'app-react': {
+      const { storybook } = projectData;
+      return [
+        'app-react/base.json',
+        ...(storybook
+          ? ['app-react/storybook-true.json']
+          : ['app-react/storybook-false.json']),
+      ];
+    }
+    case 'app-nest': {
+      return ['app-nest.json'];
+    }
+    case 'app-cli': {
+      return ['app-cli.json'];
+    }
+    case 'lib-node': {
+      return ['lib-node.json'];
+    }
+    case 'lib-shared': {
+      return ['lib-shared.json'];
+    }
+  }
+}
+
+async function readTemplateMappingFiles(
+  templateMappingFilePaths: readonly string[],
+): Promise<readonly TemplateMappingFile[]> {
+  const contents = await Promise.all(
+    templateMappingFilePaths.map((file) =>
+      readTextAsync(join(__dirname, TEMPLATE_MAPPINGS_DIRECTORY, file)),
+    ),
   );
 
-  return parseTemplateMappingFile(content);
+  return contents.map((content) => parseTemplateMappingFile(content));
 }
 
 async function getTemplateGeneratedFiles(
   input: GenerateInput,
-  templateMappingFile: TemplateMappingFile,
+  templateMappingFiles: readonly TemplateMappingFile[],
 ): Promise<GeneratedFiles> {
   const textFiles: FilePathTextContent[] = [];
   const binaryFiles: FilePathBinaryContent[] = [];
 
-  const templateMappings = templateMappingFile.flatMap((group) => group.files);
+  const templateMappings = templateMappingFiles
+    .flat() // each file is a list of groups, so flatten into a single list of groups
+    .flatMap((group) => group.files); // flatten groups into a single list of files
 
   for (const mapping of templateMappings) {
     const { fr, to } = mapping;
@@ -109,6 +144,8 @@ function getEjsPlaceholders(input: GenerateInput): Record<string, unknown> {
   const { scopeName, author, email, authorUrl, githubAccount } = authorData;
   const commandName =
     projectData.kind === 'app-cli' ? projectData.commandName : undefined;
+  const storybook =
+    projectData.kind === 'app-react' ? projectData.storybook : undefined;
 
   return {
     projectName,
@@ -118,6 +155,7 @@ function getEjsPlaceholders(input: GenerateInput): Record<string, unknown> {
     authorUrl,
     githubAccount,
     commandName,
+    storybook,
     eslintProjectType: getEslintProjectType(input),
   };
 }

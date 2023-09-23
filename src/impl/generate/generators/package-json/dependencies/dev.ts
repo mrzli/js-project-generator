@@ -1,14 +1,7 @@
-export const DEV_DEPENDENCIES_APP_REACT: readonly string[] = [
+export const DEV_DEPENDENCIES_APP_REACT_BASE: readonly string[] = [
   '@gmjs/eslint-config',
   '@gmjs/prettier-config',
   '@gmjs/tsconfig',
-  '@storybook/addon-essentials',
-  '@storybook/addon-interactions',
-  '@storybook/addon-links',
-  '@storybook/blocks',
-  '@storybook/react',
-  '@storybook/react-vite',
-  '@storybook/testing-library',
   '@types/eslint',
   '@types/node',
   '@types/react',
@@ -26,14 +19,24 @@ export const DEV_DEPENDENCIES_APP_REACT: readonly string[] = [
   'eslint-plugin-react',
   'eslint-plugin-react-hooks',
   'eslint-plugin-react-refresh',
-  'eslint-plugin-storybook',
   'eslint-plugin-unicorn',
   'postcss',
   'prettier',
-  'storybook',
   'tailwindcss',
   'typescript',
   'vite',
+];
+
+export const DEV_DEPENDENCIES_APP_REACT_STORYBOOK: readonly string[] = [
+  '@storybook/addon-essentials',
+  '@storybook/addon-interactions',
+  '@storybook/addon-links',
+  '@storybook/blocks',
+  '@storybook/react',
+  '@storybook/react-vite',
+  '@storybook/testing-library',
+  'eslint-plugin-storybook',
+  'storybook',
 ];
 
 export const DEV_DEPENDENCIES_APP_NEST: readonly string[] = [
