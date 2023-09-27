@@ -1,7 +1,9 @@
 export const DEV_DEPENDENCIES_APP_REACT_BASE: readonly string[] = [
   '@gmjs/eslint-config',
+  '@gmjs/jest-config',
   '@gmjs/prettier-config',
   '@gmjs/tsconfig',
+  '@jest/globals',
   '@types/eslint',
   '@types/node',
   '@types/react',
@@ -20,9 +22,12 @@ export const DEV_DEPENDENCIES_APP_REACT_BASE: readonly string[] = [
   'eslint-plugin-react-hooks',
   'eslint-plugin-react-refresh',
   'eslint-plugin-unicorn',
+  'jest',
   'postcss',
   'prettier',
   'tailwindcss',
+  'ts-jest',
+  'ts-node',
   'typescript',
   'vite',
 ];

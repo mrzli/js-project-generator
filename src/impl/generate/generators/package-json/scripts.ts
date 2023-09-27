@@ -29,6 +29,7 @@ function getScriptsReact(
     dev: 'vite',
     build: 'tsc && vite build',
     lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
+    test: 'jest --passWithNoTests',
     preview: 'vite preview',
     ...scriptsStorybook,
   };

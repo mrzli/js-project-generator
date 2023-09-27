@@ -19,6 +19,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint --report-unused-disable-directives --fix . && prettier --write .",
+    "test": "jest --passWithNoTests",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -32,8 +33,10 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^1.0.0",
+    "@gmjs/jest-config": "^1.0.0",
     "@gmjs/prettier-config": "^1.0.0",
     "@gmjs/tsconfig": "^1.0.0",
+    "@jest/globals": "^1.0.0",
     "@types/eslint": "^1.0.0",
     "@types/node": "^1.0.0",
     "@types/react": "^1.0.0",
@@ -52,9 +55,12 @@
     "eslint-plugin-react-hooks": "^1.0.0",
     "eslint-plugin-react-refresh": "^1.0.0",
     "eslint-plugin-unicorn": "^1.0.0",
+    "jest": "^1.0.0",
     "postcss": "^1.0.0",
     "prettier": "^1.0.0",
     "tailwindcss": "^1.0.0",
+    "ts-jest": "^1.0.0",
+    "ts-node": "^1.0.0",
     "typescript": "^1.0.0",
     "vite": "^1.0.0"
   },
