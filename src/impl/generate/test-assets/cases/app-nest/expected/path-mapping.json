@@ -81,20 +81,24 @@
         "to": "test-project/src/types/index.ts"
       },
       {
-        "fr": "src/types/config-options.ts.txt",
-        "to": "test-project/src/types/config-options.ts"
-      },
-      {
-        "fr": "src/types/env.ts.txt",
-        "to": "test-project/src/types/env.ts"
-      },
-      {
         "fr": "src/types/generic/index.ts.txt",
         "to": "test-project/src/types/generic/index.ts"
       },
       {
         "fr": "src/types/generic/log-level.ts.txt",
         "to": "test-project/src/types/generic/log-level.ts"
+      },
+      {
+        "fr": "src/types/config/index.ts.txt",
+        "to": "test-project/src/types/config/index.ts"
+      },
+      {
+        "fr": "src/types/config/config-options.ts.txt",
+        "to": "test-project/src/types/config/config-options.ts"
+      },
+      {
+        "fr": "src/types/config/env.ts.txt",
+        "to": "test-project/src/types/config/env.ts"
       },
       {
         "fr": "src/setup/index.ts.txt",

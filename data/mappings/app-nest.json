@@ -77,20 +77,24 @@
         "to": "src/types/index.ts"
       },
       {
-        "fr": "app-nest/src/types/config-options.ts.plain",
-        "to": "src/types/config-options.ts"
-      },
-      {
-        "fr": "app-nest/src/types/env.ts.plain",
-        "to": "src/types/env.ts"
-      },
-      {
         "fr": "app-nest/src/types/generic/index.ts.plain",
         "to": "src/types/generic/index.ts"
       },
       {
         "fr": "app-nest/src/types/generic/log-level.ts.plain",
         "to": "src/types/generic/log-level.ts"
+      },
+      {
+        "fr": "app-nest/src/types/config/index.ts.plain",
+        "to": "src/types/config/index.ts"
+      },
+      {
+        "fr": "app-nest/src/types/config/config-options.ts.plain",
+        "to": "src/types/config/config-options.ts"
+      },
+      {
+        "fr": "app-nest/src/types/config/env.ts.plain",
+        "to": "src/types/config/env.ts"
       },
       {
         "fr": "app-nest/src/setup/index.ts.plain",

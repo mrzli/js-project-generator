@@ -1,4 +1,4 @@
-import { LogLevelOrOff } from './generic';
+import { LogLevelOrOff } from '../generic';
 
 export interface ConfigOptions {
   readonly nodeEnv: string;
