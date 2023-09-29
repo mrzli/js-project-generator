@@ -59,9 +59,12 @@ function getScriptsPublished(): Record<string, string> {
       'eslint --report-unused-disable-directives . && prettier --check .',
     'test-only': 'jest --passWithNoTests',
     test: 'pnpm run lint && pnpm run test-only',
-    'build-only': 'shx rm -rf ./dist && tsc --project tsconfig.lib.json',
+    clean: 'shx rm -rf ./dist',
+    'build-only': 'pnpm run clean && tsc --project tsconfig.lib.json',
     build: 'pnpm run test && pnpm run build-only',
-    'pub-only': 'npmpub',
-    pub: 'pnpm run build && pnpm run pub-only',
+    'pac-only': 'npmpub pack',
+    pac: 'pnpm run build && pnpm run pac-only',
+    'pub-only': 'npmpub pub',
+    pub: 'pnpm run pac && pnpm run pub-only',
   };
 }

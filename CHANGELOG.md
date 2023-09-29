@@ -11,6 +11,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Update 'nest' generator to generate `frontendUrl` env variable.
 - Implement 'react' app generator.
 - Change inputs to only have one level of project type, instead of project/template type combination that was previsouly used.
+- Update `package.json` in publishable projects to include packaging scripts and other smaller changes.
 - Other generated files improvements and fixes.
 
 ### Added
