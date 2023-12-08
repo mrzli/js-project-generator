@@ -46,6 +46,7 @@
     "@storybook/react": "^1.0.0",
     "@storybook/react-vite": "^1.0.0",
     "@storybook/testing-library": "^1.0.0",
+    "@storybook/types": "^1.0.0",
     "@types/eslint": "^1.0.0",
     "@types/node": "^1.0.0",
     "@types/react": "^1.0.0",

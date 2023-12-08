@@ -40,6 +40,7 @@ export const DEV_DEPENDENCIES_APP_REACT_STORYBOOK: readonly string[] = [
   '@storybook/react',
   '@storybook/react-vite',
   '@storybook/testing-library',
+  '@storybook/types',
   'eslint-plugin-storybook',
   'storybook',
 ];
