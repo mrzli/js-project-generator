@@ -795,7 +795,7 @@ packages:
       {
         integrity: sha512-4EzvXt+f41ARv94uM37UcultSdwQh0AfKyYOiArkL8Psc9F1XKPLsB4EbZYw7XVL4Bt3awtqPrzO7AfeMBkIlQ==,
       }
-    engines: { node: '>=18.17.0' }
+    engines: { node: '>=20.10.0' }
     dependencies:
       tslib: 2.6.2
     dev: true
@@ -824,7 +824,7 @@ packages:
       {
         integrity: sha512-HD1K8sxjzQSvDJNhfX+K7cSBrMneHWdnjUVH97dWS7/kTXMkBcwIO2l6y7EM/os2IEphq04AJSkmAqH0cCVRHg==,
       }
-    engines: { node: '>=18.17.0' }
+    engines: { node: '>=20.10.0' }
     dependencies:
       '@gmjs/fs-async': 0.0.5
       '@gmjs/fs-sync': 0.0.3

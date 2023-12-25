@@ -62,6 +62,9 @@ function getTemplateMappingFilePaths(input: GenerateInput): readonly string[] {
     case 'app-cli': {
       return ['app-cli.json'];
     }
+    case 'lib-browser': {
+      return ['lib-browser.json'];
+    }
     case 'lib-node': {
       return ['lib-node.json'];
     }
@@ -194,6 +197,9 @@ function getEslintProjectType(input: GenerateInput): string {
     }
     case 'app-cli': {
       return 'node';
+    }
+    case 'lib-browser': {
+      return 'browser';
     }
     case 'lib-node': {
       return 'node';

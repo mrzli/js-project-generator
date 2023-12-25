@@ -107,6 +107,30 @@ export const DEV_DEPENDENCIES_APP_CLI: readonly string[] = [
   'typescript',
 ];
 
+export const DEV_DEPENDENCIES_LIB_BROWSER: readonly string[] = [
+  '@gmjs/eslint-config',
+  '@gmjs/jest-config',
+  '@gmjs/npm-publish-cli',
+  '@gmjs/prettier-config',
+  '@gmjs/tsconfig',
+  '@jest/globals',
+  '@types/eslint',
+  '@typescript-eslint/eslint-plugin',
+  '@typescript-eslint/parser',
+  'eslint',
+  'eslint-config-prettier',
+  'eslint-import-resolver-typescript',
+  'eslint-plugin-import',
+  'eslint-plugin-prettier',
+  'eslint-plugin-unicorn',
+  'jest',
+  'prettier',
+  'shx',
+  'ts-jest',
+  'ts-node',
+  'typescript',
+];
+
 export const DEV_DEPENDENCIES_LIB_NODE: readonly string[] = [
   '@gmjs/eslint-config',
   '@gmjs/jest-config',
@@ -141,7 +165,6 @@ export const DEV_DEPENDENCIES_LIB_SHARED: readonly string[] = [
   '@gmjs/tsconfig',
   '@jest/globals',
   '@types/eslint',
-  '@types/node',
   '@typescript-eslint/eslint-plugin',
   '@typescript-eslint/parser',
   'eslint',

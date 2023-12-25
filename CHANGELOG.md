@@ -9,7 +9,8 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Use pnpm scripts instead of npm scripts in generated `package.json`.
 - Update 'nest' generator to use `example` module.
 - Update 'nest' generator to generate `frontendUrl` env variable.
-- Implement 'react' app generator.
+- Implement 'app-react' generator.
+- Implement 'lib-browser' generator.
 - Change inputs to only have one level of project type, instead of project/template type combination that was previsouly used.
 - Update `package.json` in publishable projects to include packaging scripts and other smaller changes.
 - Update tsconfig lib to use `es2023` instead of `es2022`.

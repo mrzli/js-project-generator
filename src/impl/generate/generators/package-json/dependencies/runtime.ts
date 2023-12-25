@@ -28,6 +28,8 @@ export const DEPENDENCIES_APP_CLI: readonly string[] = [
   'tslib',
 ];
 
+export const DEPENDENCIES_LIB_BROWSER: readonly string[] = ['tslib'];
+
 export const DEPENDENCIES_LIB_NODE: readonly string[] = ['tslib'];
 
 export const DEPENDENCIES_LIB_SHARED: readonly string[] = ['tslib'];

@@ -2,6 +2,7 @@ export const KINDS_OF_PROJECTS = [
   'app-react',
   'app-nest',
   'app-cli',
+  'lib-browser',
   'lib-node',
   'lib-shared',
 ] as const;
@@ -26,6 +27,10 @@ export interface ProjectDataAppCli extends ProjectDataBase {
   readonly commandName: string;
 }
 
+export interface ProjectDataLibBrowser extends ProjectDataBase {
+  readonly kind: 'lib-browser';
+}
+
 export interface ProjectDataLibNode extends ProjectDataBase {
   readonly kind: 'lib-node';
 }
@@ -38,5 +43,6 @@ export type ProjectDataAny =
   | ProjectDataAppReact
   | ProjectDataAppNest
   | ProjectDataAppCli
+  | ProjectDataLibBrowser
   | ProjectDataLibNode
   | ProjectDataLibShared;
