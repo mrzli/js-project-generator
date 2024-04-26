@@ -69,7 +69,7 @@ async function getPackageJsonData(
     devDependencies: toDependenciesObject(devDependencies),
     engines: {
       node: '>=20.10.0',
-    }
+    },
   };
 }
 
