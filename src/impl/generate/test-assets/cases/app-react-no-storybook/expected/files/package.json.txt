@@ -34,7 +34,6 @@
   "devDependencies": {
     "@gmjs/eslint-config": "^1.0.0",
     "@gmjs/jest-config": "^1.0.0",
-    "@gmjs/prettier-config": "^1.0.0",
     "@jest/globals": "^1.0.0",
     "@types/eslint": "^1.0.0",
     "@types/node": "^1.0.0",
@@ -65,6 +64,5 @@
   },
   "engines": {
     "node": ">=20.10.0"
-  },
-  "prettier": "@gmjs/prettier-config"
+  }
 }

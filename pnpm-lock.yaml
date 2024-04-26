@@ -47,9 +47,6 @@ importers:
       '@gmjs/npm-publish-cli':
         specifier: ^0.0.9
         version: 0.0.9
-      '@gmjs/prettier-config':
-        specifier: ^1.0.45
-        version: 1.0.45
       '@gmjs/test-util':
         specifier: ^0.0.14
         version: 0.0.14
@@ -583,12 +580,6 @@ packages:
         integrity: sha512-xR2YJ8fzTZL8loZyV5Ci+Db9GNh+B0YXf8JcukMXu5mrZtrGQZKzuUVHpttR30brUpwd9PxT2GkmGDmeJy8qQA==,
       }
     engines: { node: '>=16.0.0' }
-
-  '@gmjs/prettier-config@1.0.45':
-    resolution:
-      {
-        integrity: sha512-pDVdasYadwsaGcCyPRRghrsKqJQurGiUNakaELmfWyM3OXdZT+OYkcbCBhV3WY+mUEJGvaPIFk2kG0uzytpByw==,
-      }
 
   '@gmjs/test-util@0.0.14':
     resolution:
@@ -4793,8 +4784,6 @@ snapshots:
   '@gmjs/path@0.0.2':
     dependencies:
       tslib: 2.6.2
-
-  '@gmjs/prettier-config@1.0.45': {}
 
   '@gmjs/test-util@0.0.14':
     dependencies:
