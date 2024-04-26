@@ -49,7 +49,6 @@
     "@gmjs/npm-publish-cli": "^0.0.9",
     "@gmjs/prettier-config": "^1.0.45",
     "@gmjs/test-util": "^0.0.14",
-    "@gmjs/tsconfig": "^1.0.12",
     "@jest/globals": "^29.7.0",
     "@types/ejs": "^3.1.5",
     "@types/jest": "^29.5.12",
@@ -79,5 +78,5 @@
     "node": ">=20.10.0"
   },
   "prettier": "@gmjs/prettier-config",
-  "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589"
+  "packageManager": "pnpm@9.0.6+sha256.0624e30eff866cdeb363b15061bdb7fd9425b17bc1bb42c22f5f4efdea21f6b3"
 }
