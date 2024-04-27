@@ -42,7 +42,6 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^1.0.0",
-    "@gmjs/jest-config": "^1.0.0",
     "@jest/globals": "^1.0.0",
     "@nestjs/cli": "^1.0.0",
     "@nestjs/schematics": "^1.0.0",

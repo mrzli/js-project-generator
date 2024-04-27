@@ -1,9 +1,12 @@
-import type { JestConfigWithTsJest } from 'ts-jest';
-import { getJestConfig } from '@gmjs/jest-config';
+import { JestConfigWithTsJest } from 'ts-jest';
 
 export default async (): Promise<JestConfigWithTsJest> => {
-  const defaultConfig = await getJestConfig();
   return {
-    ...defaultConfig,
+    preset: 'ts-jest',
+    verbose: true,
+    roots: ['<rootDir>/src'],
+    transform: {
+      '^.+\\.tsx?$': ['ts-jest', { tsconfig: 'tsconfig.test.json' }],
+    },
   };
 };
