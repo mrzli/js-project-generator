@@ -7,14 +7,13 @@ export const DEV_DEPENDENCIES_APP_REACT_BASE: readonly string[] = [
   '@vitejs/plugin-react',
   'autoprefixer',
   'eslint',
-  'jest',
   'postcss',
   'prettier',
   'tailwindcss',
-  'ts-jest',
   'ts-node',
   'typescript',
   'vite',
+  'vitest',
 ];
 
 export const DEV_DEPENDENCIES_APP_REACT_STORYBOOK: readonly string[] = [

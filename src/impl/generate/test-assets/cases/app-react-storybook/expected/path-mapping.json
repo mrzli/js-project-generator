@@ -36,10 +36,6 @@
         "to": "test-project/eslint.config.mjs"
       },
       {
-        "fr": "<shared>/jest.config.ts.txt",
-        "to": "test-project/jest.config.ts"
-      },
-      {
         "fr": "package.json.txt",
         "to": "test-project/package.json"
       },

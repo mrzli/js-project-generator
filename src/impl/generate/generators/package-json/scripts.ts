@@ -29,7 +29,8 @@ function getScriptsReact(
     dev: 'vite',
     build: 'tsc && vite build',
     lint: 'eslint --fix . && prettier --write .',
-    test: 'jest --passWithNoTests',
+    test: 'vitest run --passWithNoTests',
+    testw: 'vitest watch --passWithNoTests',
     preview: 'vite preview',
     ...scriptsStorybook,
   };

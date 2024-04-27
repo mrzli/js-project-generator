@@ -19,7 +19,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint --fix . && prettier --write .",
-    "test": "jest --passWithNoTests",
+    "test": "vitest run --passWithNoTests",
+    "testw": "vitest watch --passWithNoTests",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -40,14 +41,13 @@
     "@vitejs/plugin-react": "^1.0.0",
     "autoprefixer": "^1.0.0",
     "eslint": "^1.0.0",
-    "jest": "^1.0.0",
     "postcss": "^1.0.0",
     "prettier": "^1.0.0",
     "tailwindcss": "^1.0.0",
-    "ts-jest": "^1.0.0",
     "ts-node": "^1.0.0",
     "typescript": "^1.0.0",
-    "vite": "^1.0.0"
+    "vite": "^1.0.0",
+    "vitest": "^1.0.0"
   },
   "engines": {
     "node": ">=20.10.0"

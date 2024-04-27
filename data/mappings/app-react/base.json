@@ -36,10 +36,6 @@
         "to": "eslint.config.mjs"
       },
       {
-        "fr": "shared-files/configs/jest.config.ts.plain",
-        "to": "jest.config.ts"
-      },
-      {
         "fr": "app-react/tsconfig.json.plain",
         "to": "tsconfig.json"
       },
