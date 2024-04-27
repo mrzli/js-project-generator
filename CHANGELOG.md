@@ -16,7 +16,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Change inputs to only have one level of project type, instead of project/template type combination that was previsouly used.
 - Update `package.json` in publishable projects to include packaging scripts and other smaller changes.
 - Update tsconfig lib to use `es2023` instead of `es2022`.
-- Remove references to `@gmjs/tsconfig` and `@gmjs/prettier-config` from generated code and the project, and use direct configurations instead.
+- Remove references to `@gmjs/tsconfig`, `@gmjs/prettier-config` and `gmjs/jest-config` from generated code and the project, and use direct configurations instead.
 - Other generated files improvements and fixes.
 
 ### Added

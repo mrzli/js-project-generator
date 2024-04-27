@@ -41,9 +41,6 @@ importers:
       '@gmjs/eslint-config':
         specifier: ^0.0.32
         version: 0.0.32(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(prettier@3.2.5)(typescript@5.4.5)
-      '@gmjs/jest-config':
-        specifier: ^0.0.7
-        version: 0.0.7
       '@gmjs/npm-publish-cli':
         specifier: ^0.0.9
         version: 0.0.9
@@ -505,13 +502,6 @@ packages:
         integrity: sha512-ddkBi8VvKuqVggHL4acQpz0jjf4NkB0HXHwESe+cXLUkXPtRvLYYL/SCmDWcGDuOj+9h4YoRJj+tGEc8JOhQJQ==,
       }
     engines: { node: '>=16.0.0' }
-
-  '@gmjs/jest-config@0.0.7':
-    resolution:
-      {
-        integrity: sha512-4EzvXt+f41ARv94uM37UcultSdwQh0AfKyYOiArkL8Psc9F1XKPLsB4EbZYw7XVL4Bt3awtqPrzO7AfeMBkIlQ==,
-      }
-    engines: { node: '>=18.17.0' }
 
   '@gmjs/npm-publish-cli@0.0.9':
     resolution:
@@ -4798,10 +4788,6 @@ snapshots:
       '@gmjs/fs-shared': 0.0.3
       fs-extra: 11.2.0
       klaw-sync: 6.0.0
-      tslib: 2.6.2
-
-  '@gmjs/jest-config@0.0.7':
-    dependencies:
       tslib: 2.6.2
 
   '@gmjs/npm-publish-cli@0.0.9':

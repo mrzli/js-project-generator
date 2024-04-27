@@ -46,7 +46,6 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^0.0.32",
-    "@gmjs/jest-config": "^0.0.7",
     "@gmjs/npm-publish-cli": "^0.0.9",
     "@gmjs/test-util": "^0.0.14",
     "@jest/globals": "^29.7.0",
