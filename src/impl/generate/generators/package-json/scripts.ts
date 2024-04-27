@@ -28,7 +28,7 @@ function getScriptsReact(
   return {
     dev: 'vite',
     build: 'tsc && vite build',
-    lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
+    lint: 'eslint --fix . && prettier --write .',
     test: 'jest --passWithNoTests',
     preview: 'vite preview',
     ...scriptsStorybook,
@@ -43,7 +43,7 @@ function getScriptsNest(): Record<string, string> {
     'start:dev': 'nest start --watch',
     'start:debug': 'nest start --debug --watch',
     'start:prod': 'node dist/src/main',
-    lint: 'eslint --report-unused-disable-directives --fix .',
+    lint: 'eslint --fix .',
     test: 'jest',
     'test:debug':
       'node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand',
@@ -54,9 +54,8 @@ function getScriptsNest(): Record<string, string> {
 function getScriptsPublished(): Record<string, string> {
   return {
     dev: 'ts-node src/index.ts',
-    lint: 'eslint --report-unused-disable-directives --fix . && prettier --write .',
-    'lint:nofix':
-      'eslint --report-unused-disable-directives . && prettier --check .',
+    lint: 'eslint --fix . && prettier --write .',
+    'lint:nofix': 'eslint . && prettier --check .',
     'test-only': 'jest --passWithNoTests',
     test: 'pnpm run lint && pnpm run test-only',
     clean: 'shx rm -rf ./dist',

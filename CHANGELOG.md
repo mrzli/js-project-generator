@@ -7,7 +7,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 ### Changed
 
 - Use pnpm scripts instead of npm scripts in generated `package.json`.
-- Use flat EsLint configuration in this project.
+- Use flat EsLint configuration in this project and generated projects, remove eslint plugin/config dependencies which are no longer necessary.
 - Update packages to latest versions.
 - Update 'nest' generator to use `example` module.
 - Update 'nest' generator to generate `frontendUrl` env variable.

@@ -20,8 +20,8 @@
   },
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "lint": "eslint --report-unused-disable-directives --fix . && prettier --write .",
-    "lint:nofix": "eslint --report-unused-disable-directives . && prettier --check .",
+    "lint": "eslint --fix . && prettier --write .",
+    "lint:nofix": "eslint . && prettier --check .",
     "test-only": "jest --passWithNoTests",
     "test": "pnpm run lint && pnpm run test-only",
     "clean": "shx rm -rf ./dist",
