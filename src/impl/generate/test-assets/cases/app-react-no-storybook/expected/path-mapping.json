@@ -32,10 +32,6 @@
         "to": "test-project/.prettierignore"
       },
       {
-        "fr": "<shared>/.eslintignore.txt",
-        "to": "test-project/.eslintignore"
-      },
-      {
         "fr": ".eslintrc.cjs.txt",
         "to": "test-project/.eslintrc.cjs"
       },

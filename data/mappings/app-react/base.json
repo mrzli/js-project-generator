@@ -32,10 +32,6 @@
         "to": ".prettierignore"
       },
       {
-        "fr": "shared-files/configs/.eslintignore.plain",
-        "to": ".eslintignore"
-      },
-      {
         "fr": "app-react/.eslintrc.cjs.ejs",
         "to": ".eslintrc.cjs"
       },
