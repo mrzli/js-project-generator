@@ -38,12 +38,9 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
     devDependencies:
-      '@eslint/js':
-        specifier: ^9.1.1
-        version: 9.1.1
       '@gmjs/eslint-config':
-        specifier: ^0.0.31
-        version: 0.0.31(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(prettier@3.2.5)(typescript@5.4.5)
+        specifier: ^0.0.32
+        version: 0.0.32(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(prettier@3.2.5)(typescript@5.4.5)
       '@gmjs/jest-config':
         specifier: ^0.0.7
         version: 0.0.7
@@ -71,36 +68,9 @@ importers:
       eslint:
         specifier: ^9.1.1
         version: 9.1.1
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@9.1.1)
-      eslint-import-resolver-typescript:
-        specifier: ^3.6.1
-        version: 3.6.1(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-import@2.29.1)(eslint@9.1.1)
-      eslint-plugin-import:
-        specifier: ^2.29.1
-        version: 2.29.1(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint-import-resolver-typescript@3.6.1)(eslint@9.1.1)
-      eslint-plugin-jsx-a11y:
-        specifier: ^6.8.0
-        version: 6.8.0(eslint@9.1.1)
-      eslint-plugin-n:
-        specifier: ^17.3.1
-        version: 17.3.1(eslint@9.1.1)
-      eslint-plugin-react:
-        specifier: ^7.34.1
-        version: 7.34.1(eslint@9.1.1)
-      eslint-plugin-react-hooks:
-        specifier: ^4.6.2
-        version: 4.6.2(eslint@9.1.1)
-      eslint-plugin-unicorn:
-        specifier: ^52.0.0
-        version: 52.0.0(eslint@9.1.1)
       glob:
         specifier: ^10.3.12
         version: 10.3.12
-      globals:
-        specifier: ^15.0.0
-        version: 15.0.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.12.7)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.4.5))
@@ -122,9 +92,6 @@ importers:
       typescript:
         specifier: ~5.4.5
         version: 5.4.5
-      typescript-eslint:
-        specifier: ^7.7.1
-        version: 7.7.1(eslint@9.1.1)(typescript@5.4.5)
 
 packages:
   '@aashutoshrathi/word-wrap@1.2.6':
@@ -491,10 +458,10 @@ packages:
       }
     engines: { node: '>=16.0.0' }
 
-  '@gmjs/eslint-config@0.0.31':
+  '@gmjs/eslint-config@0.0.32':
     resolution:
       {
-        integrity: sha512-PrkCdGYcz4drM+rC4SomNcQZsfMa0pVvEq+5m+O4quVZTxsScQM38C46B1V8DM6gL6kfyQhmlFhxrhWvIOcLmg==,
+        integrity: sha512-uPGtkP6gkGyV1aeSeWD36VvTe8BmIn0XTQRUxI1nmuXB+png4nOH55ter/y95iy3XeqLt2Uwb8txsLITGgjmkg==,
       }
 
   '@gmjs/exec-observable@0.0.2':
@@ -4770,7 +4737,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@gmjs/eslint-config@0.0.31(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(prettier@3.2.5)(typescript@5.4.5)':
+  '@gmjs/eslint-config@0.0.32(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(prettier@3.2.5)(typescript@5.4.5)':
     dependencies:
       '@eslint/js': 9.1.1
       eslint: 9.1.1
