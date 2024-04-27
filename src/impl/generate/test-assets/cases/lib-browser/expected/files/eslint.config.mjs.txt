@@ -6,10 +6,7 @@ export default [
       'dist/',
       'eslint.config.mjs',
       'jest.config.ts',
-      'postcss.config.js',
-      'tailwind.config.js',
-      'vite.config.ts',
     ],
   },
-  ...getEsLintConfigs({ projectType: 'node' }),
+  ...getEsLintConfigs({ projectType: 'browser' }),
 ];

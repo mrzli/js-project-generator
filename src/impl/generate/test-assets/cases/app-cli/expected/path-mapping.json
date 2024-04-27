@@ -32,8 +32,8 @@
         "to": "test-project/.prettierignore"
       },
       {
-        "fr": ".eslintrc.js.txt",
-        "to": "test-project/.eslintrc.js"
+        "fr": "eslint.config.mjs.txt",
+        "to": "test-project/eslint.config.mjs"
       },
       {
         "fr": "<shared>/jest.config.ts.txt",

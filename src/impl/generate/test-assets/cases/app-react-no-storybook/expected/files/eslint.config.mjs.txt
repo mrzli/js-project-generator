@@ -11,5 +11,5 @@ export default [
       'vite.config.ts',
     ],
   },
-  ...getEsLintConfigs({ projectType: 'node' }),
+  ...getEsLintConfigs({ projectType: 'react', storybook: false }),
 ];
