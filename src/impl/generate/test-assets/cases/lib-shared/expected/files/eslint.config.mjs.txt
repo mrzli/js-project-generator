@@ -1,5 +1,6 @@
 import { getEsLintConfigs } from '@gmjs/eslint-config';
 
+/** @type { import("eslint").Linter.FlatConfig[] } */
 export default [
   {
     ignores: [
