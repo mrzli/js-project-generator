@@ -12,7 +12,7 @@ function getConfig(): GenerateInput {
 
   return {
     output: experimentDir,
-    projectName: 'gm-trading-shared',
+    projectName: 'test-vanilla',
     authorData: {
       scopeName: 'gmjs',
       author: 'Goran Mržljak',
@@ -21,7 +21,8 @@ function getConfig(): GenerateInput {
       githubAccount: 'mrzli',
     },
     projectData: {
-      kind: 'lib-node',
+      kind: 'app-vanilla',
+      storybook: false,
     },
   };
 }

@@ -1,3 +1,5 @@
+export const DEPENDENCIES_APP_VANILLA: readonly string[] = [];
+
 export const DEPENDENCIES_APP_REACT: readonly string[] = [
   'axios',
   'react',

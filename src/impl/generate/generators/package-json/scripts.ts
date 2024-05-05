@@ -1,10 +1,17 @@
-import { GenerateInput, ProjectDataAppReact } from '../../../../types';
+import {
+  GenerateInput,
+  ProjectDataAppReact,
+  ProjectDataAppVanilla,
+} from '../../../../types';
 
 export function getScripts(input: GenerateInput): Record<string, string> {
   const { projectData } = input;
   const { kind: projectKind } = projectData;
 
   switch (projectKind) {
+    case 'app-vanilla': {
+      return getScriptsVanilla(projectData);
+    }
     case 'app-react': {
       return getScriptsReact(projectData);
     }
@@ -15,6 +22,12 @@ export function getScripts(input: GenerateInput): Record<string, string> {
       return getScriptsPublished();
     }
   }
+}
+
+function getScriptsVanilla(
+  projectData: ProjectDataAppVanilla,
+): Record<string, string> {
+  return getScriptsVite(projectData.storybook);
 }
 
 function getScriptsReact(

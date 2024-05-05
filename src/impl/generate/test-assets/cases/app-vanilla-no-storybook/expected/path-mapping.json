@@ -1,0 +1,110 @@
+[
+  {
+    "group": "documents",
+    "files": [
+      {
+        "fr": "<shared>/CHANGELOG.md.txt",
+        "to": "test-project/CHANGELOG.md"
+      },
+      {
+        "fr": "<shared>/LICENSE.md.txt",
+        "to": "test-project/LICENSE.md"
+      },
+      {
+        "fr": "<shared>/README.md.txt",
+        "to": "test-project/README.md"
+      }
+    ]
+  },
+  {
+    "group": "config",
+    "files": [
+      {
+        "fr": "<shared>/.gitignore.txt",
+        "to": "test-project/.gitignore"
+      },
+      {
+        "fr": "<shared>/.editorconfig.txt",
+        "to": "test-project/.editorconfig"
+      },
+      {
+        "fr": "<shared>/.prettierignore.txt",
+        "to": "test-project/.prettierignore"
+      },
+      {
+        "fr": "<shared>/.prettierrc.txt",
+        "to": "test-project/.prettierrc"
+      },
+      {
+        "fr": "eslint.config.mjs.txt",
+        "to": "test-project/eslint.config.mjs"
+      },
+      {
+        "fr": "package.json.txt",
+        "to": "test-project/package.json"
+      },
+      {
+        "fr": "<app-vanilla-shared>/tsconfig.json.txt",
+        "to": "test-project/tsconfig.json"
+      },
+      {
+        "fr": "<app-vanilla-shared>/vite.config.ts.txt",
+        "to": "test-project/vite.config.ts"
+      },
+      {
+        "fr": "<app-vanilla-shared>/postcss.config.js.txt",
+        "to": "test-project/postcss.config.js"
+      },
+      {
+        "fr": "<app-vanilla-shared>/tailwind.config.js.txt",
+        "to": "test-project/tailwind.config.js"
+      },
+      {
+        "fr": "<app-vanilla-shared>/.env.local.txt",
+        "to": "test-project/.env.local"
+      },
+      {
+        "fr": "<app-vanilla-shared>/.env.sample.txt",
+        "to": "test-project/.env.sample"
+      }
+    ]
+  },
+  {
+    "group": "web",
+    "files": [
+      {
+        "fr": "<app-vanilla-shared>/index.html.txt",
+        "to": "test-project/index.html"
+      },
+      {
+        "fr": "<app-vanilla-shared>/public/icon.svg.txt",
+        "to": "test-project/public/icon.svg"
+      }
+    ]
+  },
+  {
+    "group": "src",
+    "files": [
+      {
+        "fr": "<app-vanilla-shared>/src/index.css.txt",
+        "to": "test-project/src/index.css"
+      },
+      {
+        "fr": "<app-vanilla-shared>/src/vite-env.d.ts.txt",
+        "to": "test-project/src/vite-env.d.ts"
+      },
+      {
+        "fr": "<app-vanilla-shared>/src/main.ts.txt",
+        "to": "test-project/src/main.ts"
+      },
+      {
+        "fr": "<app-vanilla-shared>/src/counter.ts.txt",
+        "to": "test-project/src/counter.ts"
+      },
+      {
+        "fr": "<app-vanilla-shared>/src/assets/icon.svg.txt",
+        "to": "test-project/src/assets/icon.svg"
+      }
+    ]
+  }
+]

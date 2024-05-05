@@ -1,0 +1,19 @@
+[
+  {
+    "group": "storybook",
+    "files": [
+      {
+        "fr": "app-vanilla/.storybook/main.ts.plain",
+        "to": ".storybook/main.ts"
+      },
+      {
+        "fr": "app-vanilla/.storybook/preview.ts.plain",
+        "to": ".storybook/preview.ts"
+      },
+      {
+        "fr": "app-vanilla/src/app/components/AnotherScreenContent.stories.tsx.plain",
+        "to": "src/app/components/AnotherScreenContent.stories.tsx"
+      }
+    ]
+  }
+]

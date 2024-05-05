@@ -48,6 +48,15 @@ function getTemplateMappingFilePaths(input: GenerateInput): readonly string[] {
   const { kind: projectKind } = projectData;
 
   switch (projectKind) {
+    case 'app-vanilla': {
+      const { storybook } = projectData;
+      return [
+        'app-vanilla/base.json',
+        ...(storybook
+          ? ['app-vanilla/storybook-true.json']
+          : ['app-vanilla/storybook-false.json']),
+      ];
+    }
     case 'app-react': {
       const { storybook } = projectData;
       return [
@@ -198,6 +207,9 @@ function getEslintProjectType(input: GenerateInput): string {
   const kind = projectData.kind;
 
   switch (kind) {
+    case 'app-vanilla': {
+      return 'browser';
+    }
     case 'app-react': {
       return 'react';
     }

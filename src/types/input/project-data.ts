@@ -1,4 +1,5 @@
 export const KINDS_OF_PROJECTS = [
+  'app-vanilla',
   'app-react',
   'app-nest',
   'app-cli',
@@ -11,6 +12,11 @@ export type ProjectKind = (typeof KINDS_OF_PROJECTS)[number];
 
 export interface ProjectDataBase {
   readonly kind: ProjectKind;
+}
+
+export interface ProjectDataAppVanilla extends ProjectDataBase {
+  readonly kind: 'app-vanilla';
+  readonly storybook: boolean;
 }
 
 export interface ProjectDataAppReact extends ProjectDataBase {
@@ -40,6 +46,7 @@ export interface ProjectDataLibShared extends ProjectDataBase {
 }
 
 export type ProjectDataAny =
+  | ProjectDataAppVanilla
   | ProjectDataAppReact
   | ProjectDataAppNest
   | ProjectDataAppCli

@@ -1,3 +1,29 @@
+export const DEV_DEPENDENCIES_APP_VANILLA_BASE: readonly string[] = [
+  '@gmjs/eslint-config',
+  '@types/node',
+  'autoprefixer',
+  'eslint',
+  'postcss',
+  'prettier',
+  'tailwindcss',
+  'ts-node',
+  'typescript',
+  'vite',
+  'vitest',
+];
+
+export const DEV_DEPENDENCIES_APP_VANILLA_STORYBOOK: readonly string[] = [
+  '@storybook/addon-essentials',
+  '@storybook/addon-interactions',
+  '@storybook/addon-links',
+  '@storybook/blocks',
+  '@storybook/react',
+  '@storybook/react-vite',
+  '@storybook/testing-library',
+  '@storybook/types',
+  'storybook',
+];
+
 export const DEV_DEPENDENCIES_APP_REACT_BASE: readonly string[] = [
   '@gmjs/eslint-config',
   '@types/node',

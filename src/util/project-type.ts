@@ -1,8 +1,12 @@
-import { ProjectDataAny, ProjectDataAppReact } from '../types';
+import {
+  ProjectDataAny,
+  ProjectDataAppReact,
+  ProjectDataAppVanilla,
+} from '../types';
 
 export function isFrontendProject(
   projectData: ProjectDataAny,
-): projectData is ProjectDataAppReact {
+): projectData is ProjectDataAppVanilla | ProjectDataAppReact {
   const kind = projectData.kind;
-  return kind === 'app-react';
+  return kind === 'app-vanilla' || kind === 'app-react';
 }

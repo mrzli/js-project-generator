@@ -5,11 +5,14 @@ import {
   DEV_DEPENDENCIES_APP_NEST,
   DEV_DEPENDENCIES_APP_REACT_BASE,
   DEV_DEPENDENCIES_APP_REACT_STORYBOOK,
+  DEV_DEPENDENCIES_APP_VANILLA_BASE,
+  DEV_DEPENDENCIES_APP_VANILLA_STORYBOOK,
   DEV_DEPENDENCIES_LIB_BROWSER,
   DEV_DEPENDENCIES_LIB_NODE,
   DEV_DEPENDENCIES_LIB_SHARED,
 } from './dev';
 import {
+  DEPENDENCIES_APP_VANILLA,
   DEPENDENCIES_APP_REACT,
   DEPENDENCIES_APP_NEST,
   DEPENDENCIES_APP_CLI,
@@ -22,6 +25,9 @@ export function getDependencies(input: GenerateInput): readonly string[] {
   const kind = input.projectData.kind;
 
   switch (kind) {
+    case 'app-vanilla': {
+      return DEPENDENCIES_APP_VANILLA;
+    }
     case 'app-react': {
       return DEPENDENCIES_APP_REACT;
     }
@@ -50,6 +56,14 @@ export function getDevDependencies(input: GenerateInput): readonly string[] {
   const kind = input.projectData.kind;
 
   switch (kind) {
+    case 'app-vanilla': {
+      return [
+        ...DEV_DEPENDENCIES_APP_VANILLA_BASE,
+        ...(input.projectData.storybook
+          ? DEV_DEPENDENCIES_APP_VANILLA_STORYBOOK
+          : []),
+      ];
+    }
     case 'app-react': {
       return [
         ...DEV_DEPENDENCIES_APP_REACT_BASE,

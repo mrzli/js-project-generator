@@ -1,0 +1,106 @@
+[
+  {
+    "group": "documents",
+    "files": [
+      {
+        "fr": "shared-files/documents/CHANGELOG.md.ejs",
+        "to": "CHANGELOG.md"
+      },
+      {
+        "fr": "shared-files/documents/LICENSE.md.ejs",
+        "to": "LICENSE.md"
+      },
+      {
+        "fr": "shared-files/documents/README.md.ejs",
+        "to": "README.md"
+      }
+    ]
+  },
+  {
+    "group": "config",
+    "files": [
+      {
+        "fr": "shared-files/configs/.gitignore.plain",
+        "to": ".gitignore"
+      },
+      {
+        "fr": "shared-files/configs/.editorconfig.plain",
+        "to": ".editorconfig"
+      },
+      {
+        "fr": "shared-files/configs/.prettierignore.plain",
+        "to": ".prettierignore"
+      },
+      {
+        "fr": "shared-files/configs/.prettierrc.plain",
+        "to": ".prettierrc"
+      },
+      {
+        "fr": "app-vanilla/eslint.config.mjs.ejs",
+        "to": "eslint.config.mjs"
+      },
+      {
+        "fr": "app-vanilla/tsconfig.json.plain",
+        "to": "tsconfig.json"
+      },
+      {
+        "fr": "app-vanilla/vite.config.ts.plain",
+        "to": "vite.config.ts"
+      },
+      {
+        "fr": "app-vanilla/postcss.config.js.plain",
+        "to": "postcss.config.js"
+      },
+      {
+        "fr": "app-vanilla/tailwind.config.js.plain",
+        "to": "tailwind.config.js"
+      },
+      {
+        "fr": "app-vanilla/.env.local.plain",
+        "to": ".env.local"
+      },
+      {
+        "fr": "app-vanilla/.env.sample.plain",
+        "to": ".env.sample"
+      }
+    ]
+  },
+  {
+    "group": "web",
+    "files": [
+      {
+        "fr": "app-vanilla/index.html.ejs",
+        "to": "index.html"
+      },
+      {
+        "fr": "app-vanilla/public/icon.svg.plain",
+        "to": "public/icon.svg"
+      }
+    ]
+  },
+  {
+    "group": "src",
+    "files": [
+      {
+        "fr": "app-vanilla/src/index.css.plain",
+        "to": "src/index.css"
+      },
+      {
+        "fr": "app-vanilla/src/vite-env.d.ts.plain",
+        "to": "src/vite-env.d.ts"
+      },
+      {
+        "fr": "app-vanilla/src/main.ts.plain",
+        "to": "src/main.ts"
+      },
+      {
+        "fr": "app-vanilla/src/counter.ts.plain",
+        "to": "src/counter.ts"
+      },
+      {
+        "fr": "app-vanilla/src/assets/icon.svg.plain",
+        "to": "src/assets/icon.svg"
+      }
+    ]
+  }
+]
