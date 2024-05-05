@@ -11,8 +11,12 @@
         "to": ".storybook/preview.ts"
       },
       {
-        "fr": "app-vanilla/src/app/components/AnotherScreenContent.stories.tsx.plain",
-        "to": "src/app/components/AnotherScreenContent.stories.tsx"
+        "fr": "app-vanilla/src/stories/Button.ts.plain",
+        "to": "src/stories/Button.ts"
+      },
+      {
+        "fr": "app-vanilla/src/stories/Button.stories.ts.plain",
+        "to": "src/stories/Button.stories.ts"
       }
     ]
   }

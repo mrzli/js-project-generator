@@ -13,13 +13,14 @@ export const DEV_DEPENDENCIES_APP_VANILLA_BASE: readonly string[] = [
 ];
 
 export const DEV_DEPENDENCIES_APP_VANILLA_STORYBOOK: readonly string[] = [
+  '@chromatic-com/storybook',
   '@storybook/addon-essentials',
   '@storybook/addon-interactions',
   '@storybook/addon-links',
   '@storybook/blocks',
-  '@storybook/react',
-  '@storybook/react-vite',
-  '@storybook/testing-library',
+  '@storybook/html',
+  '@storybook/html-vite',
+  '@storybook/test',
   '@storybook/types',
   'storybook',
 ];
