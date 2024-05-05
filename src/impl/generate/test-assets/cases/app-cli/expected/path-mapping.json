@@ -32,6 +32,10 @@
         "to": "test-project/.prettierignore"
       },
       {
+        "fr": "<shared>/.prettierrc.txt",
+        "to": "test-project/.prettierrc"
+      },
+      {
         "fr": "eslint.config.mjs.txt",
         "to": "test-project/eslint.config.mjs"
       },

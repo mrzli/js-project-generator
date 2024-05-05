@@ -32,6 +32,10 @@
         "to": "test-project/.prettierignore"
       },
       {
+        "fr": "<shared>/.prettierrc.txt",
+        "to": "test-project/.prettierrc"
+      },
+      {
         "fr": "eslint.config.mjs.txt",
         "to": "test-project/eslint.config.mjs"
       },
@@ -44,12 +48,8 @@
         "to": "test-project/tsconfig.json"
       },
       {
-        "fr": "<app-react-shared>/tsconfig.build.json.txt",
-        "to": "test-project/tsconfig.build.json"
-      },
-      {
-        "fr": "<shared>/tsconfig.test.json.txt",
-        "to": "test-project/tsconfig.test.json"
+        "fr": "<app-react-shared>/tsconfig.node.json.txt",
+        "to": "test-project/tsconfig.node.json"
       },
       {
         "fr": "<app-react-shared>/vite.config.ts.txt",

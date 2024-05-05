@@ -4,21 +4,27 @@ export function getScripts(input: GenerateInput): Record<string, string> {
   const { projectData } = input;
   const { kind: projectKind } = projectData;
 
-  if (projectKind === 'app-react') {
-    return getScriptsReact(projectData);
+  switch (projectKind) {
+    case 'app-react': {
+      return getScriptsReact(projectData);
+    }
+    case 'app-nest': {
+      return getScriptsNest();
+    }
+    default: {
+      return getScriptsPublished();
+    }
   }
-
-  if (projectKind === 'app-nest') {
-    return getScriptsNest();
-  }
-
-  return getScriptsPublished();
 }
 
 function getScriptsReact(
   projectData: ProjectDataAppReact,
 ): Record<string, string> {
-  const scriptsStorybook: Record<string, string> = projectData.storybook
+  return getScriptsVite(projectData.storybook);
+}
+
+function getScriptsVite(storybook: boolean): Record<string, string> {
+  const scriptsStorybook: Record<string, string> = storybook
     ? {
         storybook: 'storybook dev -p 6006',
         'build-storybook': 'storybook build',

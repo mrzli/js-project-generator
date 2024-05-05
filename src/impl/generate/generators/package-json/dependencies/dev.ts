@@ -1,6 +1,5 @@
 export const DEV_DEPENDENCIES_APP_REACT_BASE: readonly string[] = [
   '@gmjs/eslint-config',
-  '@jest/globals',
   '@types/node',
   '@types/react',
   '@types/react-dom',

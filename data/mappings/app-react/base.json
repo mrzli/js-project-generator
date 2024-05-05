@@ -32,6 +32,10 @@
         "to": ".prettierignore"
       },
       {
+        "fr": "shared-files/configs/.prettierrc.plain",
+        "to": ".prettierrc"
+      },
+      {
         "fr": "app-react/eslint.config.mjs.ejs",
         "to": "eslint.config.mjs"
       },
@@ -40,12 +44,8 @@
         "to": "tsconfig.json"
       },
       {
-        "fr": "app-react/tsconfig.build.json.plain",
-        "to": "tsconfig.build.json"
-      },
-      {
-        "fr": "shared-files/configs/tsconfig.test.json.ejs",
-        "to": "tsconfig.test.json"
+        "fr": "app-react/tsconfig.node.json.plain",
+        "to": "tsconfig.node.json"
       },
       {
         "fr": "app-react/vite.config.ts.plain",

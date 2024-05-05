@@ -32,6 +32,10 @@
         "to": ".prettierignore"
       },
       {
+        "fr": "shared-files/configs/.prettierrc.plain",
+        "to": ".prettierrc"
+      },
+      {
         "fr": "shared-files/configs/eslint.config.mjs.ejs",
         "to": "eslint.config.mjs"
       },

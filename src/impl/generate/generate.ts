@@ -2,7 +2,7 @@ import ejs from 'ejs';
 import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
 import { readBinaryAsync, readTextAsync } from '@gmjs/fs-async';
 import { join, pathExtension } from '@gmjs/path';
-import { invariant } from '@gmjs/assert';
+import { ensureNever, invariant } from '@gmjs/assert';
 import {
   GenerateInput,
   GenerateInfrastructure,
@@ -12,6 +12,7 @@ import {
 import { generatePackageJson } from './generators';
 import { filterOutNullish } from '@gmjs/array-transformers';
 import { parseTemplateMappingFile } from './util';
+import { isFrontendProject } from '../../util';
 
 export async function generate(
   input: GenerateInput,
@@ -70,6 +71,9 @@ function getTemplateMappingFilePaths(input: GenerateInput): readonly string[] {
     }
     case 'lib-shared': {
       return ['lib-shared.json'];
+    }
+    default: {
+      return ensureNever(projectKind);
     }
   }
 }
@@ -145,10 +149,13 @@ async function getTemplateGeneratedFiles(
 function getEjsPlaceholders(input: GenerateInput): Record<string, unknown> {
   const { authorData, projectName, projectData } = input;
   const { scopeName, author, email, authorUrl, githubAccount } = authorData;
+
   const commandName =
     projectData.kind === 'app-cli' ? projectData.commandName : undefined;
-  const storybook =
-    projectData.kind === 'app-react' ? projectData.storybook : undefined;
+
+  const storybook = isFrontendProject(projectData)
+    ? projectData.storybook
+    : undefined;
 
   return {
     projectName,
@@ -188,7 +195,9 @@ function toFinalPath(filePath: string, input: GenerateInput): string {
 function getEslintProjectType(input: GenerateInput): string {
   const { projectData } = input;
 
-  switch (projectData.kind) {
+  const kind = projectData.kind;
+
+  switch (kind) {
     case 'app-react': {
       return 'react';
     }
@@ -206,6 +215,9 @@ function getEslintProjectType(input: GenerateInput): string {
     }
     case 'lib-shared': {
       return 'shared';
+    }
+    default: {
+      return ensureNever(kind);
     }
   }
 }

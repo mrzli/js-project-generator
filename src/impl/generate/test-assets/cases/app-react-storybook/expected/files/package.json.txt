@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^1.0.0",
-    "@jest/globals": "^1.0.0",
     "@storybook/addon-essentials": "^1.0.0",
     "@storybook/addon-interactions": "^1.0.0",
     "@storybook/addon-links": "^1.0.0",

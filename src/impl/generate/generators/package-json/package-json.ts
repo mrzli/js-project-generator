@@ -6,6 +6,7 @@ import {
 } from '../../../../types';
 import { getDependencies, getDevDependencies } from './dependencies';
 import { getScripts } from './scripts';
+import { isFrontendProject } from '../../../../util';
 
 export async function generatePackageJson(
   input: GenerateInput,
@@ -25,7 +26,7 @@ async function getPackageJsonData(
 
   const isDeployedApp =
     projectKind === 'app-cli' || projectKind.startsWith('lib-');
-  const isReact = projectKind === 'app-react';
+  const isFrontendApp = isFrontendProject(projectData);
 
   const commandName =
     projectKind === 'app-cli' ? projectData.commandName : undefined;
@@ -61,7 +62,7 @@ async function getPackageJsonData(
       type: 'git',
       url: githubUrl,
     },
-    type: isReact ? 'module' : 'commonjs',
+    type: isFrontendApp ? 'module' : 'commonjs',
     main: isDeployedApp ? './src/index.js' : undefined,
     bin: commandName ? { [commandName]: `src/index.js` } : undefined,
     scripts: getScripts(input),

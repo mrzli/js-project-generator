@@ -1,3 +1,4 @@
+import { ensureNever } from '@gmjs/assert';
 import { GenerateInput } from '../../../../../types';
 import {
   DEV_DEPENDENCIES_APP_CLI,
@@ -18,7 +19,9 @@ import {
 } from './runtime';
 
 export function getDependencies(input: GenerateInput): readonly string[] {
-  switch (input.projectData.kind) {
+  const kind = input.projectData.kind;
+
+  switch (kind) {
     case 'app-react': {
       return DEPENDENCIES_APP_REACT;
     }
@@ -37,11 +40,16 @@ export function getDependencies(input: GenerateInput): readonly string[] {
     case 'lib-shared': {
       return DEPENDENCIES_LIB_SHARED;
     }
+    default: {
+      return ensureNever(kind);
+    }
   }
 }
 
 export function getDevDependencies(input: GenerateInput): readonly string[] {
-  switch (input.projectData.kind) {
+  const kind = input.projectData.kind;
+
+  switch (kind) {
     case 'app-react': {
       return [
         ...DEV_DEPENDENCIES_APP_REACT_BASE,
@@ -64,6 +72,9 @@ export function getDevDependencies(input: GenerateInput): readonly string[] {
     }
     case 'lib-shared': {
       return DEV_DEPENDENCIES_LIB_SHARED;
+    }
+    default: {
+      return ensureNever(kind);
     }
   }
 }
