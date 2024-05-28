@@ -1,0 +1,81 @@
+[
+  {
+    "group": "documents",
+    "files": [
+      {
+        "fr": "shared-files/documents/CHANGELOG.md.ejs",
+        "to": "CHANGELOG.md"
+      },
+      {
+        "fr": "shared-files/documents/LICENSE.md.ejs",
+        "to": "LICENSE.md"
+      },
+      {
+        "fr": "shared-files/documents/README.md.ejs",
+        "to": "README.md"
+      }
+    ]
+  },
+  {
+    "group": "config",
+    "files": [
+      {
+        "fr": "shared-files/configs/.gitignore.plain",
+        "to": ".gitignore"
+      },
+      {
+        "fr": "shared-files/configs/.editorconfig.plain",
+        "to": ".editorconfig"
+      },
+      {
+        "fr": "shared-files/configs/.prettierignore.plain",
+        "to": ".prettierignore"
+      },
+      {
+        "fr": "shared-files/configs/.prettierrc.plain",
+        "to": ".prettierrc"
+      },
+      {
+        "fr": "shared-files/configs/eslint.config.mjs.ejs",
+        "to": "eslint.config.mjs"
+      },
+      {
+        "fr": "shared-files/configs/jest.config.ts.plain",
+        "to": "jest.config.ts"
+      },
+      {
+        "fr": "app-node/tsconfig.json.plain",
+        "to": "tsconfig.json"
+      },
+      {
+        "fr": "shared-files/configs/tsconfig.test.json.ejs",
+        "to": "tsconfig.test.json"
+      },
+      {
+        "fr": "app-node/.env.local.plain",
+        "to": ".env.local"
+      },
+      {
+        "fr": "app-node/.env.sample.plain",
+        "to": ".env.sample"
+      }
+    ]
+  },
+  {
+    "group": "src",
+    "files": [
+      {
+        "fr": "app-node/src/main.ts.plain",
+        "to": "src/main.ts"
+      },
+      {
+        "fr": "app-node/src/example.ts.plain",
+        "to": "src/example.ts"
+      },
+      {
+        "fr": "app-node/src/example.test.ts.plain",
+        "to": "src/example.test.ts"
+      }
+    ]
+  }
+]

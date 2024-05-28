@@ -1,0 +1,46 @@
+{
+  "name": "@scope/test-project",
+  "version": "0.0.1",
+  "description": "test-project",
+  "private": true,
+  "author": {
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "url": "https://example.com"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnsmith/test-project"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node src/main.ts",
+    "dev:watch": "nodemon src/main.ts",
+    "lint": "eslint --fix . && prettier --write .",
+    "lint:nofix": "eslint . && prettier --check .",
+    "test-only": "jest --passWithNoTests",
+    "test": "pnpm run lint && pnpm run test-only"
+  },
+  "dependencies": {
+    "dotenv": "^1.0.0",
+    "tslib": "^1.0.0"
+  },
+  "devDependencies": {
+    "@gmjs/eslint-config": "^1.0.0",
+    "@jest/globals": "^1.0.0",
+    "@types/node": "^1.0.0",
+    "eslint": "^1.0.0",
+    "jest": "^1.0.0",
+    "nodemon": "^1.0.0",
+    "prettier": "^1.0.0",
+    "shx": "^1.0.0",
+    "ts-jest": "^1.0.0",
+    "ts-node": "^1.0.0",
+    "typescript": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  }
+}

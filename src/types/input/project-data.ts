@@ -1,6 +1,7 @@
-export const KINDS_OF_PROJECTS = [
+export const LIST_OF_PROJECT_KINDS = [
   'app-vanilla',
   'app-react',
+  'app-node',
   'app-nest',
   'app-cli',
   'lib-browser',
@@ -8,7 +9,7 @@ export const KINDS_OF_PROJECTS = [
   'lib-shared',
 ] as const;
 
-export type ProjectKind = (typeof KINDS_OF_PROJECTS)[number];
+export type ProjectKind = (typeof LIST_OF_PROJECT_KINDS)[number];
 
 export interface ProjectDataBase {
   readonly kind: ProjectKind;
@@ -22,6 +23,10 @@ export interface ProjectDataAppVanilla extends ProjectDataBase {
 export interface ProjectDataAppReact extends ProjectDataBase {
   readonly kind: 'app-react';
   readonly storybook: boolean;
+}
+
+export interface ProjectDataAppNode extends ProjectDataBase {
+  readonly kind: 'app-node';
 }
 
 export interface ProjectDataAppNest extends ProjectDataBase {
@@ -48,6 +53,7 @@ export interface ProjectDataLibShared extends ProjectDataBase {
 export type ProjectDataAny =
   | ProjectDataAppVanilla
   | ProjectDataAppReact
+  | ProjectDataAppNode
   | ProjectDataAppNest
   | ProjectDataAppCli
   | ProjectDataLibBrowser

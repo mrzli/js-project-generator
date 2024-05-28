@@ -1,0 +1,16 @@
+import * as dotenv from 'dotenv';
+import { someFunction } from './example';
+
+const NODE_ENV = process.env['NODE_ENV'];
+
+if (NODE_ENV === undefined || NODE_ENV === 'development') {
+  dotenv.config({ path: '.env.local' });
+}
+
+function execute(): void {
+  const value = someFunction();
+  console.log(value);
+  console.log(process.env['EXAMPLE_ENV_VAR']);
+}
+
+execute();

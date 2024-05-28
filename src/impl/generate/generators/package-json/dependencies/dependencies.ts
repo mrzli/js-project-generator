@@ -3,6 +3,7 @@ import { GenerateInput } from '../../../../../types';
 import {
   DEV_DEPENDENCIES_APP_CLI,
   DEV_DEPENDENCIES_APP_NEST,
+  DEV_DEPENDENCIES_APP_NODE,
   DEV_DEPENDENCIES_APP_REACT_BASE,
   DEV_DEPENDENCIES_APP_REACT_STORYBOOK,
   DEV_DEPENDENCIES_APP_VANILLA_BASE,
@@ -19,6 +20,7 @@ import {
   DEPENDENCIES_LIB_NODE,
   DEPENDENCIES_LIB_SHARED,
   DEPENDENCIES_LIB_BROWSER,
+  DEPENDENCIES_APP_NODE,
 } from './runtime';
 
 export function getDependencies(input: GenerateInput): readonly string[] {
@@ -30,6 +32,9 @@ export function getDependencies(input: GenerateInput): readonly string[] {
     }
     case 'app-react': {
       return DEPENDENCIES_APP_REACT;
+    }
+    case 'app-node': {
+      return DEPENDENCIES_APP_NODE;
     }
     case 'app-nest': {
       return DEPENDENCIES_APP_NEST;
@@ -71,6 +76,9 @@ export function getDevDependencies(input: GenerateInput): readonly string[] {
           ? DEV_DEPENDENCIES_APP_REACT_STORYBOOK
           : []),
       ];
+    }
+    case 'app-node': {
+      return DEV_DEPENDENCIES_APP_NODE;
     }
     case 'app-nest': {
       return DEV_DEPENDENCIES_APP_NEST;

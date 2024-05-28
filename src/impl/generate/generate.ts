@@ -66,6 +66,9 @@ function getTemplateMappingFilePaths(input: GenerateInput): readonly string[] {
           : ['app-react/storybook-false.json']),
       ];
     }
+    case 'app-node': {
+      return ['app-node.json'];
+    }
     case 'app-nest': {
       return ['app-nest.json'];
     }
@@ -212,6 +215,9 @@ function getEslintProjectType(input: GenerateInput): string {
     }
     case 'app-react': {
       return 'react';
+    }
+    case 'app-node': {
+      return 'node';
     }
     case 'app-nest': {
       return 'node';

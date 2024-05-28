@@ -15,6 +15,9 @@ export function getScripts(input: GenerateInput): Record<string, string> {
     case 'app-react': {
       return getScriptsReact(projectData);
     }
+    case 'app-node': {
+      return getScriptsAppNode();
+    }
     case 'app-nest': {
       return getScriptsNest();
     }
@@ -68,6 +71,17 @@ function getScriptsNest(): Record<string, string> {
     'test:debug':
       'node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand',
     'test:e2e': 'jest --config ./test/jest-e2e.json',
+  };
+}
+
+function getScriptsAppNode(): Record<string, string> {
+  return {
+    dev: 'ts-node src/main.ts',
+    'dev:watch': 'nodemon src/main.ts',
+    lint: 'eslint --fix . && prettier --write .',
+    'lint:nofix': 'eslint . && prettier --check .',
+    'test-only': 'jest --passWithNoTests',
+    test: 'pnpm run lint && pnpm run test-only',
   };
 }
 

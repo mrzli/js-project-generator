@@ -54,6 +54,20 @@ export const DEV_DEPENDENCIES_APP_REACT_STORYBOOK: readonly string[] = [
   'storybook',
 ];
 
+export const DEV_DEPENDENCIES_APP_NODE: readonly string[] = [
+  '@gmjs/eslint-config',
+  '@jest/globals',
+  '@types/node',
+  'eslint',
+  'jest',
+  'nodemon',
+  'prettier',
+  'shx',
+  'ts-jest',
+  'ts-node',
+  'typescript',
+];
+
 export const DEV_DEPENDENCIES_APP_NEST: readonly string[] = [
   '@gmjs/eslint-config',
   '@jest/globals',

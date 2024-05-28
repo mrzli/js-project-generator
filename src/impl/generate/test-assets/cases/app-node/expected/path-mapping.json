@@ -1,0 +1,85 @@
+[
+  {
+    "group": "documents",
+    "files": [
+      {
+        "fr": "<shared>/CHANGELOG.md.txt",
+        "to": "test-project/CHANGELOG.md"
+      },
+      {
+        "fr": "<shared>/LICENSE.md.txt",
+        "to": "test-project/LICENSE.md"
+      },
+      {
+        "fr": "<shared>/README.md.txt",
+        "to": "test-project/README.md"
+      }
+    ]
+  },
+  {
+    "group": "config",
+    "files": [
+      {
+        "fr": "<shared>/.gitignore.txt",
+        "to": "test-project/.gitignore"
+      },
+      {
+        "fr": "<shared>/.editorconfig.txt",
+        "to": "test-project/.editorconfig"
+      },
+      {
+        "fr": "<shared>/.prettierignore.txt",
+        "to": "test-project/.prettierignore"
+      },
+      {
+        "fr": "<shared>/.prettierrc.txt",
+        "to": "test-project/.prettierrc"
+      },
+      {
+        "fr": "eslint.config.mjs.txt",
+        "to": "test-project/eslint.config.mjs"
+      },
+      {
+        "fr": "<shared>/jest.config.ts.txt",
+        "to": "test-project/jest.config.ts"
+      },
+      {
+        "fr": "package.json.txt",
+        "to": "test-project/package.json"
+      },
+      {
+        "fr": "tsconfig.json.txt",
+        "to": "test-project/tsconfig.json"
+      },
+      {
+        "fr": "tsconfig.test.json.txt",
+        "to": "test-project/tsconfig.test.json"
+      },
+      {
+        "fr": ".env.local.txt",
+        "to": "test-project/.env.local"
+      },
+      {
+        "fr": ".env.sample.txt",
+        "to": "test-project/.env.sample"
+      }
+    ]
+  },
+  {
+    "group": "src",
+    "files": [
+      {
+        "fr": "src/main.ts.txt",
+        "to": "test-project/src/main.ts"
+      },
+      {
+        "fr": "src/example.ts.txt",
+        "to": "test-project/src/example.ts"
+      },
+      {
+        "fr": "src/example.test.ts.txt",
+        "to": "test-project/src/example.test.ts"
+      }
+    ]
+  }
+]

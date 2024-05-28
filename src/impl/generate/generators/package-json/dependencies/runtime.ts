@@ -10,6 +10,8 @@ export const DEPENDENCIES_APP_REACT: readonly string[] = [
   'zustand',
 ];
 
+export const DEPENDENCIES_APP_NODE: readonly string[] = ['dotenv', 'tslib'];
+
 export const DEPENDENCIES_APP_NEST: readonly string[] = [
   '@gmjs/number-util',
   '@nestjs/common',

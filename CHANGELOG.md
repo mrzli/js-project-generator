@@ -22,7 +22,8 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ### Added
 
-- Implement 'nest' generator.
+- Implement 'app-nest' generator.
+- Implement 'app-node' generator.
 
 ## [0.0.22] - 2023-09-03
 
