@@ -1,5 +1,8 @@
-import { generateProject } from './impl';
-import { GenerateInput } from './types';
+import { generateProject } from '../impl';
+import { GenerateInput } from '../types';
+import { parseEnv } from './env';
+
+import './setup-env';
 
 async function run(): Promise<void> {
   const config = getConfig();
@@ -7,12 +10,13 @@ async function run(): Promise<void> {
 }
 
 function getConfig(): GenerateInput {
-  const experimentDir =
-    'C:\\Users\\Mrzli\\Development\\Projects\\private\\projects\\js\\trading';
+  const env = parseEnv(process.env);
+
+  const experimentDir = env.targetDir;
 
   return {
     output: experimentDir,
-    projectName: 'test-vanilla',
+    projectName: 'file-system',
     authorData: {
       scopeName: 'gmjs',
       author: 'Goran Mržljak',
@@ -21,8 +25,7 @@ function getConfig(): GenerateInput {
       githubAccount: 'mrzli',
     },
     projectData: {
-      kind: 'app-vanilla',
-      storybook: false,
+      kind: 'lib-node',
     },
   };
 }

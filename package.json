@@ -18,7 +18,7 @@
     "jsgen": "src/index.js"
   },
   "scripts": {
-    "dev": "ts-node src/run.ts",
+    "dev": "ts-node src/run/index.ts",
     "lint": "eslint --fix . && prettier --write .",
     "lint:nofix": "eslint . && prettier --check .",
     "test-only": "jest --passWithNoTests",
@@ -39,9 +39,11 @@
     "@gmjs/fs-shared": "^0.0.3",
     "@gmjs/path": "^0.0.2",
     "ajv": "^8.14.0",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "rxjs": "^7.8.1",
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^0.0.36",
