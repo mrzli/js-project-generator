@@ -2,3 +2,5 @@
 /dist/
 /output/
 yarn.lock
+
+/.env.local
