@@ -20,6 +20,10 @@
     "group": "config",
     "files": [
       {
+        "fr": "<shared>/.ignore.txt",
+        "to": "test-project/.ignore"
+      },
+      {
         "fr": "<shared>/.gitignore.txt",
         "to": "test-project/.gitignore"
       },
