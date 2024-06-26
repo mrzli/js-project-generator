@@ -15,16 +15,23 @@ export const createButton = ({
   backgroundColor,
   label,
   onClick,
-}: ButtonProps) => {
+}: ButtonProps): HTMLButtonElement => {
   const btn = document.createElement('button');
   btn.type = 'button';
-  btn.innerText = label;
+  btn.textContent = label;
   if (onClick) {
     btn.addEventListener('click', onClick);
   }
 
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  btn.className = ['storybook-button', `storybook-button--${size}`, 'bg-orange-500', mode].join(' ');
+  const mode = primary
+    ? 'storybook-button--primary'
+    : 'storybook-button--secondary';
+  btn.className = [
+    'storybook-button',
+    `storybook-button--${size}`,
+    'bg-orange-500',
+    mode,
+  ].join(' ');
 
   if (backgroundColor) {
     btn.style.backgroundColor = backgroundColor;

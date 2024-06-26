@@ -7,7 +7,7 @@ import { createButton } from './Button';
 const meta = {
   title: 'Example/Button',
   tags: ['autodocs'],
-  render: (args) => {
+  render: (args: ButtonProps): HTMLElement => {
     // You can either use a function to create DOM elements or use a plain html string!
     // return `<div>${label}</div>`;
     return createButton(args);
