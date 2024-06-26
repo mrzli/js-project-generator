@@ -69,7 +69,7 @@ async function getPackageJsonData(
     dependencies: toDependenciesObject(dependencies),
     devDependencies: toDependenciesObject(devDependencies),
     engines: {
-      node: '>=20.10.0',
+      node: '>=22.3.0',
     },
   };
 }

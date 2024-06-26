@@ -16,7 +16,7 @@ function getConfig(): GenerateInput {
 
   return {
     output: experimentDir,
-    projectName: 'file-system',
+    projectName: 'example-lib-node',
     authorData: {
       scopeName: 'gmjs',
       author: 'Goran Mržljak',
