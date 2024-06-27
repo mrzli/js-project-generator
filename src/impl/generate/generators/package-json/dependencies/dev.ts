@@ -94,7 +94,7 @@ export const DEV_DEPENDENCIES_APP_NEST: readonly string[] = [
 
 export const DEV_DEPENDENCIES_APP_CLI: readonly string[] = [
   '@gmjs/eslint-config',
-  '@gmjs/npm-publish-cli',
+  '@gmjs/pnpm-publish-cli',
   '@jest/globals',
   '@types/node',
   'eslint',
@@ -108,7 +108,7 @@ export const DEV_DEPENDENCIES_APP_CLI: readonly string[] = [
 
 export const DEV_DEPENDENCIES_LIB_BROWSER: readonly string[] = [
   '@gmjs/eslint-config',
-  '@gmjs/npm-publish-cli',
+  '@gmjs/pnpm-publish-cli',
   '@jest/globals',
   'eslint',
   'jest',
@@ -121,7 +121,7 @@ export const DEV_DEPENDENCIES_LIB_BROWSER: readonly string[] = [
 
 export const DEV_DEPENDENCIES_LIB_NODE: readonly string[] = [
   '@gmjs/eslint-config',
-  '@gmjs/npm-publish-cli',
+  '@gmjs/pnpm-publish-cli',
   '@jest/globals',
   '@types/node',
   'eslint',
@@ -135,7 +135,7 @@ export const DEV_DEPENDENCIES_LIB_NODE: readonly string[] = [
 
 export const DEV_DEPENDENCIES_LIB_SHARED: readonly string[] = [
   '@gmjs/eslint-config',
-  '@gmjs/npm-publish-cli',
+  '@gmjs/pnpm-publish-cli',
   '@jest/globals',
   'eslint',
   'jest',

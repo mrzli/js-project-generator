@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/js-project-generator",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Project generator for JavaScript/TypeScript projects.",
   "author": {
     "name": "Goran Mržljak",
@@ -14,9 +14,6 @@
   },
   "type": "commonjs",
   "main": "./src/index.js",
-  "bin": {
-    "jsgen": "src/index.js"
-  },
   "scripts": {
     "dev": "ts-node src/run/index.ts",
     "lint": "eslint --fix . && prettier --write .",
@@ -26,9 +23,9 @@
     "clean": "shx rm -rf ./dist",
     "build-only": "pnpm run clean && tsc --project tsconfig.lib.json",
     "build": "pnpm run test && pnpm run build-only",
-    "pac-only": "npmpub pack",
+    "pac-only": "pnpmpub pack",
     "pac": "pnpm run build && pnpm run pac-only",
-    "pub-only": "npmpub pub",
+    "pub-only": "pnpmpub pub",
     "pub": "pnpm run pac && pnpm run pub-only"
   },
   "dependencies": {
@@ -47,7 +44,7 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^0.0.37",
-    "@gmjs/npm-publish-cli": "^0.0.9",
+    "@gmjs/pnpm-publish-cli": "^0.0.2",
     "@gmjs/test-util": "^0.0.14",
     "@jest/globals": "^29.7.0",
     "@types/ejs": "^3.1.5",

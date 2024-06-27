@@ -4,6 +4,8 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.23] - 2024-06-27
+
 ### Changed
 
 - Use pnpm scripts instead of npm scripts in generated `package.json`.
@@ -18,6 +20,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Update tsconfig lib to use `es2023` instead of `es2022`.
 - Remove references to `@gmjs/tsconfig`, `@gmjs/prettier-config` and `gmjs/jest-config` from generated code and the project, and use direct configurations instead.
 - Use `vitest` instead of `jest` in react generated projects.
+- Use `@gmjs/pnpm-publish-cli` instead of `@gmjs/npm-publish-cli` for publishing.
 - Other generated files improvements and fixes.
 
 ### Added
