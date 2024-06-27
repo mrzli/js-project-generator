@@ -21,7 +21,7 @@ function getConfig(): GenerateInput {
       scopeName: 'gmjs',
       author: 'Goran Mržljak',
       email: 'goran.mrzljak@gmail.com',
-      authorUrl: 'https://mrzli.com',
+      authorUrl: 'https://mrzli.github.io',
       githubAccount: 'mrzli',
     },
     projectData: {

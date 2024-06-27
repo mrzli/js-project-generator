@@ -1,91 +1,123 @@
 # JS Project Generator
 
-Exports code to be used for new JavaScript/Typescript project generation.
+Contains the code to generate various types of TypeScript projects. See [GenerateInput](#generateinput) for more info.
 
-## Usage
+Can be used directly, or as a dependency in a CLI tool.
+
+## Installation
 
 ```bash
 npm install --save @gmjs/js-project-generator
 ```
 
-## Functions
+## API
 
-- `generateProject(config: Config): Promise<void>`
-  - Description
-    - Generates initial files and directories for JS/TS project.
-  - Parameters
-    - `config: Config` - See details [here](#generateproject-configuration).
+#### `generateProject`
 
-### `generateProject` Configuration
+Generate the project on the file system.
 
-A single configuration object is passed to `generateProject` to configure the generation of the project.
+Accepts a single parameter of type [GenerateInput](#generateinput).
 
-All fields are required unless otherwise noted.
-
-#### Fields
-
-- `output`
-  - Description
-    - Directory to output generated project to.
-    - If relative path, it is relative to the current working directory.
-    - Project files are output to the `<output>/<project-name>` directory.
-- `projectType`
-  - Description
-    - Type of project to generate.
-  - Allowed values
-    - `shared`
-      - Description
-        - Generates a shared library project (to be in both browser and node environments).
-    - `node`
-      - Description
-        - Generates a Node.js library project.
-    - `browser`
-      - Description
-        - Generates a browser library project.
-        - Not yet implemented.
-    - `react` (not yet properly implemented)
-      - Description
-        - Generates a React application project.
-        - Not yet properly implemented.
-    - `cli`
-      - Description
-        - Generates a CLI application project.
-- `scopeName` - NPM scope, without the `@`.
-- `projectName`
-  - Description
-    - Base project name.
-    - Used (along with scope) to generate the NPM package name, used as a directory name for the generated project files, and used as GitHub repository name.
-    - In case of a `cli` project, where `commandName` is not specified, it also used as a command name.
-- `commandName`
-  - Description
-    - Optional.
-    - Only used fo `cli` projects.
-    - Command name for the CLI application.
-    - If not specified, `projectName` is used instead.
-- `author` - Author name.
-- `email` - Author email.
-- `authorUrl`
-  - Description
-    - Optional.
-    - URL to the author's website.
-- `githubUserOrOrg` - GitHub user or organization name.
+Returns a `Promise<void>`, which resolves when the project has been generated.
 
 ## Examples
 
-Here is one example of a configuration:
+See examples [here](src/impl/generate/test-assets).
 
-```json
-{
-  "output": "some/path",
-  "projectType": "cli",
-  "scopeName": "my-scope",
-  "projectName": "test-project",
-  "commandName": "test-command",
-  "author": "John Smith",
-  "email": "john.smith@example.com",
-  "authorUrl": "https://example.com",
-  "githubUserOrOrg": "johnsmith"
+## Types
+
+### `GenerateInput`
+
+The is the input to the `generateProject` function - in other words the is the configuration object.
+
+```ts
+export interface GenerateInput {
+  readonly output: string;
+  readonly projectName: string;
+  readonly authorData: AuthorData;
+  readonly projectData: ProjectDataAny;
 }
 ```
 
-See more examples [here](src/impl/generate/test-assets).
+- `output` - Output directory. Project directory is `<output>/<project-name>`.
+- `projectName` - Project name. Also the name of the project directory.
+
+```ts
+export interface AuthorData {
+  readonly scopeName: string;
+  readonly author: string;
+  readonly email: string;
+  readonly authorUrl: string;
+  readonly githubAccount: string;
+}
+```
+
+- `scopeName` - NPM scope name.
+- `author` - Author name.
+- `email` - Author email.
+- `authorUrl` - URL to the homepage of the author.
+- `githubAccount` - GitHub account name.
+
+```ts
+export const LIST_OF_PROJECT_KINDS = [
+  'app-vanilla',
+  'app-react',
+  'app-node',
+  'app-nest',
+  'app-cli',
+  'lib-browser',
+  'lib-node',
+  'lib-shared',
+] as const;
+
+export type ProjectKind = (typeof LIST_OF_PROJECT_KINDS)[number];
+
+export interface ProjectDataBase {
+  readonly kind: ProjectKind;
+}
+
+export interface ProjectDataAppVanilla extends ProjectDataBase {
+  readonly kind: 'app-vanilla';
+  readonly storybook: boolean;
+}
+
+export interface ProjectDataAppReact extends ProjectDataBase {
+  readonly kind: 'app-react';
+  readonly storybook: boolean;
+}
+
+export interface ProjectDataAppNode extends ProjectDataBase {
+  readonly kind: 'app-node';
+}
+
+export interface ProjectDataAppNest extends ProjectDataBase {
+  readonly kind: 'app-nest';
+}
+
+export interface ProjectDataAppCli extends ProjectDataBase {
+  readonly kind: 'app-cli';
+  readonly commandName: string;
+}
+
+export interface ProjectDataLibBrowser extends ProjectDataBase {
+  readonly kind: 'lib-browser';
+}
+
+export interface ProjectDataLibNode extends ProjectDataBase {
+  readonly kind: 'lib-node';
+}
+
+export interface ProjectDataLibShared extends ProjectDataBase {
+  readonly kind: 'lib-shared';
+}
+
+export type ProjectDataAny =
+  | ProjectDataAppVanilla
+  | ProjectDataAppReact
+  | ProjectDataAppNode
+  | ProjectDataAppNest
+  | ProjectDataAppCli
+  | ProjectDataLibBrowser
+  | ProjectDataLibNode
+  | ProjectDataLibShared;
+```
