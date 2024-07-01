@@ -80,8 +80,8 @@ function getScriptsAppNode(): Record<string, string> {
     'dev:watch': 'nodemon src/main.ts',
     lint: 'eslint --fix . && prettier --write .',
     'lint:nofix': 'eslint . && prettier --check .',
-    'test-only': 'jest --passWithNoTests',
-    test: 'pnpm run lint && pnpm run test-only',
+    test: 'jest --passWithNoTests',
+    'test+': 'pnpm run lint && pnpm run test',
   };
 }
 
@@ -90,14 +90,14 @@ function getScriptsPublished(): Record<string, string> {
     dev: 'ts-node src/index.ts',
     lint: 'eslint --fix . && prettier --write .',
     'lint:nofix': 'eslint . && prettier --check .',
-    'test-only': 'jest --passWithNoTests',
-    test: 'pnpm run lint && pnpm run test-only',
+    test: 'jest --passWithNoTests',
+    'test+': 'pnpm run lint && pnpm run test',
     clean: 'shx rm -rf ./dist',
-    'build-only': 'pnpm run clean && tsc --project tsconfig.lib.json',
-    build: 'pnpm run test && pnpm run build-only',
-    'pac-only': 'npmpub pack',
-    pac: 'pnpm run build && pnpm run pac-only',
-    'pub-only': 'npmpub pub',
-    pub: 'pnpm run pac && pnpm run pub-only',
+    build: 'pnpm run clean && tsc --project tsconfig.lib.json',
+    'build+': 'pnpm run test+ && pnpm run build',
+    pac: 'pnpmpub pack -c project.json',
+    'pac+': 'pnpm run build+ && pnpm run pac',
+    pub: 'pnpmpub pub -c project.json',
+    'pub+': 'pnpm run pac+ && pnpm run pub',
   };
 }

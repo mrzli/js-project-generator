@@ -20,8 +20,8 @@
     "dev:watch": "nodemon src/main.ts",
     "lint": "eslint --fix . && prettier --write .",
     "lint:nofix": "eslint . && prettier --check .",
-    "test-only": "jest --passWithNoTests",
-    "test": "pnpm run lint && pnpm run test-only"
+    "test": "jest --passWithNoTests",
+    "test+": "pnpm run lint && pnpm run test"
   },
   "dependencies": {
     "dotenv": "^1.0.0",

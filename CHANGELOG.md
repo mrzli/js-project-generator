@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.25] - 2024-07-01
+
+### Changed
+
+- Update generated npm scripts.
+
 ## [0.0.24] - 2024-06-27
 
 ### Changed
