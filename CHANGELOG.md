@@ -4,6 +4,12 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.26] - 2024-07-01
+
+### Fixed
+
+- Update publishing dependency to fix an issue with publishing.
+
 ## [0.0.25] - 2024-07-01
 
 ### Changed

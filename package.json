@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/js-project-generator",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "Project generator for JavaScript/TypeScript projects.",
   "author": {
     "name": "Goran Mržljak",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@gmjs/eslint-config": "^0.0.38",
-    "@gmjs/pnpm-publish-cli": "^0.0.3",
+    "@gmjs/pnpm-publish-cli": "^0.0.5",
     "@gmjs/test-util": "^0.0.14",
     "@jest/globals": "^29.7.0",
     "@types/ejs": "^3.1.5",
@@ -59,7 +59,7 @@
     "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
     "type-fest": "^4.20.1",
-    "typescript": "~5.5.2"
+    "typescript": "~5.5.3"
   },
   "engines": {
     "node": ">=22.3.0"
