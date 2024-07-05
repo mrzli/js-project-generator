@@ -1,4 +1,4 @@
-import { FilePathTextContent, FilePathBinaryContent } from '@gmjs/fs-shared';
+import { FilePathTextContent, FilePathBinaryContent } from '@gmjs/file-system';
 
 export interface GeneratedFiles {
   readonly textFiles: readonly FilePathTextContent[];

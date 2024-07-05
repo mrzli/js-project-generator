@@ -17,10 +17,7 @@ importers:
       '@gmjs/exec-observable':
         specifier: ^0.0.3
         version: 0.0.3
-      '@gmjs/fs-async':
-        specifier: ^0.0.5
-        version: 0.0.5
-      '@gmjs/fs-shared':
+      '@gmjs/file-system':
         specifier: ^0.0.3
         version: 0.0.3
       '@gmjs/path':
@@ -321,6 +318,10 @@ packages:
 
   '@gmjs/exec-observable@0.0.3':
     resolution: {integrity: sha512-PVqNZ9wBfQ3kjRTLHw8oH6issiICotaVfEi4FB8rXQWKzdpqbAPPyIJSAa3ly+Td/PPbC3rI7qf3loWYkpF4pA==}
+    engines: {node: '>=20.10.0'}
+
+  '@gmjs/file-system@0.0.3':
+    resolution: {integrity: sha512-Z7f62KBEF5aKGoPKpB43w+nKnU8hWmufeS400SBDwST1bos/yqiKakUjx4GJqTC22fsirmrEOQ5ai3hX7Uoykg==}
     engines: {node: '>=20.10.0'}
 
   '@gmjs/fs-async@0.0.5':
@@ -2944,6 +2945,14 @@ snapshots:
   '@gmjs/exec-observable@0.0.3':
     dependencies:
       '@gmjs/fs-shared': 0.0.3
+      rxjs: 7.8.1
+      tslib: 2.6.3
+
+  '@gmjs/file-system@0.0.3':
+    dependencies:
+      fs-extra: 11.2.0
+      klaw: 4.1.0
+      klaw-sync: 6.0.0
       rxjs: 7.8.1
       tslib: 2.6.3
 

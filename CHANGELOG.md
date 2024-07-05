@@ -4,6 +4,10 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate to `@gmjs/file-system` package.
+
 ## [0.0.26] - 2024-07-01
 
 ### Fixed

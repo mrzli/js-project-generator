@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import { createFsTestCases, FilesContainer } from '@gmjs/test-util';
-import { readTextAsync } from '@gmjs/fs-async';
+import { readTextAsync } from '@gmjs/file-system';
 import { join } from '@gmjs/path';
 import { generate } from './generate';
 import { GenerateInfrastructure, GenerateInput } from '../../types';

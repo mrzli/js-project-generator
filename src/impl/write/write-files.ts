@@ -1,10 +1,11 @@
 import { join } from '@gmjs/path';
 import {
   createFileAsync,
+  FilePathBinaryContent,
+  FilePathTextContent,
   writeBinaryAsync,
   writeTextAsync,
-} from '@gmjs/fs-async';
-import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/fs-shared';
+} from '@gmjs/file-system';
 import { GenerateInput, GeneratedFiles } from '../../types';
 import { lastValueFrom, from, mergeMap } from 'rxjs';
 
