@@ -4,6 +4,18 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.27] - 2024-08-11
+
+### Changed
+
+- Add 'check' scripts for TypeScript type checks to all project generators.
+- Update packages to latest versions.
+- Update pnpm package manager version.
+
+### Fixed
+
+- Fix an invalid import (imported from `@gmjs/fs-asyn` instead of `@gmjs/file-system`).
+
 ### Changed
 
 - Migrate to `@gmjs/file-system` package.
