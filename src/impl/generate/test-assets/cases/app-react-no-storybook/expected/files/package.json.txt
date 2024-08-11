@@ -21,6 +21,7 @@
     "lint": "eslint --fix . && prettier --write .",
     "test": "vitest run --passWithNoTests",
     "testw": "vitest watch --passWithNoTests",
+    "check": "tsc --project tsconfig.json --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {

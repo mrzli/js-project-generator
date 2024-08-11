@@ -24,6 +24,8 @@
     "lint:nofix": "eslint . && prettier --check .",
     "test": "jest --passWithNoTests",
     "test+": "pnpm run lint && pnpm run test",
+    "check": "tsc --project tsconfig.lib.json --noEmit",
+    "check+": "pnpm run test+ && pnpm run check",
     "clean": "shx rm -rf ./dist",
     "build": "pnpm run clean && tsc --project tsconfig.lib.json",
     "build+": "pnpm run test+ && pnpm run build",

@@ -21,7 +21,9 @@
     "lint": "eslint --fix . && prettier --write .",
     "lint:nofix": "eslint . && prettier --check .",
     "test": "jest --passWithNoTests",
-    "test+": "pnpm run lint && pnpm run test"
+    "test+": "pnpm run lint && pnpm run test",
+    "check": "tsc --project tsconfig.json --noEmit",
+    "check+": "pnpm run test+ && pnpm run check"
   },
   "dependencies": {
     "dotenv": "^1.0.0",

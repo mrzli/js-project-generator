@@ -53,6 +53,7 @@ function getScriptsVite(storybook: boolean): Record<string, string> {
     lint: 'eslint --fix . && prettier --write .',
     test: 'vitest run --passWithNoTests',
     testw: 'vitest watch --passWithNoTests',
+    check: 'tsc --project tsconfig.json --noEmit',
     preview: 'vite preview',
     ...scriptsStorybook,
   };
@@ -71,6 +72,7 @@ function getScriptsNest(): Record<string, string> {
     'test:debug':
       'node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand',
     'test:e2e': 'jest --config ./test/jest-e2e.json',
+    check: 'tsc --project tsconfig.build.json',
   };
 }
 
@@ -82,6 +84,8 @@ function getScriptsAppNode(): Record<string, string> {
     'lint:nofix': 'eslint . && prettier --check .',
     test: 'jest --passWithNoTests',
     'test+': 'pnpm run lint && pnpm run test',
+    check: 'tsc --project tsconfig.json --noEmit',
+    'check+': 'pnpm run test+ && pnpm run check',
   };
 }
 
@@ -92,6 +96,8 @@ function getScriptsPublished(): Record<string, string> {
     'lint:nofix': 'eslint . && prettier --check .',
     test: 'jest --passWithNoTests',
     'test+': 'pnpm run lint && pnpm run test',
+    check: 'tsc --project tsconfig.lib.json --noEmit',
+    'check+': 'pnpm run test+ && pnpm run check',
     clean: 'shx rm -rf ./dist',
     build: 'pnpm run clean && tsc --project tsconfig.lib.json',
     'build+': 'pnpm run test+ && pnpm run build',
