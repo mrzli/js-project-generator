@@ -1,6 +1,6 @@
 import ejs from 'ejs';
 import { FilePathBinaryContent, FilePathTextContent } from '@gmjs/file-system';
-import { readBinaryAsync, readTextAsync } from '@gmjs/fs-async';
+import { readBinaryAsync, readTextAsync } from '@gmjs/file-system';
 import { join, pathExtension } from '@gmjs/path';
 import { ensureNever, invariant } from '@gmjs/assert';
 import {
