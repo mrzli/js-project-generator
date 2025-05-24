@@ -4,6 +4,9 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 
 ## [Unreleased]
 
+- Update packages to latest versions.
+- Update minimum Node.js version in generated projects to 24.1.0.
+
 ## [0.0.27] - 2024-08-11
 
 ### Changed
