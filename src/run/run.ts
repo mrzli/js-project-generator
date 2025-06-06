@@ -16,7 +16,7 @@ function getConfig(): GenerateInput {
 
   return {
     output: experimentDir,
-    projectName: 'example-lib-node',
+    projectName: 'open-api-tools',
     authorData: {
       scopeName: 'gmjs',
       author: 'Goran Mržljak',
