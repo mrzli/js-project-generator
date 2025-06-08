@@ -7,6 +7,7 @@ All notable changes to the "cli-wrapper" will be documented in this file.
 - Update packages to latest versions.
 - Update minimum Node.js version in generated projects to 24.1.0.
 - Fix deprecation related to eslint types.
+- Update license to clearly indicate it is an MIT license.
 
 ## [0.0.27] - 2024-08-11
 
